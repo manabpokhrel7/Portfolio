@@ -1,4 +1,16 @@
+
+
+html {
+  /* this makes sure the padding and the border is included in the box sizing */
+  /* removes the freaking horizontal scroll bar*/
+  overflow-x: hidden;
+}
+
+
+
 .App {
+  scrollbar-gutter: stable;
+  margin: 0%;
   text-align: center;
 }
 

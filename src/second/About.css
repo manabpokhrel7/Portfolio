@@ -1,0 +1,30 @@
+.aboutcontainer {
+   
+    width: 100%; /* Ensure the container takes full width */
+    margin: 0 auto; /* Center the container */
+    padding-top: 4%;
+    padding-bottom: 4%;
+    background-color: #f5f5f5;
+  }
+  .content{
+    padding-top: 4%;
+  }
+  .left {
+    width: 50%;
+    float: left;
+   overflow: hidden; /* Clip the image to the rounded shape */
+  }
+  .right{
+    width: 50%; /* Half of the container width */
+    float: left;
+  }
+  .rounded-image {
+    border-radius: 20px;
+    width: 300px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }

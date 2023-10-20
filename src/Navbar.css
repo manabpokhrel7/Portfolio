@@ -1,0 +1,41 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white; /* Set your desired background color */
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+
+}
+
+.logo img {
+  height: 40px; /* Adjust the height of your logo as needed */
+}
+
+.menu ul {
+  pointer-events: auto;
+  list-style: none;
+  display: flex;
+}
+
+.menu li {
+
+  margin-right: 20px; /* Adjust the spacing between menu items */
+}
+
+.menu a {
+  text-decoration: none;
+  color: #C21E56; /* Set the menu item text color */
+  font-weight: bold;
+}
+
+.menu a:hover {
+  color: black;
+  text-decoration: none; /* Add underline on hover (optional) */
+}
+
+.menu li:hover {
+  color: black;
+  text-decoration: none; /* Adjust the spacing between menu items */
+}
