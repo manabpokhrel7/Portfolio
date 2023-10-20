@@ -115,10 +115,7 @@ function First() {
           <span style={{ '--i': 4 }}>e</span>
           <span style={{ '--i': 5 }}>l</span>
         </div>
-        <div id="container">
-          <span id="text1"></span>
-          <span id="text2"></span>
-        </div>
+  
         <button className={styles.button89} style={{ color: "#D70040" }} onClick={handleScroll}>
           SEE PORTFOLIO
         </button>
