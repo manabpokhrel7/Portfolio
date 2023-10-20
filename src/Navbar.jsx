@@ -28,7 +28,7 @@ function Navbar() {
           <li><a>Menu 1</a></li>
           <li><a onClick={handleScroll}>About</a></li>
           <li><a>Menu 3</a></li>
-          <li><a>Menu 4</a></li>
+          <li><a>Contact</a></li>
         </ul>
       </div>
     </div>
