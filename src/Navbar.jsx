@@ -11,11 +11,7 @@ import Contactform from './footer/Contactform';
 function Navbar() {
   const aboutRef = useRef(null);
 
-  const handleScroll = () => {
-    if (aboutRef.current) {
-      aboutRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+
 
   return (
     <>
@@ -25,10 +21,11 @@ function Navbar() {
       </div>
       <div className="menu">
         <ul>
-          <li><a>Menu 1</a></li>
-          <li><a onClick={handleScroll}>About</a></li>
-          <li><a>Menu 3</a></li>
-          <li><a>Contact</a></li>
+        <li>Menu 1</li>
+        <li>About</li>
+        <li>Menu 3</li>
+        <li>Contact</li>
+
         </ul>
       </div>
     </div>
