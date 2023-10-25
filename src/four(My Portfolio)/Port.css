@@ -1,7 +1,41 @@
-/* Port.css */
-.port{
-  padding-top: 4%;
-  padding-bottom: 6%;
+
+.port {
   background-color: #f5f5f5;
-  height: 500px;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+  padding: 20px; /* Equal padding on both sides */
+}
+
+.prev {
+  display: flex;
+  justify-content: space-between; /* Space out children horizontally */
+  width: 90%; /* Ensure full width */
+}
+
+@media (max-width: 768px) {
+  /* Port.css */
+.port {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+  padding: 20px; /* Equal padding on both sides */
+  max-width: 800px; /* Set a maximum width for the content container */
+}
+
+.prev {
+  display: flex;
+  justify-content: space-between; /* Space out children horizontally */
+  width: 100%; /* Ensure full width */
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .prev {
+      flex-direction: column; /* Stack children above and below each other */
+      align-items: center; /* Center children vertically */
+  }
+}
 }
