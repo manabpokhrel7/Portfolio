@@ -1,6 +1,13 @@
 
 @import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
 
+@media (max-width: 768px) {
+/* In your CSS file */
+.hide-on-mobile {
+  display: none;
+}
+
+}
 
 #container {
   position: relative;

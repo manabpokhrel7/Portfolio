@@ -115,7 +115,7 @@ function First() {
           <span style={{ '--i': 4 }}>e</span>
           <span style={{ '--i': 5 }}>l</span>
         </div>
-        <div id="container">
+        <div id="container" className="hide-on-mobile">
           <span id="text1"></span>
           <span id="text2"></span>
         </div>
