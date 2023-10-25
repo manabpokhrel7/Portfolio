@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "./WebsitePreview.css";
 function WebsitePreview({ url }) {
   return (
     <div className="website-preview">
@@ -7,8 +7,8 @@ function WebsitePreview({ url }) {
         title="Website Preview"
         src={url}
         frameBorder="0"
-        width="100%"
-        height="500px" // Adjust the height as needed
+        width="50%"
+        height= "400px" // Adjust the height as needed
       />
     </div>
   );
