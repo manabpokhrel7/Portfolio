@@ -32,3 +32,13 @@
     display: table;
     clear: both;
   }
+
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column; /* Stack left and right sections above and below each other on mobile */
+    }
+  
+    .right, .left {
+      width: 100%; /* Make both sections take up the full width on mobile */
+    }
+  }
