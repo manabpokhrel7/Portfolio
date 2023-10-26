@@ -50,4 +50,8 @@
   ..menu li {
    font-size: 10px;
   }
+  .navbar{
+    max-width: 100%!important;
+    overflow: hidden;
+  }
 }
