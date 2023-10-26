@@ -19,4 +19,8 @@
     position: relative; /* Add position:relative for .Arrow */
   }
   
-  
+  @media (max-width: 768px) {
+    .learn{
+      padding-bottom: 10%;
+    }
+  }

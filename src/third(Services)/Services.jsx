@@ -12,16 +12,17 @@ function Services() {
   return (
     <div className='Services'>
       <SlideInSection>
+      <h1 style={{ color: "#D70040" }}>Services</h1>
       <p>Services</p>
       <h1>I provide a wide range of digital services</h1>
       <div className='mbox-container'>
       <div onClick={() => setModal1Open(true)} className='mbox'>
         Open Modal 1
-        <p>Learn More</p><Arrow />
+        <p1 className="learn">Learn More</p1><Arrow />
       </div>
       <div onClick={() => setModal2Open(true)} className='mbox'>
         Open Modal 2
-        <p>Learn More</p><Arrow />
+        <p1 className="learn">Learn More</p1><Arrow />
       </div>
       </div>
       {/* Add more buttons to open other modals if needed */}

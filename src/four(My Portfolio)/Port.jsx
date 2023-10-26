@@ -8,7 +8,7 @@ const websiteUrl2 = 'https://chat.openai.com/';
 const Port = () => {
     return (
         <div className='port'>
-            <h1>Projects I worked on</h1>
+           <h1 style={{ color: "#D70040" }}>Projects I worked on</h1>
             <div className='prev'>
                 <WebsitePreview url={websiteUrl1} />
                 <WebsitePreview url={websiteUrl2} />

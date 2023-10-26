@@ -15,9 +15,7 @@ function About() {
       </div>
 
       <div className='right'>
-        <p2 className="info">
-        
-My name is Manab Pokhrel</p2><br></br>
+       <h1 style={{ color: "#D70040" }}>My name is Manab Pokhrel</h1><br></br>
 <p1 className="info2">
 
 As a recent IT graduate who specialized in frontend web development and honed my skills in Photoshop, I'm passionate about the digital world and the power of creativity.
