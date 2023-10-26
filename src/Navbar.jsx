@@ -1,15 +1,16 @@
-import './Navbar.css'; // You can create a separate CSS file for styling
-import imageSrc from './Images/logo.png';
+import './Navbar.css'; 
 import React, { useRef } from 'react';
 import First from './first/First';
 import About from './second/About';
 import Services from './third(Services)/Services';
 import Port from './four(My Portfolio)/Port';
 import Contactform from './footer/Contactform';
+import MpIcon from '@mui/icons-material/Mp';
 
 
 function Navbar() {
   const aboutRef = useRef(null);
+  const portRef = useRef(null);
 
 
 
@@ -17,13 +18,13 @@ function Navbar() {
     <>
     <div className="navbar">
       <div className="logo">
-        <img src={imageSrc} alt="Logo" />
+        <MpIcon style={{ fontSize : '50px' }} />
       </div>
       <div className="menu">
         <ul>
-        <li>Menu 1</li>
+        <li>Home</li>
         <li onClick={() => window.scrollTo({ top: aboutRef.current.offsetTop, behavior: 'smooth' })}>About</li>
-        <li>Menu 3</li>
+        <li onClick={() => window.scrollTo({ top: portRef.current.offsetTop, behavior: 'smooth' })}>Portfolio</li>
         <li>Contact</li>
 
         </ul>
@@ -32,7 +33,7 @@ function Navbar() {
     <First />
     <div ref={aboutRef}><About /></div>
     <Services />
-    <Port />
+    <div ref={portRef}><Port /></div>
     <Contactform />
       </>
   );

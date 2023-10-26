@@ -11,7 +11,7 @@ function Contactform() {
         <div class="screen-body-item left">
           <div class="app-title">
             <span>CONTACT</span>
-            <span>US</span>
+            <span>ME</span>
           </div>
           <div class="app-contact">CONTACT INFO : +977 9843686874</div>
         </div>
