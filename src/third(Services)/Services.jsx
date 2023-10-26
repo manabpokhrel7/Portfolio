@@ -3,6 +3,8 @@ import './Services.css';
 import ReusableModal from './ReusableModal.jsx'; // Import the ReusableModal component
 import Arrow from './Arrow';
 import SlideInSection from '../SlideInSection';
+import LanguageIcon from '@mui/icons-material/Language';
+import MonochromePhotosIcon from '@mui/icons-material/MonochromePhotos';
 
 function Services() {
   const [modal1Open, setModal1Open] = useState(false);
@@ -17,12 +19,14 @@ function Services() {
       <h1>I provide a wide range of digital services</h1>
       <div className='mbox-container'>
       <div onClick={() => setModal1Open(true)} className='mbox'>
-        Open Modal 1
-        <p1 className="learn">Learn More</p1><Arrow />
+      <p>WebDev</p>
+      <LanguageIcon style={{ paddingBottom: '50px' }} />
+        <Arrow />
       </div>
       <div onClick={() => setModal2Open(true)} className='mbox'>
-        Open Modal 2
-        <p1 className="learn">Learn More</p1><Arrow />
+      <p>Photoshop</p>
+        <MonochromePhotosIcon style={{ paddingBottom: '50px' }}/>
+        <Arrow />
       </div>
       </div>
       {/* Add more buttons to open other modals if needed */}

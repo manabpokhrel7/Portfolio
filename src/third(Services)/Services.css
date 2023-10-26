@@ -11,16 +11,31 @@
   }
   
   .mbox {
+    width: 5%;
     background-color: #f5f5f5;
     height: 10%;
     cursor: pointer;
     margin: 2%;
-    padding: 5%;
+    padding: 4%;
     position: relative; /* Add position:relative for .Arrow */
   }
-  
-  @media (max-width: 768px) {
-    .learn{
-      padding-bottom: 10%;
-    }
+
+  /* This is for screens 768px and below (typical for mobile devices) */
+@media (max-width: 768px) {
+  .mbox-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally in the container */
   }
+
+  .mbox {
+    width: 35%;
+    margin-bottom: 10px; /* Optional: Add spacing between stacked items */
+  }
+}
+
+  
+  
+  
+  

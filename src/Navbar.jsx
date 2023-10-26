@@ -22,7 +22,7 @@ function Navbar() {
       <div className="menu">
         <ul>
         <li>Menu 1</li>
-        <li>About</li>
+        <li onClick={() => window.scrollTo({ top: aboutRef.current.offsetTop, behavior: 'smooth' })}>About</li>
         <li>Menu 3</li>
         <li>Contact</li>
 

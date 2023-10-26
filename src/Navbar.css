@@ -6,7 +6,8 @@
   padding: 10px 20px;
   position: sticky;
   top: 0;
-
+  background-color: #f5f5f5;
+  z-index: 999999999999999;
 }
 
 .logo img {
@@ -24,6 +25,9 @@
   margin-right: 20px; /* Adjust the spacing between menu items */
 }
 
+.menu li:hover {
+  cursor: pointer;
+}
 .menu a {
   text-decoration: none;
   color: #C21E56; /* Set the menu item text color */
@@ -31,6 +35,7 @@
 }
 
 .menu a:hover {
+  
   color: black;
   text-decoration: none; /* Add underline on hover (optional) */
 }
