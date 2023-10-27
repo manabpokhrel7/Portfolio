@@ -6,6 +6,7 @@ import Services from './third(Services)/Services';
 import Port from './four(My Portfolio)/Port';
 import Contactform from './footer/Contactform';
 import MpIcon from '@mui/icons-material/Mp';
+import ResponsiveAppBar from './ResponsiveAppBar';
 
 
 function Navbar() {
@@ -20,7 +21,12 @@ function Navbar() {
       <div className="logo">
         <MpIcon style={{ fontSize : '50px' }} />
       </div>
-      <div className="menu">
+      <div class="menu-toggle" id="menu-toggle">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+      <div className="menu" id='menu'>
         <ul>
         <li>Home</li>
         <li onClick={() => window.scrollTo({ top: aboutRef.current.offsetTop, behavior: 'smooth' })}>About</li>
@@ -30,6 +36,7 @@ function Navbar() {
         </ul>
       </div>
     </div>
+    <ResponsiveAppBar />
     <First />
     <div ref={aboutRef}><About /></div>
     <Services />
