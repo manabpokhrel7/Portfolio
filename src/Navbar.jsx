@@ -6,7 +6,7 @@ import Services from './third(Services)/Services';
 import Port from './four(My Portfolio)/Port';
 import Contactform from './footer/Contactform';
 import MpIcon from '@mui/icons-material/Mp';
-import ButtonAppBar from './ResponsiveAppBar';
+import SimpleBottomNavigation from './ResponsiveAppBar';
 
 function Navbar() {
   const aboutRef = useRef(null);
@@ -37,12 +37,13 @@ function Navbar() {
           </div>
         </div>
       )}
-      {isMobile && <ButtonAppBar />} {/* Render ButtonAppBar on mobile */}
+      {/* Render ButtonAppBar on mobile */}
       <First />
       <div ref={aboutRef}><About /></div>
       <Services />
       <div ref={portRef}><Port /></div>
       <Contactform />
+      {isMobile && <SimpleBottomNavigation />} 
     </>
   );
 }
