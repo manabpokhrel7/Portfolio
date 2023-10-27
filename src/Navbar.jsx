@@ -17,24 +17,26 @@ function Navbar() {
 
   return (
     <>
-      <div className="navbar">
-        <div className="logo">
-          <MpIcon style={{ fontSize: '50px' }} />
+      {!isMobile && ( // Hide the main navbar on mobile
+        <div className="navbar">
+          <div className="logo">
+            <MpIcon style={{ fontSize: '50px' }} />
+          </div>
+          <div className="menu-toggle" id="menu-toggle">
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </div>
+          <div className="menu" id="menu">
+            <ul>
+              <li>Home</li>
+              <li onClick={() => window.scrollTo({ top: aboutRef.current.offsetTop, behavior: 'smooth' })}>About</li>
+              <li onClick={() => window.scrollTo({ top: portRef.current.offsetTop, behavior: 'smooth' })}>Portfolio</li>
+              <li>Contact</li>
+            </ul>
+          </div>
         </div>
-        <div className="menu-toggle" id="menu-toggle">
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
-        </div>
-        <div className="menu" id="menu">
-          <ul>
-            <li>Home</li>
-            <li onClick={() => window.scrollTo({ top: aboutRef.current.offsetTop, behavior: 'smooth' })}>About</li>
-            <li onClick={() => window.scrollTo({ top: portRef.current.offsetTop, behavior: 'smooth' })}>Portfolio</li>
-            <li>Contact</li>
-          </ul>
-        </div>
-      </div>
+      )}
       {isMobile && <ButtonAppBar />} {/* Render ButtonAppBar on mobile */}
       <First />
       <div ref={aboutRef}><About /></div>
