@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 
 function ReusableModal({ open, onClose, title, content }) {
   const style = {
+    overflow: 'hidden',
     position: 'absolute',
     top: '50%',
     left: '50%',
