@@ -16,7 +16,6 @@ function About() {
       </div>
 
       <div className='right'>
-       <h1 style={{ color: "#D70040" }}>My name is Manab Pokhrel</h1><br></br>
 <p1 className="info2"> <CustomTabPanel />
         </p1>
       </div>

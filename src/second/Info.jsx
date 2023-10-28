@@ -4,6 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import './Info.css';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -46,16 +47,23 @@ export default function BasicTabs() {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%' }} className="Box">
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
+          <Tab label="Introduction" {...a11yProps(0)} />
           <Tab label="Item Two" {...a11yProps(1)} />
           <Tab label="Item Three" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        Introduction
+        My Name is Manab Pokhrel. 
+        As a recent IT graduate who specialized in frontend web development and honed my skills in Photoshop, I'm passionate about the digital world and the power of creativity.
+
+In the realm of technology, I'm known for my proficiency in crafting visually stunning and user-friendly websites, where I strike a harmonious balance between design and functionality. Web development isn't just a profession for me; it's a canvas for my creativity.
+
+I've trained in boxing, where discipline, agility, and strength are the key to success. On the football field, I find joy in both playing and being an ardent fan of the beautiful game.
+
+But my interests don't stop there. I'm also a musical soul, wielding a guitar with finesse. Music allows me to express my creativity in yet another form, proving that my talents extend beyond the tech world.
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         Item Two
