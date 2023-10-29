@@ -2,6 +2,7 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import './Info.css';
 
 export default function ScrollableTabsButtonPrevent() {
   const [value, setValue] = React.useState(0);

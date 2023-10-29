@@ -4,6 +4,9 @@
   }
   
   .container {
+    padding: 0;
+    overflow: hidden;
+    max-width: 100%;
     flex: 0 1 1200px;
     margin: auto;
     padding: 5%;

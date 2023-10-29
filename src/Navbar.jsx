@@ -6,17 +6,10 @@ import Services from './third(Services)/Services';
 import Port from './four(My Portfolio)/Port';
 import Contactform from './footer/Contactform';
 import MpIcon from '@mui/icons-material/Mp';
-import Box from '@mui/material/Box';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 function Navbar() {
   const aboutRef = useRef(null);
   const portRef = useRef(null);
-  const [value, setValue] = React.useState(0);
 
   // Check if the screen width is less than or equal to 768px (adjust this as needed)
   const isMobile = window.innerWidth <= 768;
@@ -49,21 +42,6 @@ function Navbar() {
       <Services />
       <div ref={portRef}><Port /></div>
       <Contactform />
-
-      {/*Mobile navbar */}
-      {isMobile &&   <Box sx={{ width: 500 }}>
-      <BottomNavigation
-        showLabels
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-      >
-        <div ref={aboutRef}><BottomNavigationAction label="Recents" icon={<RestoreIcon />} /></div>
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
-      </BottomNavigation>
-    </Box> } 
     </>
   );
 }

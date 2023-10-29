@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import './About.css'; // Import the CSS file
 import imageSrc from '../Images/about.jpg';
 import ScrollableTabsButtonPrevent from './InfoMob';
+import CustomTabPanel from './Info.jsx';
 function About() {
   const aboutRef = useRef(null);
   return (
@@ -16,8 +17,8 @@ function About() {
       </div>
 
       <div className='right'>
-<p1 className="info2"> <ScrollableTabsButtonPrevent />
-        </p1>
+<CustomTabPanel />
+<ScrollableTabsButtonPrevent />
       </div>
       </div>
     </div>
