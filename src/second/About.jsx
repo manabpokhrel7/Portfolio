@@ -4,6 +4,7 @@ import './About.css'; // Import the CSS file
 import imageSrc from '../Images/about.jpg';
 import ScrollableTabsButtonPrevent from './InfoMob';
 import CustomTabPanel from './Info.jsx';
+import ScrollableTabsButtonAuto from './InfoMob';
 function About() {
   const aboutRef = useRef(null);
   return (
@@ -20,6 +21,8 @@ function About() {
 <CustomTabPanel />
 <ScrollableTabsButtonPrevent />
       </div>
+      <ScrollableTabsButtonPrevent />
+      <ScrollableTabsButtonAuto />
       </div>
     </div>
     

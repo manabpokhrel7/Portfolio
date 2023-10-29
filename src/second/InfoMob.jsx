@@ -2,9 +2,8 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import './Info.css';
 
-export default function ScrollableTabsButtonPrevent() {
+export default function ScrollableTabsButtonAuto() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -17,8 +16,8 @@ export default function ScrollableTabsButtonPrevent() {
         value={value}
         onChange={handleChange}
         variant="scrollable"
-        scrollButtons={false}
-        aria-label="scrollable prevent tabs example"
+        scrollButtons="auto"
+        aria-label="scrollable auto tabs example"
       >
         <Tab label="Item One" />
         <Tab label="Item Two" />
