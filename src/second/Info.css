@@ -1,5 +1,5 @@
 @media (max-width: 768px) {
     .Box {
-      width: 100%;
+      max-width: 100%;
     }
   }

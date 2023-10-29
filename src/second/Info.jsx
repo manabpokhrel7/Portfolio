@@ -58,25 +58,20 @@ export default function BasicTabs() {
           <Tab label="WorkExperience" {...a11yProps(3)} />
         </Tabs>
       </Box>
-      <CustomTabPanel value={value} index={0}>
-        My Name is Manab Pokhrel. 
-        As a recent IT graduate who specialized in frontend web development and honed my skills in Photoshop, I'm passionate about the digital world and the power of creativity.
-
-In the realm of technology, I'm known for my proficiency in crafting visually stunning and user-friendly websites, where I strike a harmonious balance between design and functionality. Web development isn't just a profession for me; it's a canvas for my creativity.
-
+      <CustomTabPanel value={value} index={0} style={{ width: '100%' }}>
+    My Name is Manab Pokhrel. 
+    As a recent IT graduate who specialized in frontend web development and honed my skills in Photoshop, I'm passionate about the digital world and the power of creativity.
 </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-      I've trained in boxing, where discipline, agility, and strength are the key to success. On the football field, I find joy in both playing and being an ardent fan of the beautiful game.
+<CustomTabPanel value={value} index={1} style={{ width: '100%' }}>
+    I've trained in boxing, where discipline, agility, and strength are the key to success. On the football field, I find joy in both playing and being an ardent fan of the beautiful game.
+</CustomTabPanel>
+<CustomTabPanel value={value} index={2} style={{ width: '100%' }}>
+    I have completed my bachelors in Computer Science in Nepal.
+</CustomTabPanel>
+<CustomTabPanel value={value} index={3} style={{ width: '100%' }}>
+    <BasicStack />
+</CustomTabPanel>
 
-But my interests don't stop there. I'm also a musical soul, wielding a guitar with finesse. Music allows me to express my creativity in yet another form, proving that my talents extend beyond the tech world.
-      
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        I have completed my bachelors in Computer Science in Nepal. 
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={3}>
-         <BasicStack />
-      </CustomTabPanel>
     </Box>
   );
 }
