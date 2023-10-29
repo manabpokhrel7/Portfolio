@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import './Info.css';
 import BasicStack from './Achievement';
+import './Info.css';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
