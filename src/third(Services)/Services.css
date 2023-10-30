@@ -32,6 +32,9 @@
     width: 35%;
     margin-bottom: 10px; /* Optional: Add spacing between stacked items */
   }
+  .MuiBox-root.css-6dn950{
+    width: 80%;
+  }
 }
 
   
