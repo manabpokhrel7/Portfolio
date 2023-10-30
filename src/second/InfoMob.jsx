@@ -65,10 +65,9 @@ export default function FullWidthTabs() {
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab label="Introduction" {...a11yProps(0)} />
+          <Tab label="About Me" {...a11yProps(0)} />
           <Tab label="Hobbies" {...a11yProps(1)} />
-          <Tab label="Studies" {...a11yProps(2)} />
-          <Tab label="Work Experience" {...a11yProps(3)} />
+          <Tab label="Studies & Work" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -84,10 +83,8 @@ export default function FullWidthTabs() {
         I've trained in boxing, where discipline, agility, and strength are the key to success. On the football field, I find joy in both playing and being an ardent fan of the beautiful game.
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-        I have completed my bachelors in Computer Science in Nepal.
-        </TabPanel>
-        <TabPanel value={value} index={3} dir={theme.direction}>
-          <BasicStack />
+        Education: I have completed my bachelors in Computer Science in Nepal.
+        <BasicStack />
         </TabPanel>
       </SwipeableViews>
     </Box>
