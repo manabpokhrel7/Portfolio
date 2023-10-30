@@ -83,7 +83,6 @@ export default function FullWidthTabs() {
         I've trained in boxing, where discipline, agility, and strength are the key to success. On the football field, I find joy in both playing and being an ardent fan of the beautiful game.
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-        Education: I have completed my bachelors in Computer Science in Nepal.
         <BasicStack />
         </TabPanel>
       </SwipeableViews>
