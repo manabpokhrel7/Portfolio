@@ -2,9 +2,7 @@
 import React, { useRef } from 'react';
 import './About.css'; // Import the CSS file
 import imageSrc from '../Images/about.jpg';
-import ScrollableTabsButtonPrevent from './InfoMob';
-import CustomTabPanel from './Info.jsx';
-import ScrollableTabsButtonAuto from './InfoMob';
+import TabPanel from './InfoMob';
 function About() {
   const aboutRef = useRef(null);
   return (
@@ -18,11 +16,8 @@ function About() {
       </div>
 
       <div className='right'>
-<CustomTabPanel />
-<ScrollableTabsButtonPrevent />
+<TabPanel />
       </div>
-      <ScrollableTabsButtonPrevent />
-      <ScrollableTabsButtonAuto />
       </div>
     </div>
     
