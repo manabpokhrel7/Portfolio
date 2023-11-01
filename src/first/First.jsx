@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import './First.css'; // You can create a separate CSS file for styling
-import styles from './Button89.module.css';
 import './Manabtext.css';
 import SlideInSection from '../SlideInSection';
+import Button from '@mui/material/Button';
 
 
 function First() {
@@ -119,9 +119,9 @@ function First() {
           <span id="text1"></span>
           <span id="text2"></span>
         </div>
-        <button className={styles.button89} style={{ color: "#D70040" }} onClick={handleScroll}>
+        <Button variant="outlined" size="large" style={{ color: "#D70040" }} onClick={handleScroll} className='custom-button'>
           SEE PORTFOLIO
-        </button>
+        </Button>
       </SlideInSection>
       <div ref={aboutRef}></div>
     </div>
