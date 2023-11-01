@@ -27,7 +27,8 @@
     flex-direction: column; /* Stack elements vertically */
     align-items: center; /* Center items horizontally in the container */
   }
-
+ /* Define a max-width for images within modals */
+  
   .mbox {
     width: 35%;
     margin-bottom: 10px; /* Optional: Add spacing between stacked items */
