@@ -14,11 +14,13 @@ const images = [
   {
     url: require('./weather.jpg'),
     title: 'My Weather App',
+    link: 'https://github.com/manabpokhrel7/weather-app',
     width: '30%',
   },
   {
     url: require('./git.jpg'),
     title: 'My Github',
+    link: 'https://github.com/manabpokhrel7?tab=repositories',
     width: '30%',
   },
 ];
