@@ -9,7 +9,6 @@ function About() {
     <div ref={aboutRef}>
     <div className="aboutcontainer">
       <h1 style={{ color: "#D70040" }}>About</h1>
-      <p1>About Me</p1>
       <div className='content'>
       <div className='left'>
       <img src={imageSrc} alt="Rounded Corners" className="rounded-image" />
