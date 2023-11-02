@@ -3,16 +3,13 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-
 function ReusableModal({ open, onClose, title, content }) {
   const style = {
     overflowY: 'auto',
     position: 'absolute',
     top: '50%',
     left: '50%',
-    height: '400px',
     transform: 'translate(-50%, -50%)',
-    width: '40%',
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -26,7 +23,15 @@ function ReusableModal({ open, onClose, title, content }) {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={style}>
+      <Box
+        sx={{
+          ...style,
+          width: {
+            xs: '90%', // Adjust the width for mobile view
+            sm: '40%', // Set a different width for larger screens
+          },
+        }}
+      >
         <Typography id="modal-modal-title" variant="h6" component="h2">
           {title}
         </Typography>
