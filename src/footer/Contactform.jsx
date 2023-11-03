@@ -1,9 +1,11 @@
 import React from 'react';
 import './Contact.css';
+import SlideInSection from '../SlideInSection';
 
 function Contactform() {
   return (
     <div>
+      <SlideInSection>
       <div class="background">
   <div class="container">
     <div class="screen">
@@ -53,7 +55,7 @@ function Contactform() {
     </div>
   </div>
 </div>
-
+</SlideInSection>
     </div>
   )
 }

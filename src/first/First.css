@@ -6,8 +6,11 @@
 .hide-on-mobile {
   display: none;
 }
-
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeLarge.MuiButton-outlinedSizeLarge.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeLarge.MuiButton-outlinedSizeLarge.custom-button.css-9y1egq-MuiButtonBase-root-MuiButton-root{
+  margin-top: 25%!important;
 }
+}
+
 .MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeLarge.MuiButton-outlinedSizeLarge.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeLarge.MuiButton-outlinedSizeLarge.custom-button.css-9y1egq-MuiButtonBase-root-MuiButton-root{
 margin-top: 10%;
 margin-bottom: 10%;
