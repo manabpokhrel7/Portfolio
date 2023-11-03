@@ -12,8 +12,8 @@
 }
 
 .MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeLarge.MuiButton-outlinedSizeLarge.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeLarge.MuiButton-outlinedSizeLarge.custom-button.css-9y1egq-MuiButtonBase-root-MuiButton-root{
- 
-  margin-bottom: 10%;
+  margin-top: 10%;
+  margin-bottom: 5%;
 }
 #container {
   position: relative;
@@ -24,7 +24,6 @@
   bottom: 0;
 
   filter: url(#threshold) blur(0.6px);
-  padding-bottom: 20%;
 }
 
 #text1,
