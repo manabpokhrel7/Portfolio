@@ -6,11 +6,16 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import EmailIcon from '@mui/icons-material/Email';
+import UnstyledTextareaIntroduction from './TextAreaAutosize';
+import './Contact.css';
+import UnstyledButtonCustom from './SubmitButton';
 
 export default function InputWithIcon() {
   return (
+    <div className='foot'>
     <Box sx={{ '& > :not(style)': { m: 1 } }}>
-      <h1 style={{ color: "#00000" }}>Reach Out to me</h1>
+      <h1 style={{ fontFamily: 'Roboto, sans-serif' }}>Contact ME</h1>
       <FormControl variant="standard">
         <InputLabel htmlFor="input-with-icon-adornment">
           First Name
@@ -42,13 +47,15 @@ export default function InputWithIcon() {
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <AccountCircle />
+              <EmailIcon />
             </InputAdornment>
           ),
         }}
         variant="standard"
-      />
-    
+      /><br></br>
+      <UnstyledTextareaIntroduction /><br></br>
+      <UnstyledButtonCustom />
     </Box>
+    </div>
   );
 }
