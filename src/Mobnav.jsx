@@ -7,12 +7,14 @@ import InfoIcon from '@mui/icons-material/Info';
 import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
+import BookIcon from '@mui/icons-material/Book';
 import Paper from '@mui/material/Paper';
 import First from './first/First';
 import About from './second/About';
 import Port from './four(My Portfolio)/Port';
 import Contactform from './footer/Contactform';
 import Services from './third(Services)/Services';
+import Blog from './Blog/Blog';
 
 export default function FixedBottomNavigation() {
   const [value, setValue] = React.useState(0);
@@ -29,6 +31,8 @@ export default function FixedBottomNavigation() {
         return <Port />;
       case 3:
         return <Contactform />;
+        case 4:
+        return <Blog />;
       default:
         return null;
     }
@@ -55,6 +59,7 @@ export default function FixedBottomNavigation() {
           <BottomNavigationAction label="Services" icon={<MiscellaneousServicesIcon />} />
           <BottomNavigationAction label="Projects" icon={<AccountTreeIcon />} />
           <BottomNavigationAction label="ContactME" icon={<ContactPageIcon />} />
+          <BottomNavigationAction label="Blog" icon={<BookIcon />} />
         </BottomNavigation>
       </Paper>
     </Box>
