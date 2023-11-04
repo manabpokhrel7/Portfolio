@@ -1,9 +1,23 @@
+
+/*for my modal new one*/
 .MuiButtonBase-root.css-nua0ax-MuiButtonBase-root{
     margin: auto;
 }
 .MuiBox-root.css-uwckmx{
     padding: 1%;
 }
+.MuiBox-root.css-j84wkx{
+    margin-top: 3%;
+}
+@media screen and (max-width: 768px) {
+    /* Media query for screens with a maximum width of 768px */
+    /* Add CSS rules specific to smaller screens here */
+    .MuiButtonBase-root.css-nua0ax-MuiButtonBase-root{
+        width: 60%!important;
+    }
+  }
+/*End for modal new*/
+
 .arrow {
     padding-bottom: 15%;
     color: black;
