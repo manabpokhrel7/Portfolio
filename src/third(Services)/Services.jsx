@@ -7,6 +7,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import MonochromePhotosIcon from '@mui/icons-material/MonochromePhotos';
 import webImage from './web.png';
 import photo from './photo.jpg';
+import FlexboxGapStack from './Intro';
 function Services() {
   const [modal1Open, setModal1Open] = useState(false);
   const [modal2Open, setModal2Open] = useState(false);
@@ -15,8 +16,7 @@ function Services() {
   return (
     <div className='Services'>
       <SlideInSection>
-      <h1 style={{ color: "#D70040" }}>Services</h1>
-      <h1>I provide a wide range of digital services</h1>
+        <FlexboxGapStack />
       <div className='mbox-container'>
       <div onClick={() => setModal1Open(true)} className='mbox'>
       <p>WebDev</p>

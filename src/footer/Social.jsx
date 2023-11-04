@@ -41,17 +41,17 @@ export default function BasicMenu() {
         }}
       >
         <MenuItem onClick={handleClose}>
-          <a href="https://www.facebook.com" target="_blank" rel="noreferrer" style={linkStyle}>
+          <a href="https://www.facebook.com/red.hood.3323/" target="_blank" rel="noreferrer" style={linkStyle}>
             <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '5px' }} /> Facebook
           </a>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <a href="https://www.instagram.com" target="_blank" rel="noreferrer" style={linkStyle}>
+          <a href="https://www.instagram.com/manab_pokhrel/" target="_blank" rel="noreferrer" style={linkStyle}>
             <FontAwesomeIcon icon={faInstagram} style={{ marginRight: '5px' }} /> Instagram
           </a>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <a href="https://www.tiktok.com" target="_blank" rel="noreferrer" style={linkStyle}>
+          <a href="https://www.tiktok.com/@manabpokhrel" target="_blank" rel="noreferrer" style={linkStyle}>
             <FontAwesomeIcon icon={faTiktok} style={{ marginRight: '5px' }} /> TikTok
           </a>
         </MenuItem>

@@ -1,12 +1,13 @@
 import React from 'react';
 import './Port.css';
 import WebsitePreview from './WebsitePreview';
+import FlexboxGapStack from './Intro';
 
 
 const Port = () => {
     return (
         <div className='port'>
-           <h1 style={{ color: "#D70040" }}>Projects I worked on</h1>
+           <FlexboxGapStack />
             <div className='prev'>
                 <WebsitePreview />
             </div>

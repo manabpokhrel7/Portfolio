@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import WebIcon from '@mui/icons-material/Web';
 import PhotoshopIcon from '@mui/icons-material/Photo';
-import FacebookIcon from '@mui/icons-material/Facebook';
+import Diversity1Icon from '@mui/icons-material/Diversity1';
 import './Skills.css';
 
 const steps = ['Building Websites', 'Photoshop', 'Freelancer'];
@@ -74,7 +74,7 @@ export default function HorizontalNonLinearStepper() {
                   ) : index === 1 ? (
                     <PhotoshopIcon fontSize="large" color={activeStep === index ? 'primary' : 'inherit'} />
                   ) : index === 2 ? (
-                    <FacebookIcon fontSize="large" color={activeStep === index ? 'primary' : 'inherit'} />
+                    <Diversity1Icon fontSize="large" color={activeStep === index ? 'primary' : 'inherit'} />
                   ) : null
                 }
               >

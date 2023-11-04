@@ -4,13 +4,15 @@ import './About.css'; // Import the CSS file
 import imageSrc from '../Images/about.jpg';
 import TabPanel from './InfoMob';
 import SlideInSection from '../SlideInSection';
+import FlexboxGapStack from './Intro';
 function About() {
   const aboutRef = useRef(null);
   return (
     <div ref={aboutRef}>
       <SlideInSection>
     <div className="aboutcontainer">
-      <h1 style={{ color: "#D70040" }}>About</h1>
+      
+    <FlexboxGapStack />
       <div className='content'>
       <div className='left'>
       <img src={imageSrc} alt="Rounded Corners" className="rounded-image" />
