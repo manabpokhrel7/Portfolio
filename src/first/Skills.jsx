@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import WebIcon from '@mui/icons-material/Web';
 import PhotoshopIcon from '@mui/icons-material/Photo';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import './Skills.css';
 
 const steps = ['Building Websites', 'Photoshop', 'Freelancer'];
 
@@ -23,6 +24,11 @@ const centerStyle = {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
+};
+
+const mobileCentered = {
+  width: '100%', // Full width on mobile
+  margin: '0 auto', // Center horizontally on mobile
 };
 
 export default function HorizontalNonLinearStepper() {
@@ -51,7 +57,10 @@ export default function HorizontalNonLinearStepper() {
   };
 
   return (
-    <Box sx={centerStyle}>
+    <Box sx={{
+      ...centerStyle, // Apply common center styling
+      ...(window.innerWidth < 600 ? mobileCentered : null), // Apply mobile styling when the width is less than 600px
+    }}>
       <Box sx={{ width: '50%', marginTop: '5%' }}>
         <Stepper nonLinear activeStep={activeStep} alternativeLabel>
           {steps.map((label, index) => (
