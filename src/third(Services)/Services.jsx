@@ -8,6 +8,7 @@ import MonochromePhotosIcon from '@mui/icons-material/MonochromePhotos';
 import webImage from './web.png';
 import photo from './photo.jpg';
 import FlexboxGapStack from './Intro';
+import ButtonBaseDemo from './NewModal';
 function Services() {
   const [modal1Open, setModal1Open] = useState(false);
   const [modal2Open, setModal2Open] = useState(false);
@@ -17,6 +18,8 @@ function Services() {
     <div className='Services'>
       <SlideInSection>
         <FlexboxGapStack />
+        <ButtonBaseDemo />
+        {/*
       <div className='mbox-container'>
       <div onClick={() => setModal1Open(true)} className='mbox'>
       <p>WebDev</p>
@@ -29,7 +32,6 @@ function Services() {
         <Arrow />
       </div>
       </div>
-      {/* Add more buttons to open other modals if needed */}
       <ReusableModal
         open={modal1Open}
         onClose={() => setModal1Open(false)}
@@ -47,7 +49,7 @@ function Services() {
           <img src={photo} alt="WebDev" className='photo' style={{ overflow: 'visible', maxWidth: '100%' }}/>
           <p>Adobe Photoshop is a raster graphics editor developed and published by Adobe Inc. for Windows and macOS. It was originally created in 1987 by Thomas and John Knoll. Since then, the software has become the most used tool for professional digital art, especially in raster graphics editing. </p>
           Photoshop is a photo editing and raster graphic design software which allows users to create, edit, and manipulate various graphics as well as digital art. It also allows to create and edit raster images with multiple layers and import the images in various file formats.</>}
-      />
+        />*/}
       </SlideInSection>
       {/* Render additional modals with different content */}
     </div>

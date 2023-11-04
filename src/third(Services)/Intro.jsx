@@ -14,6 +14,14 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function FlexboxGapStack() {
+  const isMobile = window.innerWidth <= 600; // Define a breakpoint for mobile devices
+
+  const itemStyles = {
+    marginTop: isMobile ? '15%' : '', // Set mobile background color
+    marginBottom: isMobile ? '40%' : '', // Set mobile padding
+     // Set mobile font size
+  };
+
   return (
     <Box
       sx={{
@@ -24,7 +32,7 @@ export default function FlexboxGapStack() {
       }}
     >
       <Stack spacing={{ xs: 1, sm: 2 }} direction="row" useFlexGap flexWrap="wrap">
-        <Item>SERVICES I PROVIDE</Item>
+        <Item style={itemStyles}>SERVICES I PROVIDE</Item>
       </Stack>
     </Box>
   );
