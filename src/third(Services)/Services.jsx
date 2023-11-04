@@ -1,18 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Services.css';
-import ReusableModal from './ReusableModal.jsx'; // Import the ReusableModal component
-import Arrow from './Arrow';
 import SlideInSection from '../SlideInSection';
-import LanguageIcon from '@mui/icons-material/Language';
-import MonochromePhotosIcon from '@mui/icons-material/MonochromePhotos';
-import webImage from './web.png';
-import photo from './photo.jpg';
 import FlexboxGapStack from './Intro';
 import ButtonBaseDemo from './NewModal';
 function Services() {
-  const [modal1Open, setModal1Open] = useState(false);
-  const [modal2Open, setModal2Open] = useState(false);
-  // Define similar states and functions for other modals
 
   return (
     <div className='Services'>

@@ -9,7 +9,7 @@ import './Arrow.css';
 
 const images = [
   {
-    url: './web.png',
+    url: require('./web.png').default,
     title: 'ReactJS',
     width: '30%',
   },
