@@ -9,12 +9,12 @@ import './Arrow.css';
 
 const images = [
   {
-    url: require('./web.png').default,
+    url: '/images/web.png',
     title: 'ReactJS',
     width: '30%',
   },
   {
-    url: './photo.jpg',
+    url: '/images/photo.jpg',
     title: 'Photoshop',
     width: '30%',
   },
@@ -22,12 +22,12 @@ const images = [
 
 const contentForImages = [
   {
-    title: 'Breakfast',
-    content: 'Content for the Breakfast modal.',
+    title: 'Web Development',
+    content: 'Web development, also known as website development, refers to the tasks associated with creating, building, and maintaining websites and web applications that run online on a browser. It may, however, also include web design, web programming, and database management.',
   },
   {
-    title: 'Burgers',
-    content: 'Content for the Burgers modal.',
+    title: 'Photoshop',
+    content: 'Adobe Photoshop is a raster graphics editor developed and published by Adobe Inc. for Windows and macOS. It was originally created in 1987 by Thomas and John Knoll. Since then, the software has become the most used tool for professional digital art, especially in raster graphics editing. Photoshop is a photo editing and raster graphic design software which allows users to create, edit, and manipulate various graphics as well as digital art. It also allows to create and edit raster images with multiple layers and import the images in various file formats.',
   },
 ];
 
@@ -95,6 +95,16 @@ const ImageMarked = styled('span')(({ theme }) => ({
   transition: theme.transitions.create('opacity'),
 }));
 
+const ModalContent = styled('div')(({ theme }) => ({
+  maxHeight: '60vh', // Set a maximum height for the modal content
+  overflowY: 'auto', // Enable vertical scrolling when content overflows
+}));
+
+const ModalImage = styled('img')({
+  maxWidth: '100%', // Ensure the image fits within the modal
+  maxHeight: '100%', // Ensure the image fits within the modal
+});
+
 export default function ButtonBaseDemo() {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [currentImage, setCurrentImage] = React.useState(null);
@@ -159,12 +169,14 @@ export default function ButtonBaseDemo() {
               transform: 'translate(-50%, -50%)',
               bgcolor: 'background.paper',
               boxShadow: 24,
-              p: 4,
+              width: '40vw', // Set modal width
             }}
           >
-            <img src={currentImage.url} alt={currentImage.title} />
+            <ModalImage src={currentImage.url} alt={currentImage.title} />
             <Typography variant="h6">{currentImage.title}</Typography>
-            <p>{contentForImages[images.indexOf(currentImage)].content}</p>
+            <ModalContent>
+              <p>{contentForImages[images.indexOf(currentImage)].content}</p>
+            </ModalContent>
           </Box>
         </Modal>
       )}

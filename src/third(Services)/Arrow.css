@@ -1,7 +1,9 @@
 .MuiButtonBase-root.css-nua0ax-MuiButtonBase-root{
     margin: auto;
 }
-
+.MuiBox-root.css-uwckmx{
+    padding: 1%;
+}
 .arrow {
     padding-bottom: 15%;
     color: black;
