@@ -1,61 +1,49 @@
 import * as React from 'react';
+import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Input from '@mui/material/Input';
-import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
-import FormControl from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import EmailIcon from '@mui/icons-material/Email';
-import UnstyledTextareaIntroduction from './TextAreaAutosize';
-import './Contact.css';
-import UnstyledButtonCustom from './SubmitButton';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import InputWithIcon from './Contact';
+import ContactImage from './contact.avif'; // Import the image
+import BasicCard from './Myinfo';
 
-export default function InputWithIcon() {
+const Container = styled(Box)(({ theme }) => ({
+  maxWidth: '90%',
+  margin: '0 auto',
+}));
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
+
+const Image = styled('img')({
+  maxWidth: '100%',
+  height: '495px', // Set a fixed height, adjust as needed
+  maxHeight: '100%',
+});
+
+export default function ColumnsGrid() {
   return (
-    <div className='foot'>
-    <Box sx={{ '& > :not(style)': { m: 1 } }}>
-      <h1 style={{ fontFamily: 'Roboto, sans-serif' }}>Contact ME</h1>
-      <FormControl variant="standard">
-        <InputLabel htmlFor="input-with-icon-adornment">
-          First Name
-        </InputLabel>
-        <Input
-          id="input-with-icon-adornment"
-          startAdornment={
-            <InputAdornment position="start">
-              <AccountCircle />
-            </InputAdornment>
-          }
-        />
-      </FormControl>
-      <TextField
-        id="input-with-icon-textfield"
-        label="Last Name"
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <AccountCircle />
-            </InputAdornment>
-          ),
-        }}
-        variant="standard"
-      /><br></br>
-      <TextField
-        id="input-with-icon-textfield"
-        label="Email"
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <EmailIcon />
-            </InputAdornment>
-          ),
-        }}
-        variant="standard"
-      /><br></br>
-      <UnstyledTextareaIntroduction /><br></br>
-      <UnstyledButtonCustom />
-    </Box>
-    </div>
+    <Container>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6}>
+          <Item>
+            <BasicCard />
+          </Item>
+          <Item sx={{ marginTop: 3 }}>
+            <InputWithIcon />
+          </Item>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Item>
+            <Image src={ContactImage} alt="Contact" />
+          </Item>
+        </Grid>
+      </Grid>
+    </Container>
   );
 }

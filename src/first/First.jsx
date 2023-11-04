@@ -17,7 +17,7 @@ function First() {
 
  
   return (
-    <div>
+    <div className='first'>
       <SlideInSection>
         <h1 style={{ color: "#00000" }}>My Name is</h1>
         <div className="waviy">

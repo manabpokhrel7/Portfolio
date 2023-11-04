@@ -16,7 +16,6 @@ function Services() {
     <div className='Services'>
       <SlideInSection>
       <h1 style={{ color: "#D70040" }}>Services</h1>
-      <p>Services</p>
       <h1>I provide a wide range of digital services</h1>
       <div className='mbox-container'>
       <div onClick={() => setModal1Open(true)} className='mbox'>
