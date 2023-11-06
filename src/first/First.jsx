@@ -35,7 +35,7 @@ function First() {
           <span style={{ '--i': 5 }}>l</span>
         </div>
         <HorizontalNonLinearStepper />
-        <Button variant="outlined" size="large" style={{ color: "#D70040" }} onClick={handleScroll} className='custom-button'>
+        <Button variant="outlined" size="large" style={{ color: "#D70040", marginBottom: '5%' }} onClick={handleScroll} className='custom-button'>
           SEE PORTFOLIO
         </Button>
       </SlideInSection>

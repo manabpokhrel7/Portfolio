@@ -39,9 +39,15 @@ export default function ColumnsGrid() {
           </Item>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Item>
-            <Image src={ContactImage} alt="Contact" />
-          </Item>
+        <Item
+  sx={{
+    '@media (max-width: 600px)': {
+      display: 'none', // Display on screens with a width of 600px or less
+    },
+  }}
+>
+  <Image src={ContactImage} alt="Contact" />
+</Item>
         </Grid>
       </Grid>
     </Container>
