@@ -32,10 +32,11 @@ const contentForImages = [
 ];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
+    margin: 'auto',
   position: 'relative',
   height: 200,
   [theme.breakpoints.down('sm')]: {
-    width: '90%',
+    width: '100%',
     height: 100,
   },
   '&:hover, &.Mui-focusVisible': {
