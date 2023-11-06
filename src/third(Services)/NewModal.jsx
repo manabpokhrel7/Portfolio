@@ -32,6 +32,7 @@ const contentForImages = [
 ];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
+    marginTop: '1%!important',
     margin: 'auto',
   position: 'relative',
   height: 200,
