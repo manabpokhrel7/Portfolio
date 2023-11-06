@@ -1,4 +1,5 @@
 import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import Box from '@mui/material/Box';
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
@@ -16,12 +17,15 @@ function ContactForm() {
     height: '100%',
   };
 
+  const [state, handleSubmit] = useForm("https://formspree.io/f/maygkdzr"); // Replace with your Formspree endpoint
+
+  if (state.succeeded) {
+    return <p>Thanks for joining!</p>;
+  }
+
   return (
     <div className='foot'>
-      <form
-        action="https://formspree.io/f/maygkdzr" // Replace with your Formspree endpoint
-        method="POST"
-      >
+      <form onSubmit={handleSubmit}>
         <Box sx={{ '& > :not(style)': { m: 1 } }}>
           <FormControl variant="standard">
             <InputLabel htmlFor="first-name">
@@ -29,7 +33,7 @@ function ContactForm() {
             </InputLabel>
             <Input
               id="first-name"
-              name="message" // Field name for first name
+              name="first-name"
               startAdornment={
                 <InputAdornment position="start">
                   <AccountCircle />
@@ -40,7 +44,7 @@ function ContactForm() {
           </FormControl>
           <TextField
             id="last-name"
-            name="message" // Field name for last name
+            name="last-name"
             label="Last Name"
             InputProps={{
               startAdornment: (
@@ -55,7 +59,7 @@ function ContactForm() {
           <TextField
             id="email"
             type="email"
-            name="_replyto" // This is required by Formspree
+            name="email"
             label="Email"
             InputProps={{
               startAdornment: (
@@ -66,21 +70,27 @@ function ContactForm() {
             }}
             variant="standard"
             style={inputStyle}
-          />
+          /><br></br>
           <TextareaAutosize
             id="message"
             aria-label="message"
-            name="message" // Field name for the message
+            name="message"
             placeholder="Your message here"
             style={inputStyle}
-          />
-          <Button variant="contained" type="submit">
+          /><br></br>
+          <Button variant="contained" type="submit" disabled={state.submitting}>
             Submit
           </Button>
         </Box>
       </form>
+      <ValidationError prefix="Email" field="email" errors={state.errors} />
+      <ValidationError prefix="Message" field="message" errors={state.errors} />
     </div>
   );
 }
 
-export default ContactForm;
+function App() {
+  return <ContactForm />;
+}
+
+export default App;
