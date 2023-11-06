@@ -8,7 +8,7 @@ import { useForm, ValidationError } from '@formspree/react';
 function ContactForm() {
   const [state, handleSubmit] = useForm("maygkdzr");
   if (state.succeeded) {
-      return <p>Thanks for joining!</p>;
+      return <p>Thank You!</p>;
   }
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
