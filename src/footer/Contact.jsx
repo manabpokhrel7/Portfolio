@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
@@ -7,64 +7,80 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import EmailIcon from '@mui/icons-material/Email';
-import UnstyledTextareaIntroduction from './TextAreaAutosize';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
+import Button from '@mui/material/Button';
 import './Contact.css';
-import UnstyledButtonCustom from './SubmitButton';
 
-export default function InputWithIcon() {
+function ContactForm() {
   const inputStyle = {
-    height: '100%', // Adjust the height as needed
+    height: '100%',
   };
 
   return (
     <div className='foot'>
-      <Box sx={{ '& > :not(style)': { m: 1 } }}>
-        <FormControl variant="standard">
-          <InputLabel htmlFor="input-with-icon-adornment">
-            First Name
-          </InputLabel>
-          <Input
-            id="input-with-icon-adornment"
-            startAdornment={
-              <InputAdornment position="start">
-                <AccountCircle />
-              </InputAdornment>
-            }
-            style={inputStyle} // Apply the height style
+      <form
+        action="https://formspree.io/f/maygkdzr" // Replace with your Formspree endpoint
+        method="POST"
+      >
+        <Box sx={{ '& > :not(style)': { m: 1 } }}>
+          <FormControl variant="standard">
+            <InputLabel htmlFor="first-name">
+              First Name
+            </InputLabel>
+            <Input
+              id="first-name"
+              name="message" // Field name for first name
+              startAdornment={
+                <InputAdornment position="start">
+                  <AccountCircle />
+                </InputAdornment>
+              }
+              style={inputStyle}
+            />
+          </FormControl>
+          <TextField
+            id="last-name"
+            name="message" // Field name for last name
+            label="Last Name"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <AccountCircle />
+                </InputAdornment>
+              ),
+            }}
+            variant="standard"
+            style={inputStyle}
           />
-        </FormControl>
-        <TextField
-          id="input-with-icon-textfield"
-          label="Last Name"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <AccountCircle />
-              </InputAdornment>
-            ),
-          }}
-          variant="standard"
-          style={inputStyle} // Apply the height style
-        />
-        <br></br>
-        <TextField
-          id="input-with-icon-textfield"
-          label="Email"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <EmailIcon />
-              </InputAdornment>
-            ),
-          }}
-          variant="standard"
-          style={inputStyle} // Apply the height style
-        />
-        <br></br>
-        <UnstyledTextareaIntroduction style={inputStyle} /> {/* Apply the height style to the textarea */}
-        <br></br>
-        <UnstyledButtonCustom />
-      </Box>
+          <TextField
+            id="email"
+            type="email"
+            name="_replyto" // This is required by Formspree
+            label="Email"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <EmailIcon />
+                </InputAdornment>
+              ),
+            }}
+            variant="standard"
+            style={inputStyle}
+          />
+          <TextareaAutosize
+            id="message"
+            aria-label="message"
+            name="message" // Field name for the message
+            placeholder="Your message here"
+            style={inputStyle}
+          />
+          <Button variant="contained" type="submit">
+            Submit
+          </Button>
+        </Box>
+      </form>
     </div>
   );
 }
+
+export default ContactForm;
