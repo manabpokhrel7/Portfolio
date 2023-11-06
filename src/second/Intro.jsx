@@ -17,6 +17,7 @@ export default function FlexboxGapStack() {
   return (
     <Box
       sx={{
+        marginBottom: '5%!important',
         width: 200,
         display: 'flex',
         justifyContent: 'center!important',
