@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import { useForm, ValidationError } from '@formspree/react';
+import TextField from '@mui/material/TextField';
 function ContactForm() {
   const [state, handleSubmit] = useForm("maygkdzr");
   if (state.succeeded) {
@@ -24,23 +25,23 @@ function ContactForm() {
         <Item>REACH OUT TO ME💎</Item><br></br>
       </Stack>
     </Box>
-      <input
-      placeholder="Your Email"
+    <TextField label="Your Email" variant="standard" placeholder="Your Email"
         id="email"
         type="email" 
-        name="email"
-      />
+        name="email"/>
+      
       <ValidationError 
         prefix="Email" 
         field="email"
         errors={state.errors}
       /><br></br><br></br>
-      
-      <textarea
-      placeholder="Write your message"
-        id="message"
-        name="message"
-      />
+      <TextField
+          id="message"
+          name="message"
+          label="Leave a message"
+          multiline
+          maxRows={4}
+        />
       <ValidationError 
         prefix="Message" 
         field="message"

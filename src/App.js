@@ -6,9 +6,7 @@ import BackToTop from './ResponsiveAppBar';
 
 
 
-
 function App() {
- 
     
   return (
     <div className="App">
