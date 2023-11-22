@@ -2,10 +2,12 @@
 .chatbot-container {
     position: relative;
     bottom: 20px;
-    background-image: url('AI.jpg'); /* Replace 'AI.jpg' with your image file */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    height: 100%;
   }
-  
+  .react-chatbot-kit-chat-container{
+    width: 100%;
+  }
+  .react-chatbot-kit-chat-message-container{
+    background-image: url('AI.jpg'); /* Replace 'AI.jpg' with your image file */
+    background-size: cover ;
+    background-position: center;
+  }

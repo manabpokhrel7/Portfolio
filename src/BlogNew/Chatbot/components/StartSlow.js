@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Button from '@mui/material/Button';
+import JokeGenerator from '../Joke';
 
 export default function StartSlow(props) {
   const { category } = props.state.userData;
@@ -29,9 +30,7 @@ export default function StartSlow(props) {
       // Customize buttons for adults
       return (
         <>
-          <Button variant="outlined" onClick={() => preference('home')}>
-            Go To Home
-          </Button>
+          <JokeGenerator />
         </>
       );
     }

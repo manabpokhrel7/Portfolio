@@ -1,8 +1,9 @@
 import React from 'react';
 
 const MessageParser = ({ children, actions }) => {
-  const { checker } = children.props.state;
   const parse = (message) => {
+    const { checker } = children.props.state;
+
     if (checker === 'age') {
       actions.afterNameMessage();
       children.props.state.userData.name = message;
@@ -15,16 +16,10 @@ const MessageParser = ({ children, actions }) => {
     }
   };
 
-  return (
-    <div>
-      {React.Children.map(children, (child) => {
-        return React.cloneElement(child, {
-          parse: parse,
-          actions,
-        });
-      })}
-    </div>
-  );
+  return React.cloneElement(children, {
+    parse,
+    actions,
+  });
 };
 
 export default MessageParser;
