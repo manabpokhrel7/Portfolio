@@ -7,7 +7,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
-import BookIcon from '@mui/icons-material/Book';
+import ChatIcon from '@mui/icons-material/Chat';
 import Paper from '@mui/material/Paper';
 import First from './first/First';
 import About from './second/About';
@@ -59,7 +59,7 @@ export default function FixedBottomNavigation() {
           <BottomNavigationAction label="Services" icon={<MiscellaneousServicesIcon />} />
           <BottomNavigationAction label="Projects" icon={<AccountTreeIcon />} />
           <BottomNavigationAction label="ContactME" icon={<ContactPageIcon />} />
-          <BottomNavigationAction label="Blog" icon={<BookIcon />} />
+          <BottomNavigationAction label="Ask ME" icon={<ChatIcon />} />
         </BottomNavigation>
       </Paper>
     </Box>
