@@ -9,14 +9,25 @@ import WebIcon from '@mui/icons-material/Web';
 import PhotoshopIcon from '@mui/icons-material/Photo';
 import Diversity1Icon from '@mui/icons-material/Diversity1';
 import './Skills.css';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 const steps = ['Building Websites', 'Photoshop', 'Freelancer'];
 
 // Define an array of messages corresponding to each step
 const stepMessages = [
-  'I develop frontend webpages in ReactJS or Wordpress',
-  'I also create and edit designs in Photoshop',
-  'I am a freelancer who can take on smaller tasks as well',
+  <Stack spacing={2}><Item>I develop frontend webpages in ReactJS or Wordpress</Item></Stack>,
+  <Stack spacing={2}><Item>I also create and edit designs in Photoshop</Item></Stack>,
+  <Stack spacing={2}><Item>I am a freelancer who can take on smaller tasks as well</Item></Stack>,
 ];
 
 const centerStyle = {
