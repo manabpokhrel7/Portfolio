@@ -9,14 +9,11 @@ function SimpleChatbot() {
 
   return (
     <div className="chatbot-container">
-      <div className='left'>
       <Chatbot
         config={config}
         messageParser={MessageParser}
         actionProvider={ActionProvider}
       />
-      </div>
-      <div className='right'></div>
     </div>
   );
 }

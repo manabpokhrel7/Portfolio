@@ -1,8 +1,11 @@
 /* SimpleChatbot.css */
-.right {
-   
+.chatbot-container {
+    position: relative;
+    bottom: 20px;
     background-image: url('AI.jpg'); /* Replace 'AI.jpg' with your image file */
     background-size: cover;
-   
+    background-position: center;
+    display: flex;
+    height: 100%;
   }
   
