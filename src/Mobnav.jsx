@@ -26,12 +26,10 @@ export default function FixedBottomNavigation() {
       case 0:
         return <><First /><About /></>;
       case 1:
-        return <Services />;
-      case 2:
         return <Port />;
-      case 3:
+      case 2:
         return <Contactform />;
-        case 4:
+        case 3:
         return <SimpleChatbot />;
       default:
         return null;
@@ -56,10 +54,9 @@ export default function FixedBottomNavigation() {
           }}
         >
           <BottomNavigationAction label="AboutME" icon={<InfoIcon />} />
-          <BottomNavigationAction label="Services" icon={<MiscellaneousServicesIcon />} />
           <BottomNavigationAction label="Projects" icon={<AccountTreeIcon />} />
           <BottomNavigationAction label="ContactME" icon={<ContactPageIcon />} />
-          <BottomNavigationAction label="Ask ME" icon={<ChatIcon />} />
+          <BottomNavigationAction label="Blog" icon={<ChatIcon />} />
         </BottomNavigation>
       </Paper>
     </Box>
