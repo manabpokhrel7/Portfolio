@@ -62,9 +62,6 @@ export default function BasicTabs() {
     My Name is Manab Pokhrel. 
     As a recent IT graduate who specialized in frontend web development and honed my skills in Photoshop, I'm passionate about the digital world and the power of creativity.
 </CustomTabPanel>
-<CustomTabPanel value={value} index={1} style={{ width: '100%' }}>
-    I've trained in boxing, where discipline, agility, and strength are the key to success. On the football field, I find joy in both playing and being an ardent fan of the beautiful game.
-</CustomTabPanel>
 <CustomTabPanel value={value} index={2} style={{ width: '100%' }}>
     I have completed my bachelors in Computer Science in Nepal.
 </CustomTabPanel>
