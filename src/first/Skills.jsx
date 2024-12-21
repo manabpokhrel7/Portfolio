@@ -6,7 +6,7 @@ import StepButton from '@mui/material/StepButton';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import WebIcon from '@mui/icons-material/Web';
-import PhotoshopIcon from '@mui/icons-material/Photo';
+import CloudIcon from '@mui/icons-material/Cloud';
 import Diversity1Icon from '@mui/icons-material/Diversity1';
 import './Skills.css';
 import Paper from '@mui/material/Paper';
@@ -21,12 +21,12 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const steps = ['Building Websites', 'Photoshop', 'Freelancer'];
+const steps = ['Building Websites', 'AWS', 'Freelancer'];
 
 // Define an array of messages corresponding to each step
 const stepMessages = [
   <Stack spacing={2}><Item>I develop frontend webpages in ReactJS or Wordpress</Item></Stack>,
-  <Stack spacing={2}><Item>I also create and edit designs in Photoshop</Item></Stack>,
+  <Stack spacing={2}><Item>I also can work as a AWS Solution Architect and can build and deploy its services</Item></Stack>,
   <Stack spacing={2}><Item>I am a freelancer who can take on smaller tasks as well</Item></Stack>,
 ];
 
@@ -88,7 +88,7 @@ export default function HorizontalNonLinearStepper() {
                     index === 0 ? (
                       <WebIcon fontSize="large" color={activeStep === index ? 'primary' : 'inherit'} />
                     ) : index === 1 ? (
-                      <PhotoshopIcon fontSize="large" color={activeStep === index ? 'primary' : 'inherit'} />
+                      <CloudIcon fontSize="large" color={activeStep === index ? 'primary' : 'inherit'} />
                     ) : index === 2 ? (
                       <Diversity1Icon fontSize="large" color={activeStep === index ? 'primary' : 'inherit'} />
                     ) : null
