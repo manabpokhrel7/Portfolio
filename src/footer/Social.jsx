@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faGithub, faInstagram, faLinkedin, faTiktok } from '@fortawesome/free-brands-svg-icons';
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -29,7 +29,7 @@ export default function BasicMenu() {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        Find me on Social Medias
+        Find me on Social Platform
       </Button>
       <Menu
         id="basic-menu"
@@ -46,13 +46,13 @@ export default function BasicMenu() {
           </a>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <a href="https://www.instagram.com/manab_pokhrel/" target="_blank" rel="noreferrer" style={linkStyle}>
-            <FontAwesomeIcon icon={faInstagram} style={{ marginRight: '5px' }} /> Instagram
+          <a href="https://github.com/manabpokhrel7" target="_blank" rel="noreferrer" style={linkStyle}>
+            <FontAwesomeIcon icon={faGithub} style={{ marginRight: '5px' }} /> GitHub
           </a>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <a href="https://www.tiktok.com/@manabpokhrel" target="_blank" rel="noreferrer" style={linkStyle}>
-            <FontAwesomeIcon icon={faTiktok} style={{ marginRight: '5px' }} /> TikTok
+          <a href="https://www.linkedin.com/in/manab-pokhrel/" target="_blank" rel="noreferrer" style={linkStyle}>
+            <FontAwesomeIcon icon={faLinkedin} style={{ marginRight: '5px' }} /> LinkedIN
           </a>
         </MenuItem>
       </Menu>
