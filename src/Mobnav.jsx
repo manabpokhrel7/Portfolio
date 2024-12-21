@@ -12,7 +12,7 @@ import First from './first/First';
 import About from './second/About';
 import Port from './four(My Portfolio)/Port';
 import Contactform from './footer/Contactform';
-import SimpleChatbot from './BlogNew/SimpleChatbot';
+import BlogMainPage from './Blog/Main';
 
 export default function FixedBottomNavigation() {
   const [value, setValue] = React.useState(0);
@@ -28,7 +28,7 @@ export default function FixedBottomNavigation() {
       case 2:
         return <Contactform />;
         case 3:
-        return <SimpleChatbot />;
+        return <BlogMainPage />;
       default:
         return null;
     }
