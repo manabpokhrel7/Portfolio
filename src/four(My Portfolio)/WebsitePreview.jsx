@@ -7,8 +7,8 @@ import Typography from '@mui/material/Typography';
 const images = [
   {
     url: require('./ecom.jpg'),
-    title: 'Ecommerce Website',
-    link: 'https://github.com/manabpokhrel7/ecom',
+    title: 'Ansible CICD',
+    link: 'https://github.com/manabpokhrel7/Ansible-CICD',
     width: '40%',
   },
   {
@@ -19,7 +19,7 @@ const images = [
   },
   {
     url: require('./git.jpg'),
-    title: 'My Github',
+    title: 'ALL projects in Github',
     link: 'https://github.com/manabpokhrel7?tab=repositories',
     width: '30%',
   },
