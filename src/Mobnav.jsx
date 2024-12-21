@@ -4,7 +4,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import InfoIcon from '@mui/icons-material/Info';
-import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
 import ChatIcon from '@mui/icons-material/Chat';
@@ -13,7 +12,6 @@ import First from './first/First';
 import About from './second/About';
 import Port from './four(My Portfolio)/Port';
 import Contactform from './footer/Contactform';
-import Services from './third(Services)/Services';
 import SimpleChatbot from './BlogNew/SimpleChatbot';
 
 export default function FixedBottomNavigation() {

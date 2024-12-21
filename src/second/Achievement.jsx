@@ -28,7 +28,7 @@ export default function BasicStack() {
           <Button onClick={() => openImageInNewTab('https://photos.app.goo.gl/s1J82A6pm4UfXwMv9')}>Show</Button>
         </Item>
         <Item>2022-2023: Worked as a Intern at Vortex IT Solutions</Item>
-        <Item>Current: Freelancer</Item>
+        <Item>AWS Certified Solutions Architect <Button onClick={() => openImageInNewTab('https://www.credly.com/badges/c2725ab4-5508-43b3-afd6-8328caa90d0c/linked_in_profile')}>Show</Button></Item>
       </Stack>
     </Box>
   );

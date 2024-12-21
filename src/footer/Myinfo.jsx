@@ -4,7 +4,6 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import EmailIcon from '@mui/icons-material/Email';
-import PhoneIcon from '@mui/icons-material/Phone';
 import Box from '@mui/material/Box';
 import './Contact.css';
 import BasicMenu from './Social';
@@ -27,7 +26,6 @@ const boxStyle = {
 
 export default function BasicCard() {
   const email = 'manabpokhrel7@gmail.com';
-  const phone = '+977-98********';
 
   return (
     <Box sx={boxStyle}>
@@ -35,12 +33,6 @@ export default function BasicCard() {
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             ContactME
-          </Typography>
-          <Typography variant="h5" component="div">
-            <PhoneIcon style={{ marginRight: '5px' }} />
-            <a href={`tel:${phone}`} style={linkStyle}>
-              {phone}
-            </a>
           </Typography>
           <Typography sx={{ mb: 1.5 }} color="text.secondary">
             Kathmandu
