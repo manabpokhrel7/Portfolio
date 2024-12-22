@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 const images = [
   {
     url: require('./ecom.jpg'),
-    title: 'Ansible CICD',
+    title: 'Self Hosted CICD on AWS Using Ansible',
     link: 'https://github.com/manabpokhrel7/Ansible-CICD',
     width: '40%',
   },

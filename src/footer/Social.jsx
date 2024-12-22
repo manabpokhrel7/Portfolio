@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faGithub, faInstagram, faLinkedin, faTiktok } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
