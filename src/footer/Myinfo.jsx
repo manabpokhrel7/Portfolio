@@ -35,7 +35,7 @@ export default function BasicCard() {
             ContactME
           </Typography>
           <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            Kathmandu
+            TORONTO, CANADA
           </Typography>
           <Typography variant="body2">
             <EmailIcon style={{ marginRight: '5px' }} />

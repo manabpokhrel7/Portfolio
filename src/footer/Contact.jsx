@@ -22,7 +22,7 @@ function ContactForm() {
       <form onSubmit={handleSubmit}>
        <Box sx={{ width: '100%' }}>
       <Stack spacing={2}>
-        <Item>REACH OUT TO ME💎</Item><br></br>
+        <Item>REACH OUT TO ME</Item><br></br>
       </Stack>
     </Box>
     <TextField label="Your Email" variant="standard" placeholder="Your Email"
