@@ -4,9 +4,10 @@ import {  Grid, Card, CardContent, CardMedia, Typography, Container } from '@mui
 const BlogMainPage = () => {
   const blogPosts = [
     {
-      title: 'Understanding React Hooks',
-      description: 'A comprehensive guide to using React Hooks effectively in your projects.',
-      image: 'https://via.placeholder.com/300x200',
+      title: 'Understanding CloudFront',
+      description: 'A comprehensive guide to using Cloudfront effectively in your system.',
+      image: 'src/Images/cloudfront.png',
+      link: 'https://medium.com/@manabpokhrel7/aws-cloudfront-19b20bc8f239',
     },
     {
       title: 'Introduction to Kubernetes',
