@@ -8,6 +8,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import BasicStack from './Achievement';
+import BasicStack2 from './BasicStack2';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -66,8 +67,8 @@ export default function FullWidthTabs() {
           aria-label="full width tabs example"
         >
           <Tab label="About Me" {...a11yProps(0)} />
-          {/* <Tab label="Hobbies" {...a11yProps(1)} /> */}
-          <Tab label="Studies & Work" {...a11yProps(1)} />
+          <Tab label="SKILLS" {...a11yProps(1)} /> 
+          <Tab label="Studies & Work" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -78,10 +79,10 @@ export default function FullWidthTabs() {
         <TabPanel value={value} index={0} dir={theme.direction}>
         My Name is Manab Pokhrel. 
 I am a passionate and dedicated Web Developer with expertise in WordPress, ReactJS, and modern DevOps tools like Docker, Kubernetes, Terraform, and Ansible. With over a year of professional experience, I specialize in creating responsive, user-friendly websites and optimizing performance to meet client needs. My strong foundation in web development, combined with certifications like AWS Solutions Architect, reflects my commitment to continuous learning and innovation. I thrive in collaborative environments and enjoy solving challenges that enhance user experiences and drive business success. Explore my portfolio to see how I turn ideas into impactful digital solutions!        </TabPanel>
-        {/* <TabPanel value={value} index={1} dir={theme.direction}>
-        I've trained in boxing, where discipline, agility, and strength are the key to success. On the football field, I find joy in both playing and being an ardent fan of the beautiful game.
-        </TabPanel> */}
         <TabPanel value={value} index={1} dir={theme.direction}>
+        <BasicStack2 />
+        </TabPanel> 
+        <TabPanel value={value} index={2} dir={theme.direction}>
         <BasicStack />
         </TabPanel>
       </SwipeableViews>
