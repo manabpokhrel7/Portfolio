@@ -5,23 +5,12 @@ import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 
 const images = [
-  {
-    url: require('./ecom.jpg'),
-    title: 'Self Hosted CICD on AWS Using Ansible',
-    link: 'https://github.com/manabpokhrel7/Ansible-CICD',
-    width: '40%',
-  },
-  {
-    url: require('./weather.jpg'),
-    title: 'My Weather App',
-    link: 'https://github.com/manabpokhrel7/weather-app',
-    width: '30%',
-  },
+  
   {
     url: require('./git.jpg'),
     title: 'ALL projects in Github',
     link: 'https://github.com/manabpokhrel7?tab=repositories',
-    width: '30%',
+    width: '100%',
   },
 ];
 
