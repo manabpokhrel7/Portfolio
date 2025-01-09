@@ -23,7 +23,6 @@ export default function BasicStack2() {
         <Item>CI/CD Pipelines</Item>
         <Item>Docker and Kubernetes</Item>
         <Item>Linux Scripting/Terraform/Ansible-Playbook</Item>
-        <Item>AND MORE!!!</Item>
       </Stack>
     </Box>
   );
