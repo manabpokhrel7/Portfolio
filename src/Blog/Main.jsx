@@ -1,12 +1,13 @@
 import React from 'react';
 import { Grid, Card, CardContent, CardMedia, Typography, Container } from '@mui/material';
+import cloudfrontImage from '../Images/cloudfront.png';
 
 const BlogMainPage = () => {
   const blogPosts = [
     {
       title: 'Understanding CloudFront',
       description: 'A comprehensive guide to using Cloudfront effectively in your system.',
-      image: '/Users/manabpokhrel7/Portfolio/src/Images/cloudfront.png',
+      image: cloudfrontImage,
       link: 'https://medium.com/@manabpokhrel7/aws-cloudfront-19b20bc8f239',
     },
     {
