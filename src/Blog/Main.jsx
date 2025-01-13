@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Card, CardContent, CardMedia, Typography, Container } from '@mui/material';
 import cloudfrontImage from '../Images/cloudfront.png';
+import s3image from '../Images/s3image.webp';
 
 const BlogMainPage = () => {
   const blogPosts = [
@@ -11,13 +12,14 @@ const BlogMainPage = () => {
       link: 'https://medium.com/@manabpokhrel7/aws-cloudfront-19b20bc8f239',
     },
     {
-      title: 'Introduction to Kubernetes',
-      description: 'Learn the basics of Kubernetes and how it can simplify container orchestration.',
-      image: 'https://via.placeholder.com/300x200',
+      title: 'Introduction to s3 Static Hosting',
+      description: 'Learn how to host your static website in s3.',
+      image: s3image,
+      link: 'https://medium.com/@manabpokhrel7/hosting-a-static-website-on-amazon-s3-a-beginners-guide-3bd8ce47fc0f',
     },
     {
-      title: 'Mastering Material-UI',
-      description: 'Tips and tricks for building beautiful React applications with Material-UI.',
+      title: 'Incoming more blogs',
+      description: 'Tips and tricks ',
       image: 'https://via.placeholder.com/300x200',
     },
   ];
