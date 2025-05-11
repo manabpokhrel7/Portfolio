@@ -25,8 +25,8 @@ const steps = ['Building Websites', 'AWS', 'Freelancer'];
 
 // Define an array of messages corresponding to each step
 const stepMessages = [
-  <Stack spacing={2}><Item>I develop frontend webpages in ReactJS or Wordpress</Item></Stack>,
-  <Stack spacing={2}><Item>I also can work as a AWS Solution Architect and can build and deploy its services</Item></Stack>,
+  <Stack spacing={2}><Item>I can work DevOps based tools</Item></Stack>,
+  <Stack spacing={2}><Item>I work in cloud AWS/GCP?Azure</Item></Stack>,
   <Stack spacing={2}><Item>I am a freelancer who can take on smaller tasks as well</Item></Stack>,
 ];
 
