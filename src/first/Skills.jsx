@@ -21,13 +21,13 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const steps = ['DevOps', 'Cloud Services', 'Freelancer'];
+const steps = ['DevOps', 'Cloud Services', 'SystemAdmin'];
 
 // Define an array of messages corresponding to each step
 const stepMessages = [
   <Stack spacing={2}><Item>CICD/Kubernetes/Docker/Podman/ArgoCD/HelmCharts</Item></Stack>,
   <Stack spacing={2}><Item>AWS/GCP/Azure</Item></Stack>,
-  <Stack spacing={2}><Item>SySAdmin</Item></Stack>,
+  <Stack spacing={2}><Item>SySAdmin Linux/Windows</Item></Stack>,
 ];
 
 const centerStyle = {
