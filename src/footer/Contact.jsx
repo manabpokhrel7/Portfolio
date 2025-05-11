@@ -1,61 +1,90 @@
 import React from 'react';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
 import { useForm, ValidationError } from '@formspree/react';
-import TextField from '@mui/material/TextField';
-function ContactForm() {
+import {
+  Box,
+  Button,
+  Paper,
+  Stack,
+  TextField,
+  Alert,
+  CircularProgress
+} from '@mui/material';
+import { styled } from '@mui/material/styles';
+
+// Styled Paper for header text
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body1,
+  padding: theme.spacing(2),
+  textAlign: 'center',
+  color: theme.palette.text.primary,
+}));
+
+export default function ContactForm() {
   const [state, handleSubmit] = useForm("maygkdzr");
+
+  // Display success message
   if (state.succeeded) {
-      return <p>Thank You!</p>;
+    return (
+      <Box sx={{ maxWidth: 500, mx: 'auto', mt: 4, px: 2 }}>
+        <Alert severity="success">Thank you! Your message has been sent.</Alert>
+      </Box>
+    );
   }
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
+
   return (
-      <form onSubmit={handleSubmit}>
-       <Box sx={{ width: '100%' }}>
-      <Stack spacing={2}>
-        <Item>REACH OUT TO ME</Item><br></br>
-      </Stack>
-    </Box>
-    <TextField label="Your Email" variant="standard" placeholder="Your Email"
-        id="email"
-        type="email" 
-        name="email"/>
-      
-      <ValidationError 
-        prefix="Email" 
-        field="email"
-        errors={state.errors}
-      /><br></br><br></br>
-      <TextField
+    <Box
+      component="form"
+      onSubmit={handleSubmit}
+      sx={{
+        maxWidth: 500,
+        mx: 'auto',
+        mt: 4,
+        px: 2,
+        pb: 6,
+      }}
+    >
+      <Stack spacing={3}>
+        <Item>REACH OUT TO ME</Item>
+
+        <TextField
+          label="Your Email"
+          variant="standard"
+          placeholder="Enter your email"
+          id="email"
+          type="email"
+          name="email"
+          fullWidth
+          required
+        />
+        <ValidationError prefix="Email" field="email" errors={state.errors} />
+
+        <TextField
           id="message"
           name="message"
           label="Leave a message"
+          placeholder="Write your message here"
           multiline
-          maxRows={4}
+          rows={4}
+          fullWidth
+          required
         />
-      <ValidationError 
-        prefix="Message" 
-        field="message"
-        errors={state.errors}
-      /><br></br><br></br>
-      <Button variant="outlined" type="submit" disabled={state.submitting}>
-        Submit
-      </Button>
-    </form>
+        <ValidationError prefix="Message" field="message" errors={state.errors} />
+
+        <Box sx={{ textAlign: 'center' }}>
+          <Button
+            variant="outlined"
+            type="submit"
+            disabled={state.submitting}
+            sx={{ minWidth: 120 }}
+          >
+            {state.submitting ? (
+              <CircularProgress size={20} sx={{ mr: 1 }} />
+            ) : null}
+            {state.submitting ? "Sending..." : "Submit"}
+          </Button>
+        </Box>
+      </Stack>
+    </Box>
   );
 }
-function App() {
-  return (
-    <ContactForm />
-  );
-}
-export default App;
