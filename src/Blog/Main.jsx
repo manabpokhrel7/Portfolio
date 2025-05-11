@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Card, CardContent, CardMedia, Typography, Container } from '@mui/material';
 import cloudfrontImage from '../Images/cloudfront.png';
 import s3image from '../Images/s3image.webp';
+import selinux from './SELinux.png';
 
 const BlogMainPage = () => {
   const blogPosts = [
@@ -18,9 +19,10 @@ const BlogMainPage = () => {
       link: 'https://medium.com/@manabpokhrel7/hosting-a-static-website-on-amazon-s3-a-beginners-guide-3bd8ce47fc0f',
     },
     {
-      title: 'Incoming more blogs',
-      description: 'Tips and tricks ',
-      image: 'https://via.placeholder.com/300x200',
+      title: 'Configuring vsftpd for Anonymous FTP Uploads',
+      description: 'How to enable anonymous FTP uploads securely with SELinux settings.',
+      image: selinux,
+      link: 'https://medium.com/@manabpokhrel7/configuring-vsftpd-for-anonymous-ftp-uploads-with-selinux-booleans-0d8b4ef2ee3d',
     },
   ];
 
