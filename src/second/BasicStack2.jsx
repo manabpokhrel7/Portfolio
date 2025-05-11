@@ -19,10 +19,12 @@ export default function BasicStack2() {
   return (
     <Box sx={{ width: '100%' }}>
       <Stack spacing={2}>
-        <Item>AWS Cloud Services</Item>
+        <Item>Cloud Services</Item>
         <Item>CI/CD Pipelines</Item>
         <Item>Docker and Kubernetes</Item>
         <Item>Linux Scripting/Terraform/Ansible-Playbook</Item>
+        <Item>ArgoCD/Helm Charts</Item>
+        <Item>Version Control</Item>
       </Stack>
     </Box>
   );
