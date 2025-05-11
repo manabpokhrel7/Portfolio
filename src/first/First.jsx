@@ -9,10 +9,12 @@ import {
   Typography,
   Avatar,
   Grid,
-  Paper
+  Paper,
+  Container
 } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { SiGitlab } from 'react-icons/si';
 import profilePic from '../Images/profile.jpg';
 import project1Image from '../Images/project1.png';
 import project2Image from '../Images/project2.png';
@@ -27,67 +29,87 @@ function First() {
   };
 
   return (
-    <div className="first">
+    <div className="first" style={{ background: 'linear-gradient(180deg, #fff, #f8f8f8)' }}>
       <SlideInSection>
-        {/* Intro Section */}
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 5 }}>
-          <Avatar
-            alt="Manab Pokhrel"
-            src={profilePic}
-            sx={{ width: 130, height: 130, mb: 2, border: '3px solid #D70040' }}
-          />
-          <h1 style={{ color: "#000" }}>My Name is</h1>
+        <Container maxWidth="md" sx={{ mt: 6 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Avatar
+              alt="Manab Pokhrel"
+              src={profilePic}
+              sx={{
+                width: 130,
+                height: 130,
+                mb: 2,
+                border: '3px solid #D70040',
+                boxShadow: 3,
+              }}
+            />
+            <h1 style={{ color: "#000" }}>My Name is</h1>
 
-          {/* Animated Name */}
-          <div className="waviy">
-            <span style={{ '--i': 1 }}>M</span>
-            <span style={{ '--i': 2 }}>a</span>
-            <span style={{ '--i': 3 }}>n</span>
-            <span style={{ '--i': 4 }}>a</span>
-            <span style={{ '--i': 5 }}>b</span>&nbsp;&nbsp;
-            <span style={{ '--i': 1 }}>P</span>
-            <span style={{ '--i': 2 }}>o</span>
-            <span style={{ '--i': 3 }}>k</span>
-            <span style={{ '--i': 4 }}>h</span>
-            <span style={{ '--i': 5 }}>r</span>
-            <span style={{ '--i': 6 }}>e</span>
-            <span style={{ '--i': 7 }}>l</span>
-          </div>
+            {/* Animated Name */}
+            <div className="waviy">
+              <span style={{ '--i': 1 }}>M</span>
+              <span style={{ '--i': 2 }}>a</span>
+              <span style={{ '--i': 3 }}>n</span>
+              <span style={{ '--i': 4 }}>a</span>
+              <span style={{ '--i': 5 }}>b</span>&nbsp;&nbsp;
+              <span style={{ '--i': 1 }}>P</span>
+              <span style={{ '--i': 2 }}>o</span>
+              <span style={{ '--i': 3 }}>k</span>
+              <span style={{ '--i': 4 }}>h</span>
+              <span style={{ '--i': 5 }}>r</span>
+              <span style={{ '--i': 6 }}>e</span>
+              <span style={{ '--i': 7 }}>l</span>
+            </div>
 
-          {/* Subheading */}
-          <Typography variant="subtitle1" sx={{ mt: 1, color: '#555' }}>
-            DevOps • Cloud Services • System Admin
-          </Typography>
+            <Typography variant="subtitle1" sx={{ mt: 1, color: '#555' }}>
+              DevOps • Cloud Services • System Admin
+            </Typography>
 
-          {/* Social Media Icons */}
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 2 }}>
-            <a href="https://github.com/yourusername" target="_blank" rel="noreferrer">
-              <GitHubIcon fontSize="large" sx={{ color: '#000', '&:hover': { color: '#D70040' } }} />
-            </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer">
-              <LinkedInIcon fontSize="large" sx={{ color: '#0e76a8', '&:hover': { color: '#D70040' } }} />
-            </a>
+            {/* Social Media Icons */}
+            <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3, mt: 2 }}>
+              <a href="https://github.com/manabpokhrel7" target="_blank" rel="noreferrer">
+                <GitHubIcon fontSize="large" sx={{ color: '#000', transition: '0.3s', '&:hover': { color: '#D70040', transform: 'scale(1.2)' } }} />
+              </a>
+              <a href="https://gitlab.com/manabpokhrel7" target="_blank" rel="noreferrer">
+                <SiGitlab size={30} style={{ color: '#FC6D26', transition: '0.3s' }} onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.2)')} onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')} />
+              </a>
+              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer">
+                <LinkedInIcon fontSize="large" sx={{ color: '#0e76a8', transition: '0.3s', '&:hover': { color: '#D70040', transform: 'scale(1.2)' } }} />
+              </a>
+            </Box>
           </Box>
-        </Box>
 
-        {/* Skills Stepper */}
-        <HorizontalNonLinearStepper />
+          {/* Skills Stepper */}
+          <HorizontalNonLinearStepper />
 
-        {/* Scroll Button */}
-        <Button
-          variant="outlined"
-          size="large"
-          style={{ color: "#D70040", marginBottom: '5%', marginTop: '2%' }}
-          onClick={handleScroll}
-          className="custom-button"
-        >
-          SEE PORTFOLIO
-        </Button>
+          {/* Scroll Button */}
+          <Box sx={{ textAlign: 'center' }}>
+            <Button
+              variant="outlined"
+              size="large"
+              sx={{
+                color: "#D70040",
+                borderColor: "#D70040",
+                mt: 4,
+                mb: 6,
+                '&:hover': {
+                  backgroundColor: "#D70040",
+                  color: "#fff",
+                  borderColor: "#D70040"
+                }
+              }}
+              onClick={handleScroll}
+            >
+              SEE PORTFOLIO
+            </Button>
+          </Box>
+        </Container>
       </SlideInSection>
 
       {/* Portfolio Section */}
       <div ref={aboutRef}>
-        <Box sx={{ padding: 4, backgroundColor: '#f5f5f5' }}>
+        <Container maxWidth="lg" sx={{ py: 6, backgroundColor: '#f5f5f5' }}>
           <Typography variant="h4" align="center" gutterBottom>
             Portfolio
           </Typography>
@@ -95,7 +117,7 @@ function First() {
             {/* Project 1 */}
             <Grid item xs={12} sm={6} md={4}>
               <a
-                href="https://github.com/yourusername/project1"
+                href="https://github.com/manabpokhrel7/project1"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: 'none' }}
@@ -130,7 +152,7 @@ function First() {
             {/* Project 2 */}
             <Grid item xs={12} sm={6} md={4}>
               <a
-                href="https://yourprojecturl.com"
+                href="https://gitlab.com/manabpokhrel7/project2"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: 'none' }}
@@ -162,7 +184,25 @@ function First() {
               </a>
             </Grid>
           </Grid>
-        </Box>
+
+          {/* View All Projects Button */}
+          <Box sx={{ textAlign: 'center', mt: 5 }}>
+            <Button
+              variant="contained"
+              color="secondary"
+              href="https://gitlab.com/manabpokhrel7"
+              target="_blank"
+              sx={{
+                backgroundColor: '#FC6D26',
+                '&:hover': {
+                  backgroundColor: '#e65c1c'
+                }
+              }}
+            >
+              View All Projects on GitLab
+            </Button>
+          </Box>
+        </Container>
       </div>
     </div>
   );
