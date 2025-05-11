@@ -13,21 +13,26 @@ import About from './second/About';
 import Port from './four(My Portfolio)/Port';
 import Contactform from './footer/Contactform';
 import BlogMainPage from './Blog/Main';
+import { Fade } from '@mui/material';
 
 export default function FixedBottomNavigation() {
   const [value, setValue] = React.useState(0);
   const ref = React.useRef(null);
 
-  // Conditional rendering based on the selected value
   const renderContent = () => {
     switch (value) {
       case 0:
-        return <><First /><About /></>;
+        return (
+          <>
+            <First />
+            <About />
+          </>
+        );
       case 1:
         return <Port />;
       case 2:
         return <Contactform />;
-        case 3:
+      case 3:
         return <BlogMainPage />;
       default:
         return null;
@@ -35,14 +40,22 @@ export default function FixedBottomNavigation() {
   };
 
   React.useEffect(() => {
-    ref.current.ownerDocument.body.scrollTop = 0;
-    // You can set messages or other data here if needed
+    // Scroll to top on tab switch
+    if (ref.current) {
+      ref.current.ownerDocument.body.scrollTop = 0;
+    }
   }, [value]);
 
   return (
-    <Box sx={{ pb: 7 }} ref={ref}>
+    <Box sx={{ pb: 9 }} ref={ref}>
       <CssBaseline />
-      {renderContent()} {/* Render content based on the selected value */}
+
+      {/* Animated content on change */}
+      <Fade in timeout={300}>
+        <div>{renderContent()}</div>
+      </Fade>
+
+      {/* Fixed bottom navbar */}
       <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
         <BottomNavigation
           showLabels

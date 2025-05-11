@@ -52,3 +52,33 @@
     flex: 1;
   }
 }
+
+
+.aboutcontainer {
+  padding: 40px 20px;
+}
+
+.content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.left, .right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.rounded-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.rounded-image:hover {
+  transform: scale(1.03);
+}
