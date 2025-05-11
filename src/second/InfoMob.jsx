@@ -77,8 +77,8 @@ export default function FullWidthTabs() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-        My Name is Manab Pokhrel. 
-DevOps Engineer with hands-on experience in CI/CD automation, infrastructure as code, and container orchestration. Skilled in deploying Dockerized applications to Kubernetes (EKS/AKS/local), managing cloud infrastructure with Terraform and Ansible, and integrating GitLab/GitHub pipelines. Experienced with Helm and Argo CD for GitOps-based deployments.        <TabPanel value={value} index={1} dir={theme.direction}>
+        My Name is Manab Pokhrel. DevOps Engineer with hands-on experience in CI/CD automation, infrastructure as code, and container orchestration. Skilled in deploying Dockerized applications to Kubernetes (EKS/AKS/local), managing cloud infrastructure with Terraform and Ansible, and integrating GitLab/GitHub pipelines. Experienced with Helm and Argo CD for GitOps-based deployments.   </TabPanel>
+        <TabPanel value={value} index={1} dir={theme.direction}>
         <BasicStack2 />
         </TabPanel> 
         <TabPanel value={value} index={2} dir={theme.direction}>
