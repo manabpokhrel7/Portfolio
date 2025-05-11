@@ -5,9 +5,9 @@ import Step from '@mui/material/Step';
 import StepButton from '@mui/material/StepButton';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import WebIcon from '@mui/icons-material/Web';
+import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 import CloudIcon from '@mui/icons-material/Cloud';
-import Diversity1Icon from '@mui/icons-material/Diversity1';
+import TerminalIcon from '@mui/icons-material/Terminal';
 import './Skills.css';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -86,11 +86,11 @@ export default function HorizontalNonLinearStepper() {
                   onClick={handleStep(index)}
                   icon={
                     index === 0 ? (
-                      <WebIcon fontSize="large" color={activeStep === index ? 'primary' : 'inherit'} />
+                      <DeveloperModeIcon fontSize="large" color={activeStep === index ? 'primary' : 'inherit'} />
                     ) : index === 1 ? (
                       <CloudIcon fontSize="large" color={activeStep === index ? 'primary' : 'inherit'} />
                     ) : index === 2 ? (
-                      <Diversity1Icon fontSize="large" color={activeStep === index ? 'primary' : 'inherit'} />
+                      <TerminalIcon fontSize="large" color={activeStep === index ? 'primary' : 'inherit'} />
                     ) : null
                   }
                 >
