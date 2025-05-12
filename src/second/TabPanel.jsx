@@ -1,7 +1,6 @@
 import React from 'react';
-import { Tabs, Tab, Box, Typography } from '@mui/material';
+import { Tabs, Tab, Box, Typography, useTheme } from '@mui/material';
 
-// Sample tab content (can be from an API later)
 const tabData = [
   {
     label: 'Experience',
@@ -18,6 +17,7 @@ const tabData = [
 ];
 
 const DynamicTabPanel = () => {
+  const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -39,8 +39,17 @@ const DynamicTabPanel = () => {
           <Tab key={index} label={tab.label} />
         ))}
       </Tabs>
-      <Box sx={{ padding: 2, minHeight: '100px' }}>
-        <Typography variant="body1" color="text.primary">
+      <Box
+        sx={{
+          padding: 3,
+          borderRadius: 2,
+          backgroundColor: theme.palette.mode === 'dark'
+            ? theme.palette.background.paper
+            : '#f0f0f0',
+          transition: 'background-color 0.3s ease',
+        }}
+      >
+        <Typography variant="body1">
           {tabData[value].content}
         </Typography>
       </Box>

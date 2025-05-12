@@ -12,6 +12,7 @@ import {
   Paper,
   Container
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { SiGitlab } from 'react-icons/si';
@@ -21,6 +22,7 @@ import project2Image from '../Images/project2.png';
 
 function First() {
   const aboutRef = useRef(null);
+  const theme = useTheme();
 
   const handleScroll = () => {
     if (aboutRef.current) {
@@ -29,7 +31,15 @@ function First() {
   };
 
   return (
-    <div className="first" style={{ background: 'linear-gradient(180deg, #fff, #f8f8f8)' }}>
+    <div
+      className="first"
+      style={{
+        background:
+          theme.palette.mode === 'dark'
+            ? theme.palette.background.default
+            : 'linear-gradient(180deg, #fff, #f8f8f8)',
+      }}
+    >
       <SlideInSection>
         <Container maxWidth="md" sx={{ mt: 6 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -44,9 +54,7 @@ function First() {
                 boxShadow: 3,
               }}
             />
-            <h1 style={{ color: "#000" }}>My Name is</h1>
-
-            {/* Animated Name */}
+            <h1>My Name is</h1>
             <div className="waviy">
               <span style={{ '--i': 1 }}>M</span>
               <span style={{ '--i': 2 }}>a</span>
@@ -61,12 +69,9 @@ function First() {
               <span style={{ '--i': 6 }}>e</span>
               <span style={{ '--i': 7 }}>l</span>
             </div>
-
             <Typography variant="subtitle1" sx={{ mt: 1, color: '#555' }}>
               DevOps • Cloud Services • System Admin
             </Typography>
-
-            {/* Social Media Icons */}
             <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3, mt: 2 }}>
               <a href="https://github.com/manabpokhrel7" target="_blank" rel="noreferrer">
                 <GitHubIcon fontSize="large" sx={{ color: '#000', transition: '0.3s', '&:hover': { color: '#D70040', transform: 'scale(1.2)' } }} />
@@ -80,24 +85,22 @@ function First() {
             </Box>
           </Box>
 
-          {/* Skills Stepper */}
           <HorizontalNonLinearStepper />
 
-          {/* Scroll Button */}
           <Box sx={{ textAlign: 'center' }}>
             <Button
               variant="outlined"
               size="large"
               sx={{
-                color: "#D70040",
-                borderColor: "#D70040",
+                color: '#D70040',
+                borderColor: '#D70040',
                 mt: 4,
                 mb: 6,
                 '&:hover': {
-                  backgroundColor: "#D70040",
-                  color: "#fff",
-                  borderColor: "#D70040"
-                }
+                  backgroundColor: '#D70040',
+                  color: '#fff',
+                  borderColor: '#D70040',
+                },
               }}
               onClick={handleScroll}
             >
@@ -107,14 +110,12 @@ function First() {
         </Container>
       </SlideInSection>
 
-      {/* Portfolio Section */}
       <div ref={aboutRef}>
-        <Container maxWidth="lg" sx={{ py: 6, backgroundColor: '#f5f5f5' }}>
+        <Container maxWidth="lg" sx={{ py: 6, backgroundColor: theme.palette.background.paper }}>
           <Typography variant="h4" align="center" gutterBottom>
             Portfolio
           </Typography>
           <Grid container spacing={4} justifyContent="center">
-            {/* Project 1 */}
             <Grid item xs={12} sm={6} md={4}>
               <a
                 href="https://github.com/manabpokhrel7/project1"
@@ -149,7 +150,6 @@ function First() {
               </a>
             </Grid>
 
-            {/* Project 2 */}
             <Grid item xs={12} sm={6} md={4}>
               <a
                 href="https://gitlab.com/manabpokhrel7/project2"
@@ -185,7 +185,6 @@ function First() {
             </Grid>
           </Grid>
 
-          {/* View All Projects Button */}
           <Box sx={{ textAlign: 'center', mt: 5 }}>
             <Button
               variant="contained"
@@ -195,8 +194,8 @@ function First() {
               sx={{
                 backgroundColor: '#FC6D26',
                 '&:hover': {
-                  backgroundColor: '#e65c1c'
-                }
+                  backgroundColor: '#e65c1c',
+                },
               }}
             >
               View All Projects on GitLab
