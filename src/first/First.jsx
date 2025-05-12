@@ -54,7 +54,6 @@ function First() {
                 boxShadow: 3,
               }}
             />
-            <h1>My Name is</h1>
             <div className="waviy">
               <span style={{ '--i': 1 }}>M</span>
               <span style={{ '--i': 2 }}>a</span>
