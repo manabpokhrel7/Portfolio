@@ -13,9 +13,9 @@ import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
 import Grow from '@mui/material/Grow';
-import './Skills.css'; // You can still use this for custom CSS
+import './Skills.css';
 
-// Styled Paper component for consistent skill item display
+// Styled Paper component
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -24,10 +24,8 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-// Steps shown in the stepper
 const steps = ['DevOps', 'Cloud Services', 'SystemAdmin'];
 
-// Messages for each step including icons & tooltips
 const stepMessages = [
   <Grow in={true} timeout={500}>
     <Stack spacing={2}>
@@ -78,20 +76,6 @@ const stepMessages = [
   </Grow>
 ];
 
-// Center styles for layout
-const centerStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-};
-
-const mobileCentered = {
-  width: '100%',
-  margin: 'auto',
-};
-
-// Main component
 export default function HorizontalNonLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
@@ -112,24 +96,26 @@ export default function HorizontalNonLinearStepper() {
   return (
     <Box
       sx={{
-        ...centerStyle,
-        ...(window.innerWidth < 600 ? mobileCentered : null),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
+        mt: 4,
       }}
     >
-      <Box sx={{ width: '90%', maxWidth: '600px', marginTop: '5%' }}>
-        {/* Stepper with icons */}
-        <Stepper nonLinear activeStep={activeStep} alternativeLabel>
+      <Box sx={{ width: '100%', maxWidth: 600 }}>
+        <Stepper
+          nonLinear
+          activeStep={activeStep}
+          alternativeLabel
+          sx={{
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            gap: 2,
+          }}
+        >
           {steps.map((label, index) => (
-            <Step
-              key={label}
-              completed={completed[index]}
-              sx={{
-                '@media (max-width: 600px)': {
-                  position: 'relative',
-                  right: '15%',
-                },
-              }}
-            >
+            <Step key={label} completed={completed[index]}>
               <StepButton
                 color="inherit"
                 onClick={handleStep(index)}
@@ -158,10 +144,9 @@ export default function HorizontalNonLinearStepper() {
           ))}
         </Stepper>
 
-        {/* Step content display */}
         <Box sx={{ mt: 3 }}>
           {allStepsCompleted() ? (
-            <React.Fragment>
+            <>
               <Typography sx={{ mt: 2, mb: 1 }}>
                 All steps completed — you're finished!
               </Typography>
@@ -169,7 +154,7 @@ export default function HorizontalNonLinearStepper() {
                 <Box sx={{ flex: '1 1 auto' }} />
                 <Button onClick={handleReset}>Reset</Button>
               </Box>
-            </React.Fragment>
+            </>
           ) : (
             <Typography component="div" sx={{ mt: 2, mb: 1, py: 1 }}>
               {stepMessages[activeStep]}
