@@ -1,8 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './First.css';
 import './Manabtext.css';
-import SlideInSection from '../SlideInSection';
-import Button from '@mui/material/Button';
 import HorizontalNonLinearStepper from './Skills';
 import {
   Box,
@@ -14,6 +12,8 @@ import {
   Dialog,
   DialogContent,
   IconButton,
+  Button,
+  Fade,
   useTheme,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
@@ -21,16 +21,15 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { SiGitlab } from 'react-icons/si';
 import profilePic from '../Images/profile.png';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 function First() {
   const aboutRef = useRef(null);
   const theme = useTheme();
   const [openImage, setOpenImage] = useState(false);
+  const [fadeIn, setFadeIn] = useState(false);
 
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    setFadeIn(true); // triggers fade on mount
   }, []);
 
   const handleScroll = () => {
@@ -40,16 +39,16 @@ function First() {
   };
 
   return (
-    <div className="first" style={{ background: theme.palette.background.default }}>
-      <SlideInSection>
-        <Container maxWidth="md" sx={{ mt: 6 }}>
+    <div className="first" style={{ background: theme.palette.background.default, minHeight: '100vh' }}>
+      <Fade in={fadeIn} timeout={500}>
+        <Container maxWidth="md" sx={{ mt: 2 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Avatar
-              alt="Manab Pokhrel"
+              alt="Portrait of Manab Pokhrel"
               src={profilePic}
               sx={{
-                width: 130,
-                height: 130,
+                width: { xs: 100, sm: 130 },
+                height: { xs: 100, sm: 130 },
                 mb: 2,
                 boxShadow: 3,
                 cursor: 'pointer',
@@ -60,7 +59,7 @@ function First() {
             <Dialog open={openImage} onClose={() => setOpenImage(false)} maxWidth="sm" fullWidth>
               <DialogContent sx={{ position: 'relative', p: 0 }}>
                 <IconButton
-                  aria-label="close"
+                  aria-label="Close image preview"
                   onClick={() => setOpenImage(false)}
                   sx={{
                     position: 'absolute',
@@ -75,56 +74,28 @@ function First() {
                 </IconButton>
                 <img
                   src={profilePic}
-                  alt="Manab Pokhrel Large"
+                  alt="Larger portrait of Manab Pokhrel"
+                  loading="lazy"
                   style={{ width: '100%', height: 'auto', display: 'block' }}
                 />
               </DialogContent>
             </Dialog>
 
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'center',
-                fontFamily: 'Raleway, sans-serif',
-                fontSize: '2rem',
-                fontWeight: 600,
-                color: '#D70040',
-                marginTop: '16px',
-                userSelect: 'none',
-                WebkitBoxReflect: 'below 1px linear-gradient(transparent, rgba(0, 0, 0, 0.2))',
-              }}
-            >
+            <div className="wave-text">
               {'Manab Pokhrel'.split('').map((char, i) => (
                 <span
                   key={i}
-                  style={{
-                    display: 'inline-block',
-                    animation: 'wave 1.5s infinite',
-                    animationDelay: `${i * 0.1}s`,
-                  }}
+                  className="wave-char"
+                  style={{ animationDelay: `${i * 0.1}s` }}
                 >
                   {char === ' ' ? '\u00A0' : char}
                 </span>
               ))}
             </div>
 
-            <style>
-              {`
-                @keyframes wave {
-                  0%, 60%, 100% {
-                    transform: translateY(0);
-                  }
-                  30% {
-                    transform: translateY(-8px);
-                  }
-                }
-              `}
-            </style>
-
             <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2, mt: 2 }}>
               <Tooltip title="GitHub" arrow>
-                <a href="https://github.com/manabpokhrel7" target="_blank" rel="noreferrer">
+                <a href="https://github.com/manabpokhrel7" target="_blank" rel="noreferrer" aria-label="GitHub Profile">
                   <GitHubIcon
                     fontSize="large"
                     sx={{
@@ -140,7 +111,7 @@ function First() {
               </Tooltip>
 
               <Tooltip title="GitLab" arrow>
-                <a href="https://gitlab.com/users/manabpokhrel7/projects" target="_blank" rel="noreferrer">
+                <a href="https://gitlab.com/users/manabpokhrel7/projects" target="_blank" rel="noreferrer" aria-label="GitLab Projects">
                   <SiGitlab
                     size={30}
                     style={{
@@ -154,7 +125,7 @@ function First() {
               </Tooltip>
 
               <Tooltip title="LinkedIn" arrow>
-                <a href="https://www.linkedin.com/in/manab-pokhrel/" target="_blank" rel="noreferrer">
+                <a href="https://www.linkedin.com/in/manab-pokhrel/" target="_blank" rel="noreferrer" aria-label="LinkedIn Profile">
                   <LinkedInIcon
                     fontSize="large"
                     sx={{
@@ -174,6 +145,7 @@ function First() {
                 size="small"
                 href="https://docs.google.com/document/d/1db9Q4XpLDRNKhTeN0RUa4Ff9rhNBuT3nVlyyHbCjekA/edit?usp=sharing"
                 target="_blank"
+                className="custom-button"
                 sx={{
                   color: '#D70040',
                   borderColor: '#D70040',
@@ -194,6 +166,8 @@ function First() {
             <Button
               variant="outlined"
               size="large"
+              className="custom-button"
+              onClick={handleScroll}
               sx={{
                 color: '#D70040',
                 borderColor: '#D70040',
@@ -204,21 +178,21 @@ function First() {
                   color: '#fff',
                 },
               }}
-              onClick={handleScroll}
             >
               SEE PORTFOLIO
             </Button>
           </Box>
         </Container>
-      </SlideInSection>
+      </Fade>
 
+      {/* PORTFOLIO SECTION - NO DELAY */}
       <div ref={aboutRef}>
         <Container maxWidth="lg" sx={{ py: 6, backgroundColor: theme.palette.background.paper }}>
           <Typography variant="h4" align="center" gutterBottom>
             Portfolio
           </Typography>
           <Grid container spacing={4} justifyContent="center">
-            {/* You can add animated project cards here */}
+            {/* Add your animated project cards here */}
           </Grid>
         </Container>
       </div>
