@@ -1,38 +1,25 @@
+
 @import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
 
-html, body, #root {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow-x: hidden;
-}
-
-.first {
-  padding-top: 16px;
-}
-
+@media (max-width: 768px) {
+/* In your CSS file */
 .hide-on-mobile {
   display: none;
 }
-
-@media (min-width: 769px) {
-  .hide-on-mobile {
-    display: block;
-  }
 }
 
-.custom-button {
-  margin-top: 24px;
-  margin-bottom: 24px;
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeLarge.MuiButton-outlinedSizeLarge.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeLarge.MuiButton-outlinedSizeLarge.custom-button.css-9y1egq-MuiButtonBase-root-MuiButton-root{
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
-
 #container {
   position: relative;
-  margin: 0;
+  margin: none;
   width: 100vw;
-  height: 100px;
+	height: 100px;
   top: 0;
   bottom: 0;
+
   filter: url(#threshold) blur(0.6px);
 }
 
@@ -40,11 +27,17 @@ html, body, #root {
 #text2 {
   position: absolute;
   width: 100%;
-  left: 0;
+  display: inline-block;
+  left: 0; /* Adjust the left position */
   top: 10%;
   font-family: "Raleway", sans-serif;
   font-size: 80pt;
+	margin: none!important;
   text-align: center;
+
   user-select: none;
-  margin: 0 !important;
+}
+
+.first{
+  padding-top: 1%;
 }

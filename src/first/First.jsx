@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
-import './First.css';
-import './Manabtext.css';
+import './First.css';        // Cleaned base styles
+import './Manabtext.css';    // Wave animation styles
+import SlideInSection from '../SlideInSection';
 import HorizontalNonLinearStepper from './Skills';
 import {
   Box,
@@ -13,7 +14,6 @@ import {
   DialogContent,
   IconButton,
   Button,
-  Fade,
   useTheme,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
@@ -21,15 +21,16 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { SiGitlab } from 'react-icons/si';
 import profilePic from '../Images/profile.png';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function First() {
   const aboutRef = useRef(null);
   const theme = useTheme();
   const [openImage, setOpenImage] = useState(false);
-  const [fadeIn, setFadeIn] = useState(false);
 
   useEffect(() => {
-    setFadeIn(true); // triggers fade on mount
+    AOS.init({ duration: 1000 });
   }, []);
 
   const handleScroll = () => {
@@ -40,7 +41,7 @@ function First() {
 
   return (
     <div className="first" style={{ background: theme.palette.background.default, minHeight: '100vh' }}>
-      <Fade in={fadeIn} timeout={500}>
+      <SlideInSection>
         <Container maxWidth="md" sx={{ mt: 2 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Avatar
@@ -183,9 +184,8 @@ function First() {
             </Button>
           </Box>
         </Container>
-      </Fade>
+      </SlideInSection>
 
-      {/* PORTFOLIO SECTION - NO DELAY */}
       <div ref={aboutRef}>
         <Container maxWidth="lg" sx={{ py: 6, backgroundColor: theme.palette.background.paper }}>
           <Typography variant="h4" align="center" gutterBottom>
