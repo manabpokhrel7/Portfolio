@@ -27,7 +27,7 @@ import {
   SiMysql,
   SiWordpress
 } from 'react-icons/si';
-import profilePic from '../Images/profile.jpg';
+import profilePic from '../Images/profile.png';
 import project1Image from '../Images/project1.png';
 import project2Image from '../Images/project2.png';
 import AOS from 'aos';
