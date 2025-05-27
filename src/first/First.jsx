@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './First.css';
 import './Manabtext.css';
 import SlideInSection from '../SlideInSection';
@@ -12,9 +12,13 @@ import {
   Paper,
   Container,
   Tooltip,
-  useMediaQuery
+  useMediaQuery,
+  Dialog,
+  DialogContent,
+  IconButton
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import CloseIcon from '@mui/icons-material/Close';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import {
@@ -37,6 +41,8 @@ function First() {
   const aboutRef = useRef(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const [openImage, setOpenImage] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -61,6 +67,7 @@ function First() {
       <SlideInSection>
         <Container maxWidth="md" sx={{ mt: 6 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            {/* Avatar (clickable) */}
             <Avatar
               alt="Manab Pokhrel"
               src={profilePic}
@@ -70,8 +77,38 @@ function First() {
                 mb: 2,
                 border: '3px solid #D70040',
                 boxShadow: 3,
+                cursor: 'pointer',
               }}
+              onClick={() => setOpenImage(true)}
             />
+
+            {/* Full-size modal dialog */}
+            <Dialog open={openImage} onClose={() => setOpenImage(false)} maxWidth="sm" fullWidth>
+              <DialogContent sx={{ position: 'relative', p: 0 }}>
+                <IconButton
+                  aria-label="close"
+                  onClick={() => setOpenImage(false)}
+                  sx={{
+                    position: 'absolute',
+                    top: 10,
+                    right: 10,
+                    color: '#fff',
+                    background: 'rgba(0,0,0,0.5)',
+                    '&:hover': {
+                      background: 'rgba(0,0,0,0.7)',
+                    },
+                  }}
+                >
+                  <CloseIcon />
+                </IconButton>
+                <img
+                  src={profilePic}
+                  alt="Manab Pokhrel Large"
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                />
+              </DialogContent>
+            </Dialog>
+
             <div className="waviy">
               <span style={{ '--i': 1 }}>M</span>
               <span style={{ '--i': 2 }}>a</span>
@@ -87,6 +124,9 @@ function First() {
               <span style={{ '--i': 7 }}>l</span>
             </div>
 
+            <Typography variant="subtitle1" sx={{ mt: 1, color: '#555' }}>
+              DevOps • Cloud Services • System Admin
+            </Typography>
 
             <Box
               sx={{
@@ -184,6 +224,7 @@ function First() {
         </Container>
       </SlideInSection>
 
+      {/* Portfolio Section */}
       <div ref={aboutRef}>
         <Container maxWidth="lg" sx={{ py: 6, backgroundColor: theme.palette.background.paper }}>
           <Typography variant="h4" align="center" gutterBottom>
