@@ -7,12 +7,11 @@ import {
   ThemeProvider,
   createTheme,
   Box,
-  Switch,
-  FormControlLabel,
+  Button,
 } from '@mui/material';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true); // Dark mode is default
 
   const theme = useMemo(() =>
     createTheme({
@@ -31,14 +30,15 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-      {/* Dark Mode Toggle in top-right corner */}
+      {/* Dark Mode Toggle Button in top-right corner */}
       <Box sx={{ position: 'fixed', top: 10, right: 10, zIndex: 1300 }}>
-        <FormControlLabel
-          control={
-            <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
-          }
-          label="Dark Mode"
-        />
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          {darkMode ? 'Dark Mode: ON' : 'Dark Mode: OFF'}
+        </Button>
       </Box>
 
       <div className="App">

@@ -27,7 +27,6 @@ import 'aos/dist/aos.css';
 function First() {
   const aboutRef = useRef(null);
   const theme = useTheme();
-
   const [openImage, setOpenImage] = useState(false);
 
   useEffect(() => {
@@ -46,18 +45,17 @@ function First() {
         <Container maxWidth="md" sx={{ mt: 6 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Avatar
-  alt="Manab Pokhrel"
-  src={profilePic}
-  sx={{
-    width: 130,
-    height: 130,
-    mb: 2,
-    boxShadow: 3,
-    cursor: 'pointer',
-  }}
-  onClick={() => setOpenImage(true)}
-/>
-
+              alt="Manab Pokhrel"
+              src={profilePic}
+              sx={{
+                width: 130,
+                height: 130,
+                mb: 2,
+                boxShadow: 3,
+                cursor: 'pointer',
+              }}
+              onClick={() => setOpenImage(true)}
+            />
 
             <Dialog open={openImage} onClose={() => setOpenImage(false)} maxWidth="sm" fullWidth>
               <DialogContent sx={{ position: 'relative', p: 0 }}>
@@ -84,48 +82,45 @@ function First() {
             </Dialog>
 
             <div
-  style={{
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    fontFamily: 'Raleway, sans-serif',
-    fontSize: '2rem',
-    fontWeight: 600,
-    color: '#D70040',
-    marginTop: '16px',
-    userSelect: 'none',
-    WebkitBoxReflect: 'below 1px linear-gradient(transparent, rgba(0, 0, 0, 0.2))',
-  }}
->
-  {'Manab Pokhrel'.split('').map((char, i) => (
-    <span
-      key={i}
-      style={{
-        display: 'inline-block',
-        animation: 'wave 1.5s infinite',
-        animationDelay: `${i * 0.1}s`,
-      }}
-    >
-      {char === ' ' ? '\u00A0' : char}
-    </span>
-  ))}
-</div>
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                fontFamily: 'Raleway, sans-serif',
+                fontSize: '2rem',
+                fontWeight: 600,
+                color: '#D70040',
+                marginTop: '16px',
+                userSelect: 'none',
+                WebkitBoxReflect: 'below 1px linear-gradient(transparent, rgba(0, 0, 0, 0.2))',
+              }}
+            >
+              {'Manab Pokhrel'.split('').map((char, i) => (
+                <span
+                  key={i}
+                  style={{
+                    display: 'inline-block',
+                    animation: 'wave 1.5s infinite',
+                    animationDelay: `${i * 0.1}s`,
+                  }}
+                >
+                  {char === ' ' ? '\u00A0' : char}
+                </span>
+              ))}
+            </div>
 
-<style>
-  {`
-    @keyframes wave {
-      0%, 60%, 100% {
-        transform: translateY(0);
-      }
-      30% {
-        transform: translateY(-8px);
-      }
-    }
-  `}
-</style>
-
-
-
+            <style>
+              {`
+                @keyframes wave {
+                  0%, 60%, 100% {
+                    transform: translateY(0);
+                  }
+                  30% {
+                    transform: translateY(-8px);
+                  }
+                }
+              `}
+            </style>
 
             <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2, mt: 2 }}>
               <Tooltip title="GitHub" arrow>
@@ -133,9 +128,12 @@ function First() {
                   <GitHubIcon
                     fontSize="large"
                     sx={{
-                      color: '#000',
+                      color: theme.palette.mode === 'dark' ? '#ffffff' : '#000000',
                       transition: '0.3s',
-                      '&:hover': { color: '#D70040', transform: 'scale(1.2)' },
+                      '&:hover': {
+                        color: '#D70040',
+                        transform: 'scale(1.2)',
+                      },
                     }}
                   />
                 </a>
@@ -162,7 +160,10 @@ function First() {
                     sx={{
                       color: '#0e76a8',
                       transition: '0.3s',
-                      '&:hover': { color: '#D70040', transform: 'scale(1.2)' },
+                      '&:hover': {
+                        color: '#D70040',
+                        transform: 'scale(1.2)',
+                      },
                     }}
                   />
                 </a>
