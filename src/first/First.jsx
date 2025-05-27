@@ -46,18 +46,18 @@ function First() {
         <Container maxWidth="md" sx={{ mt: 6 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Avatar
-              alt="Manab Pokhrel"
-              src={profilePic}
-              sx={{
-                width: 130,
-                height: 130,
-                mb: 2,
-                border: '3px solid #D70040',
-                boxShadow: 3,
-                cursor: 'pointer',
-              }}
-              onClick={() => setOpenImage(true)}
-            />
+  alt="Manab Pokhrel"
+  src={profilePic}
+  sx={{
+    width: 130,
+    height: 130,
+    mb: 2,
+    boxShadow: 3,
+    cursor: 'pointer',
+  }}
+  onClick={() => setOpenImage(true)}
+/>
+
 
             <Dialog open={openImage} onClose={() => setOpenImage(false)} maxWidth="sm" fullWidth>
               <DialogContent sx={{ position: 'relative', p: 0 }}>
@@ -94,6 +94,7 @@ function First() {
     color: '#D70040',
     marginTop: '16px',
     userSelect: 'none',
+    WebkitBoxReflect: 'below 1px linear-gradient(transparent, rgba(0, 0, 0, 0.2))',
   }}
 >
   {'Manab Pokhrel'.split('').map((char, i) => (
@@ -122,6 +123,7 @@ function First() {
     }
   `}
 </style>
+
 
 
 
