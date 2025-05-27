@@ -8,28 +8,29 @@ import Box from '@mui/material/Box';
 import './Contact.css';
 import BasicMenu from './Social';
 
-const cardStyle = {
-  minWidth: 275,
-};
-
 const linkStyle = {
-  textDecoration: 'none', // Remove underline
-  color: '#4285F4', // Inherit the color from the parent element
-};
-
-const boxStyle = {
-  backgroundImage: 'url("card.jpeg")', // Use the file name directly
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  color: 'white', // Text color on top of the background image
+  textDecoration: 'none',
+  color: '#4285F4',
 };
 
 export default function BasicCard() {
   const email = 'manabpokhrel7@gmail.com';
 
   return (
-    <Box sx={boxStyle}>
-      <Card sx={cardStyle}>
+    <Box
+      sx={{
+        backgroundImage: 'url("card.jpeg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        color: 'white',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 4,
+        minHeight: '300px', // Ensures enough space for vertical centering
+      }}
+    >
+      <Card sx={{ minWidth: 275, width: '100%', maxWidth: 400, boxShadow: 6 }}>
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             ContactME
@@ -44,7 +45,7 @@ export default function BasicCard() {
             </a>
           </Typography>
         </CardContent>
-        <CardActions>
+        <CardActions sx={{ justifyContent: 'center' }}>
           <BasicMenu />
         </CardActions>
       </Card>
