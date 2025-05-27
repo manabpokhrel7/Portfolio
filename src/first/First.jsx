@@ -17,7 +17,16 @@ import {
 import { useTheme } from '@mui/material/styles';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { SiGitlab, SiTerraform, SiAnsible, SiDocker, SiHelm, SiKubernetes, SiMysql, SiWordpress } from 'react-icons/si';
+import {
+  SiGitlab,
+  SiTerraform,
+  SiAnsible,
+  SiDocker,
+  SiHelm,
+  SiKubernetes,
+  SiMysql,
+  SiWordpress
+} from 'react-icons/si';
 import profilePic from '../Images/profile.jpg';
 import project1Image from '../Images/project1.png';
 import project2Image from '../Images/project2.png';
@@ -133,7 +142,7 @@ function First() {
               <Button
                 variant="outlined"
                 size="small"
-                href="/Manab_Pokhrel_Resume.pdf"
+                href="https://docs.google.com/document/d/1db9Q4XpLDRNKhTeN0RUa4Ff9rhNBuT3nVlyyHbCjekA/edit?usp=sharing"
                 target="_blank"
                 sx={{
                   ml: isMobile ? 0 : 2,
@@ -147,7 +156,7 @@ function First() {
                   },
                 }}
               >
-                Download Resume
+                View Resume
               </Button>
             </Box>
           </Box>
@@ -183,7 +192,6 @@ function First() {
             Portfolio
           </Typography>
           <Grid container spacing={4} justifyContent="center">
-            {/* Project 1 */}
             <Grid item xs={12} sm={6} md={4} data-aos="fade-up">
               <a
                 href="https://gitlab.com/manabpokhrel7/terraform-ansible-ec2-selfhostedrunner"
@@ -228,7 +236,6 @@ function First() {
               </a>
             </Grid>
 
-            {/* Project 2 */}
             <Grid item xs={12} sm={6} md={4} data-aos="fade-up" data-aos-delay="200">
               <a
                 href="https://gitlab.com/manabpokhrel7/helm-wp-mysql"
@@ -275,7 +282,6 @@ function First() {
             </Grid>
           </Grid>
 
-          {/* View All Projects Button */}
           <Box sx={{ textAlign: 'center', mt: 5 }}>
             <Button
               variant="contained"
