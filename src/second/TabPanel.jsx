@@ -1,5 +1,6 @@
+// TabPanel.js
 import React from 'react';
-import { Tabs, Tab, Box, Typography, useTheme, Paper } from '@mui/material';
+import { Tabs, Tab, Box, Typography, useTheme, Paper, useMediaQuery } from '@mui/material';
 
 const tabData = [
   {
@@ -18,6 +19,7 @@ const tabData = [
 
 const DynamicTabPanel = () => {
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -31,8 +33,9 @@ const DynamicTabPanel = () => {
         onChange={handleChange}
         textColor="secondary"
         indicatorColor="secondary"
-        variant="fullWidth"
-        centered
+        variant={isMobile ? 'scrollable' : 'fullWidth'}
+        scrollButtons={isMobile ? 'auto' : false}
+        centered={!isMobile}
         sx={{ mb: 2 }}
       >
         {tabData.map((tab, index) => (
@@ -43,16 +46,13 @@ const DynamicTabPanel = () => {
       <Paper
         elevation={3}
         sx={{
-          p: 3,
+          p: isMobile ? 2 : 3,
           borderRadius: 2,
-          backgroundColor:
-            theme.palette.mode === 'dark'
-              ? theme.palette.background.paper
-              : '#fdfdfd',
+          backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.paper : '#fdfdfd',
           transition: 'background-color 0.3s ease',
         }}
       >
-        <Typography variant="body1" sx={{ whiteSpace: 'pre-line' }}>
+        <Typography variant="body1" sx={{ whiteSpace: 'pre-line', fontSize: isMobile ? '0.95rem' : '1rem' }}>
           {tabData[value].content}
         </Typography>
       </Paper>
