@@ -91,9 +91,6 @@ function First() {
               ))}
             </div>
 
-            <Typography variant="subtitle1" sx={{ mt: 1, color: '#555' }}>
-              DevOps • Cloud Services • System Admin
-            </Typography>
 
             <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2, mt: 2 }}>
               <Tooltip title="GitHub" arrow>
