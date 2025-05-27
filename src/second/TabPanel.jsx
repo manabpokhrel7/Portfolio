@@ -27,7 +27,14 @@ const DynamicTabPanel = () => {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box
+      sx={{
+        width: '100%',
+        maxWidth: 600,
+        mx: 'auto',
+        px: isMobile ? 1 : 0,
+      }}
+    >
       <Tabs
         value={value}
         onChange={handleChange}
@@ -59,5 +66,6 @@ const DynamicTabPanel = () => {
     </Box>
   );
 };
+
 
 export default DynamicTabPanel;
