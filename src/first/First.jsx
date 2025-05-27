@@ -10,15 +10,16 @@ import {
   Avatar,
   Grid,
   Paper,
-  Container
+  Container,
+  Tooltip
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { SiGitlab } from 'react-icons/si';
 import profilePic from '../Images/profile.jpg';
-import project1Image from '../Images/project1.png'; // Replace with a Terraform/Ansible related image
-import project2Image from '../Images/project2.png'; // Replace with a Helm/WordPress image
+import project1Image from '../Images/project1.png'; // Replace with Terraform/Ansible image
+import project2Image from '../Images/project2.png'; // Replace with Helm/WordPress image
 
 function First() {
   const aboutRef = useRef(null);
@@ -71,16 +72,48 @@ function First() {
             <Typography variant="subtitle1" sx={{ mt: 1, color: '#555' }}>
               DevOps • Cloud Services • System Admin
             </Typography>
+
+            {/* Updated Social Icons with Tooltips */}
             <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3, mt: 2 }}>
-              <a href="https://github.com/manabpokhrel7" target="_blank" rel="noreferrer">
-                <GitHubIcon fontSize="large" sx={{ color: '#000', transition: '0.3s', '&:hover': { color: '#D70040', transform: 'scale(1.2)' } }} />
-              </a>
-              <a href="https://gitlab.com/manabpokhrel7" target="_blank" rel="noreferrer">
-                <SiGitlab size={30} style={{ color: '#FC6D26', transition: '0.3s' }} onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.2)')} onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')} />
-              </a>
-              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer">
-                <LinkedInIcon fontSize="large" sx={{ color: '#0e76a8', transition: '0.3s', '&:hover': { color: '#D70040', transform: 'scale(1.2)' } }} />
-              </a>
+              <Tooltip title="GitHub" arrow>
+                <a href="https://github.com/manabpokhrel7" target="_blank" rel="noreferrer">
+                  <GitHubIcon
+                    fontSize="large"
+                    sx={{
+                      color: '#000',
+                      transition: '0.3s',
+                      '&:hover': { color: '#D70040', transform: 'scale(1.2)' },
+                    }}
+                  />
+                </a>
+              </Tooltip>
+
+              <Tooltip title="GitLab" arrow>
+                <a href="https://gitlab.com/users/manabpokhrel7/projects" target="_blank" rel="noreferrer">
+                  <SiGitlab
+                    size={30}
+                    style={{
+                      color: '#FC6D26',
+                      transition: '0.3s',
+                    }}
+                    onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.2)')}
+                    onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                  />
+                </a>
+              </Tooltip>
+
+              <Tooltip title="LinkedIn" arrow>
+                <a href="https://www.linkedin.com/in/manab-pokhrel/" target="_blank" rel="noreferrer">
+                  <LinkedInIcon
+                    fontSize="large"
+                    sx={{
+                      color: '#0e76a8',
+                      transition: '0.3s',
+                      '&:hover': { color: '#D70040', transform: 'scale(1.2)' },
+                    }}
+                  />
+                </a>
+              </Tooltip>
             </Box>
           </Box>
 
@@ -109,12 +142,14 @@ function First() {
         </Container>
       </SlideInSection>
 
+      {/* Portfolio Section */}
       <div ref={aboutRef}>
         <Container maxWidth="lg" sx={{ py: 6, backgroundColor: theme.palette.background.paper }}>
           <Typography variant="h4" align="center" gutterBottom>
             Portfolio
           </Typography>
           <Grid container spacing={4} justifyContent="center">
+            {/* Project 1 */}
             <Grid item xs={12} sm={6} md={4}>
               <a
                 href="https://gitlab.com/manabpokhrel7/terraform-ansible-ec2-selfhostedrunner"
@@ -137,7 +172,12 @@ function First() {
                   <img
                     src={project1Image}
                     alt="Terraform Ansible Project"
-                    style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: 4 }}
+                    style={{
+                      width: '100%',
+                      height: '180px',
+                      objectFit: 'cover',
+                      borderRadius: 4,
+                    }}
                   />
                   <Typography variant="h6" sx={{ mt: 2 }}>
                     Terraform-Ansible EC2 Runner
@@ -149,6 +189,7 @@ function First() {
               </a>
             </Grid>
 
+            {/* Project 2 */}
             <Grid item xs={12} sm={6} md={4}>
               <a
                 href="https://gitlab.com/manabpokhrel7/helm-wp-mysql"
@@ -171,7 +212,12 @@ function First() {
                   <img
                     src={project2Image}
                     alt="Helm WordPress MySQL Project"
-                    style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: 4 }}
+                    style={{
+                      width: '100%',
+                      height: '180px',
+                      objectFit: 'cover',
+                      borderRadius: 4,
+                    }}
                   />
                   <Typography variant="h6" sx={{ mt: 2 }}>
                     Helm: WordPress + MySQL
@@ -184,11 +230,12 @@ function First() {
             </Grid>
           </Grid>
 
+          {/* View All Projects Button */}
           <Box sx={{ textAlign: 'center', mt: 5 }}>
             <Button
               variant="contained"
               color="secondary"
-              href="https://gitlab.com/manabpokhrel7"
+              href="https://gitlab.com/users/manabpokhrel7/projects"
               target="_blank"
               sx={{
                 backgroundColor: '#FC6D26',
