@@ -83,13 +83,46 @@ function First() {
               </DialogContent>
             </Dialog>
 
-            <div className="waviy" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-              {'Manab Pokhrel'.split('').map((char, i) => (
-                <span key={i} style={{ '--i': i + 1 }}>
-                  {char === ' ' ? '\u00A0' : char}
-                </span>
-              ))}
-            </div>
+            <div
+  style={{
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    fontFamily: 'Raleway, sans-serif',
+    fontSize: '2rem',
+    fontWeight: 600,
+    color: '#D70040',
+    marginTop: '16px',
+    userSelect: 'none',
+  }}
+>
+  {'Manab Pokhrel'.split('').map((char, i) => (
+    <span
+      key={i}
+      style={{
+        display: 'inline-block',
+        animation: 'wave 1.5s infinite',
+        animationDelay: `${i * 0.1}s`,
+      }}
+    >
+      {char === ' ' ? '\u00A0' : char}
+    </span>
+  ))}
+</div>
+
+<style>
+  {`
+    @keyframes wave {
+      0%, 60%, 100% {
+        transform: translateY(0);
+      }
+      30% {
+        transform: translateY(-8px);
+      }
+    }
+  `}
+</style>
+
 
 
             <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2, mt: 2 }}>
