@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import './First.css';
 import './Manabtext.css';
 import SlideInSection from '../SlideInSection';
@@ -11,19 +11,27 @@ import {
   Grid,
   Paper,
   Container,
-  Tooltip
+  Tooltip,
+  useMediaQuery
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { SiGitlab } from 'react-icons/si';
+import { SiGitlab, SiTerraform, SiAnsible, SiDocker, SiHelm, SiKubernetes, SiMysql, SiWordpress } from 'react-icons/si';
 import profilePic from '../Images/profile.jpg';
-import project1Image from '../Images/project1.png'; // Replace with Terraform/Ansible image
-import project2Image from '../Images/project2.png'; // Replace with Helm/WordPress image
+import project1Image from '../Images/project1.png';
+import project2Image from '../Images/project2.png';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function First() {
   const aboutRef = useRef(null);
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
 
   const handleScroll = () => {
     if (aboutRef.current) {
@@ -73,8 +81,15 @@ function First() {
               DevOps • Cloud Services • System Admin
             </Typography>
 
-            {/* Updated Social Icons with Tooltips */}
-            <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3, mt: 2 }}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                gap: 2,
+                mt: 2,
+              }}
+            >
               <Tooltip title="GitHub" arrow>
                 <a href="https://github.com/manabpokhrel7" target="_blank" rel="noreferrer">
                   <GitHubIcon
@@ -114,6 +129,26 @@ function First() {
                   />
                 </a>
               </Tooltip>
+
+              <Button
+                variant="outlined"
+                size="small"
+                href="/Manab_Pokhrel_Resume.pdf"
+                target="_blank"
+                sx={{
+                  ml: isMobile ? 0 : 2,
+                  mt: isMobile ? 2 : 0,
+                  color: '#D70040',
+                  borderColor: '#D70040',
+                  '&:hover': {
+                    backgroundColor: '#D70040',
+                    color: '#fff',
+                    borderColor: '#D70040',
+                  },
+                }}
+              >
+                Download Resume
+              </Button>
             </Box>
           </Box>
 
@@ -142,7 +177,6 @@ function First() {
         </Container>
       </SlideInSection>
 
-      {/* Portfolio Section */}
       <div ref={aboutRef}>
         <Container maxWidth="lg" sx={{ py: 6, backgroundColor: theme.palette.background.paper }}>
           <Typography variant="h4" align="center" gutterBottom>
@@ -150,7 +184,7 @@ function First() {
           </Typography>
           <Grid container spacing={4} justifyContent="center">
             {/* Project 1 */}
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={6} md={4} data-aos="fade-up">
               <a
                 href="https://gitlab.com/manabpokhrel7/terraform-ansible-ec2-selfhostedrunner"
                 target="_blank"
@@ -183,14 +217,19 @@ function First() {
                     Terraform-Ansible EC2 Runner
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Provisioned an EC2 instance using Terraform and configured it as a self-hosted GitLab Runner using Ansible. Supports Docker builds with secure tagging and privileges.
+                    Provisioned an EC2 instance using Terraform and configured it as a self-hosted GitLab Runner using Ansible.
                   </Typography>
+                  <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1, mt: 1 }}>
+                    <SiTerraform size={20} />
+                    <SiAnsible size={20} />
+                    <SiDocker size={20} />
+                  </Box>
                 </Paper>
               </a>
             </Grid>
 
             {/* Project 2 */}
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={6} md={4} data-aos="fade-up" data-aos-delay="200">
               <a
                 href="https://gitlab.com/manabpokhrel7/helm-wp-mysql"
                 target="_blank"
@@ -223,8 +262,14 @@ function First() {
                     Helm: WordPress + MySQL
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Deployed a WordPress site with MySQL on Kubernetes using Helm charts. Configured PVCs, services, ingress, and auto-scaling for high availability and ease of updates.
+                    Deployed WordPress with MySQL on Kubernetes using Helm charts.
                   </Typography>
+                  <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1, mt: 1 }}>
+                    <SiHelm size={20} />
+                    <SiKubernetes size={20} />
+                    <SiWordpress size={20} />
+                    <SiMysql size={20} />
+                  </Box>
                 </Paper>
               </a>
             </Grid>
