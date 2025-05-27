@@ -17,8 +17,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { SiGitlab } from 'react-icons/si';
 import profilePic from '../Images/profile.jpg';
-import project1Image from '../Images/project1.png';
-import project2Image from '../Images/project2.png';
+import project1Image from '../Images/project1.png'; // Replace with a Terraform/Ansible related image
+import project2Image from '../Images/project2.png'; // Replace with a Helm/WordPress image
 
 function First() {
   const aboutRef = useRef(null);
@@ -117,7 +117,7 @@ function First() {
           <Grid container spacing={4} justifyContent="center">
             <Grid item xs={12} sm={6} md={4}>
               <a
-                href="https://github.com/manabpokhrel7/project1"
+                href="https://gitlab.com/manabpokhrel7/terraform-ansible-ec2-selfhostedrunner"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: 'none' }}
@@ -136,14 +136,14 @@ function First() {
                 >
                   <img
                     src={project1Image}
-                    alt="Project 1"
+                    alt="Terraform Ansible Project"
                     style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: 4 }}
                   />
                   <Typography variant="h6" sx={{ mt: 2 }}>
-                    Project 1
+                    Terraform-Ansible EC2 Runner
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Description of your first project goes here.
+                    Provisioned an EC2 instance using Terraform and configured it as a self-hosted GitLab Runner using Ansible. Supports Docker builds with secure tagging and privileges.
                   </Typography>
                 </Paper>
               </a>
@@ -151,7 +151,7 @@ function First() {
 
             <Grid item xs={12} sm={6} md={4}>
               <a
-                href="https://gitlab.com/manabpokhrel7/project2"
+                href="https://gitlab.com/manabpokhrel7/helm-wp-mysql"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: 'none' }}
@@ -170,14 +170,14 @@ function First() {
                 >
                   <img
                     src={project2Image}
-                    alt="Project 2"
+                    alt="Helm WordPress MySQL Project"
                     style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: 4 }}
                   />
                   <Typography variant="h6" sx={{ mt: 2 }}>
-                    Project 2
+                    Helm: WordPress + MySQL
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Description of your second project goes here.
+                    Deployed a WordPress site with MySQL on Kubernetes using Helm charts. Configured PVCs, services, ingress, and auto-scaling for high availability and ease of updates.
                   </Typography>
                 </Paper>
               </a>
