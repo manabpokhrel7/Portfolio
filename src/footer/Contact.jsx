@@ -1,33 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import {
   Box,
   Button,
-  Paper,
   Stack,
   TextField,
+  Snackbar,
   Alert,
+  Typography,
   CircularProgress
 } from '@mui/material';
-import { styled } from '@mui/material/styles';
-
-// Styled Paper for header text
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body1,
-  padding: theme.spacing(2),
-  textAlign: 'center',
-  color: theme.palette.text.primary,
-}));
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm("maygkdzr");
+  const [showSnackbar, setShowSnackbar] = useState(false);
 
-  // Display success message
+  // When form submission succeeds
   if (state.succeeded) {
     return (
-      <Box sx={{ maxWidth: 500, mx: 'auto', mt: 4, px: 2 }}>
-        <Alert severity="success">Thank you! Your message has been sent.</Alert>
+      <Box sx={{ maxWidth: 500, mx: 'auto', mt: 4, px: 2, textAlign: 'center' }}>
+        <Snackbar
+          open={!showSnackbar}
+          autoHideDuration={6000}
+          onClose={() => setShowSnackbar(true)}
+        >
+          <Alert severity="success" variant="filled" onClose={() => setShowSnackbar(true)}>
+            Thank you! Your message has been sent.
+          </Alert>
+        </Snackbar>
+
+        <Button
+          variant="outlined"
+          sx={{ mt: 3 }}
+          onClick={() => window.location.reload()}
+        >
+          Send Another Message
+        </Button>
       </Box>
     );
   }
@@ -35,17 +43,29 @@ export default function ContactForm() {
   return (
     <Box
       component="form"
+      aria-label="Contact form"
       onSubmit={handleSubmit}
       sx={{
         maxWidth: 500,
         mx: 'auto',
         mt: 4,
         px: 2,
-        pb: 6,
       }}
     >
       <Stack spacing={3}>
-        <Item>REACH OUT TO ME</Item>
+        <Typography variant="h6" align="center" gutterBottom>
+          REACH OUT TO ME
+        </Typography>
+
+        <TextField
+          label="Your Name"
+          variant="standard"
+          placeholder="Enter your name"
+          id="name"
+          name="name"
+          fullWidth
+          required
+        />
 
         <TextField
           label="Your Email"
@@ -54,6 +74,7 @@ export default function ContactForm() {
           id="email"
           type="email"
           name="email"
+          autoComplete="email"
           fullWidth
           required
         />
@@ -76,12 +97,16 @@ export default function ContactForm() {
             variant="outlined"
             type="submit"
             disabled={state.submitting}
-            sx={{ minWidth: 120 }}
+            sx={{ minWidth: 140 }}
           >
             {state.submitting ? (
-              <CircularProgress size={20} sx={{ mr: 1 }} />
-            ) : null}
-            {state.submitting ? "Sending..." : "Submit"}
+              <>
+                <CircularProgress size={20} sx={{ mr: 1 }} />
+                Sending...
+              </>
+            ) : (
+              "Submit"
+            )}
           </Button>
         </Box>
       </Stack>
