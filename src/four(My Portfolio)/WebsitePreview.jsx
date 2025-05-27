@@ -1,32 +1,36 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
+// WebsitePreview.jsx
+import React from 'react';
+import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 
+import gitlabImage from './gitlab.png';
+import githubImage from './git.jpg';
+
 const images = [
   {
-    url: require('./gitlab.png'),
+    url: gitlabImage,
     title: 'ALL projects in GitLab',
     link: 'https://gitlab.com/users/manabpokhrel7/projects',
-    width: '100%',
   },
   {
-    url: require('./git.jpg'),
-    title: 'ALL projects in Github',
+    url: githubImage,
+    title: 'ALL projects in GitHub',
     link: 'https://github.com/manabpokhrel7?tab=repositories',
-    width: '100%',
   },
 ];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: 'relative',
-  height: 200,
+  height: 240,
   width: '100%',
-  marginBottom: theme.spacing(2),
-  [theme.breakpoints.down('sm')]: {
-    height: 120,
-  },
+  maxWidth: 450,
+  overflow: 'hidden',
+  borderRadius: theme.shape.borderRadius,
+  flex: '1 1 45%',
+  backgroundColor: theme.palette.background.paper,
+  transition: 'transform 0.3s ease, background-color 0.3s ease',
   '&:hover, &.Mui-focusVisible': {
     zIndex: 1,
     '& .MuiImageBackdrop-root': {
@@ -36,8 +40,16 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
       opacity: 0,
     },
     '& .MuiTypography-root': {
-      border: '4px solid currentColor',
+      border: `4px solid ${theme.palette.primary.main}`,
     },
+    '& .image-zoom': {
+      transform: 'scale(1.05)',
+    },
+  },
+  [theme.breakpoints.down('sm')]: {
+    height: 180,
+    maxWidth: '100%',
+    flex: '1 1 100%',
   },
 }));
 
@@ -48,10 +60,11 @@ const ImageSrc = styled('span')({
   top: 0,
   bottom: 0,
   backgroundSize: 'cover',
-  backgroundPosition: 'center 40%',
+  backgroundPosition: 'center',
+  transition: 'transform 0.4s ease',
 });
 
-const Image = styled('span')(({ theme }) => ({
+const Image = styled('span')({
   position: 'absolute',
   left: 0,
   right: 0,
@@ -60,8 +73,8 @@ const Image = styled('span')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: theme.palette.common.white,
-}));
+  textAlign: 'center',
+});
 
 const ImageBackdrop = styled('span')(({ theme }) => ({
   position: 'absolute',
@@ -77,39 +90,56 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
 const ImageMarked = styled('span')(({ theme }) => ({
   height: 3,
   width: 18,
-  backgroundColor: theme.palette.common.white,
+  backgroundColor: theme.palette.primary.main,
   position: 'absolute',
   bottom: -2,
   left: 'calc(50% - 9px)',
   transition: theme.transitions.create('opacity'),
 }));
 
-export default function ButtonBaseDemo() {
+export default function WebsitePreview() {
+  const theme = useTheme(); // Get the active theme (dark/light)
+
   const openLink = (url) => {
-    window.open(url, '_blank');
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        gap: 3,
+        width: '100%',
+        maxWidth: 1000,
+        mx: 'auto',
+        bgcolor: theme.palette.background.default,
+        color: theme.palette.text.primary,
+      }}
+    >
       {images.map((image) => (
         <ImageButton
           focusRipple
           key={image.title}
-          style={{ width: image.width }}
           onClick={() => openLink(image.link)}
+          aria-label={image.title}
         >
-          <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
+          <ImageSrc
+            className="image-zoom"
+            style={{ backgroundImage: `url(${image.url})` }}
+          />
           <ImageBackdrop className="MuiImageBackdrop-root" />
           <Image>
             <Typography
               component="span"
-              variant="subtitle1"
-              color="inherit"
+              variant="h6"
               sx={{
                 position: 'relative',
-                p: 4,
-                pt: 2,
-                pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                p: 2,
+                fontWeight: 'bold',
+                fontSize: { xs: '0.9rem', sm: '1.1rem' },
+                color: theme.palette.text.primary,
               }}
             >
               {image.title}
