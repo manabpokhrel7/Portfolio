@@ -1,153 +1,136 @@
-// WebsitePreview.jsx
-import React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import ButtonBase from '@mui/material/ButtonBase';
-import Typography from '@mui/material/Typography';
+import React, { useState } from 'react';
+import {
+  Box,
+  Grid,
+  Card,
+  CardActionArea,
+  CardMedia,
+  Modal,
+  Typography,
+  Button,
+} from '@mui/material';
+import { styled } from '@mui/material/styles';
 
-import gitlabImage from './gitlab.png';
-import githubImage from './git.jpg';
-
-const images = [
+// ✅ Sample project data
+const projects = [
   {
-    url: gitlabImage,
-    title: 'ALL projects in GitLab',
+    title: 'GitLab CI/CD',
+    image: '/gitlab.png',
+    description: 'A GitLab CI/CD pipeline to deploy Dockerized applications on AWS.',
     link: 'https://gitlab.com/users/manabpokhrel7/projects',
   },
   {
-    url: githubImage,
-    title: 'ALL projects in GitHub',
+    title: 'GitHub Portfolio',
+    image: '/git.jpg',
+    description: 'My open-source React components and utilities hosted on GitHub.',
+    link: 'https://github.com/manabpokhrel7?tab=repositories',
+  },
+  {
+    title: 'Terraform Runner',
+    image: '/terraform.png',
+    description: 'Custom GitLab Runner infrastructure using Terraform and ECS Fargate.',
+    link: 'https://gitlab.com/users/manabpokhrel7/projects',
+  },
+  {
+    title: 'Portfolio Website',
+    image: '/portfolio.png',
+    description: 'My animated portfolio built with React and Material UI.',
     link: 'https://github.com/manabpokhrel7?tab=repositories',
   },
 ];
 
-const ImageButton = styled(ButtonBase)(({ theme }) => ({
-  position: 'relative',
-  height: 240,
-  width: '100%',
-  maxWidth: 450,
-  overflow: 'hidden',
-  borderRadius: theme.shape.borderRadius,
-  flex: '1 1 45%',
-  backgroundColor: theme.palette.background.paper,
-  transition: 'transform 0.3s ease, background-color 0.3s ease',
-  '&:hover, &.Mui-focusVisible': {
-    zIndex: 1,
-    '& .MuiImageBackdrop-root': {
-      opacity: 0.15,
-    },
-    '& .MuiImageMarked-root': {
-      opacity: 0,
-    },
-    '& .MuiTypography-root': {
-      border: `4px solid ${theme.palette.primary.main}`,
-    },
-    '& .image-zoom': {
-      transform: 'scale(1.05)',
-    },
-  },
-  [theme.breakpoints.down('sm')]: {
-    height: 180,
-    maxWidth: '100%',
-    flex: '1 1 100%',
+// ✅ Styled card with zoom effect
+const ZoomCard = styled(Card)(({ theme }) => ({
+  borderRadius: theme.shape.borderRadius * 2,
+  transition: 'transform 0.3s ease',
+  '&:hover': {
+    transform: 'scale(1.05)',
   },
 }));
 
-const ImageSrc = styled('span')({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  transition: 'transform 0.4s ease',
-});
+export default function ProjectGallery() {
+  const [open, setOpen] = useState(false);
+  const [activeProject, setActiveProject] = useState(null);
 
-const Image = styled('span')({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  textAlign: 'center',
-});
+  const handleOpen = (project) => {
+    setActiveProject(project);
+    setOpen(true);
+  };
 
-const ImageBackdrop = styled('span')(({ theme }) => ({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  backgroundColor: theme.palette.common.black,
-  opacity: 0.4,
-  transition: theme.transitions.create('opacity'),
-}));
-
-const ImageMarked = styled('span')(({ theme }) => ({
-  height: 3,
-  width: 18,
-  backgroundColor: theme.palette.primary.main,
-  position: 'absolute',
-  bottom: -2,
-  left: 'calc(50% - 9px)',
-  transition: theme.transitions.create('opacity'),
-}));
-
-export default function WebsitePreview() {
-  const theme = useTheme(); // Get the active theme (dark/light)
-
-  const openLink = (url) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
+  const handleClose = () => {
+    setOpen(false);
+    setActiveProject(null);
   };
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        gap: 3,
-        width: '100%',
-        maxWidth: 1000,
-        mx: 'auto',
-        bgcolor: theme.palette.background.default,
-        color: theme.palette.text.primary,
-      }}
-    >
-      {images.map((image) => (
-        <ImageButton
-          focusRipple
-          key={image.title}
-          onClick={() => openLink(image.link)}
-          aria-label={image.title}
+    <>
+      {/* ✅ 4x4 Grid Layout */}
+      <Grid container spacing={3} justifyContent="center">
+        {projects.map((project, index) => (
+          <Grid item xs={12} sm={6} md={3} key={index}>
+            <ZoomCard onClick={() => handleOpen(project)} elevation={4}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  image={project.image}
+                  alt={project.title}
+                  sx={{ aspectRatio: '1 / 1', objectFit: 'cover' }}
+                />
+              </CardActionArea>
+            </ZoomCard>
+          </Grid>
+        ))}
+      </Grid>
+
+      {/* ✅ Modal on click */}
+      <Modal open={open} onClose={handleClose}>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: { xs: 320, sm: 500 },
+            bgcolor: 'background.paper',
+            boxShadow: 24,
+            borderRadius: 3,
+            p: 3,
+          }}
         >
-          <ImageSrc
-            className="image-zoom"
-            style={{ backgroundImage: `url(${image.url})` }}
-          />
-          <ImageBackdrop className="MuiImageBackdrop-root" />
-          <Image>
-            <Typography
-              component="span"
-              variant="h6"
-              sx={{
-                position: 'relative',
-                p: 2,
-                fontWeight: 'bold',
-                fontSize: { xs: '0.9rem', sm: '1.1rem' },
-                color: theme.palette.text.primary,
-              }}
-            >
-              {image.title}
-              <ImageMarked className="MuiImageMarked-root" />
-            </Typography>
-          </Image>
-        </ImageButton>
-      ))}
-    </Box>
+          {activeProject && (
+            <>
+              <Typography variant="h6" gutterBottom>
+                {activeProject.title}
+              </Typography>
+              <CardMedia
+                component="img"
+                image={activeProject.image}
+                alt={activeProject.title}
+                sx={{
+                  height: 250,
+                  width: '100%',
+                  objectFit: 'cover',
+                  borderRadius: 2,
+                  mb: 2,
+                }}
+              />
+              <Typography variant="body1" sx={{ mb: 3 }}>
+                {activeProject.description}
+              </Typography>
+              <Button
+                variant="contained"
+                color="primary"
+                href={activeProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                fullWidth
+              >
+                View Full Project
+              </Button>
+            </>
+          )}
+        </Box>
+      </Modal>
+    </>
   );
 }
