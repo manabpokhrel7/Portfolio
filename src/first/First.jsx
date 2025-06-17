@@ -15,6 +15,7 @@ import {
   IconButton,
   Button,
   useTheme,
+  Chip,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -24,52 +25,56 @@ import profilePic from '../Images/profile.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-// Extended certifications array with metadata
 const certifications = [
   {
     title: "Terraform Certified Associate (HCTAO-003)",
     issuer: "HashiCorp",
     logo: "https://images.credly.com/images/ed4be915-68f8-428a-b332-40ded9084ee5/blob",
     link: "https://www.credly.com/badges/580ecf8f-968b-45c2-b1c8-ef6b7902828a/public_url",
-    issueDate: "March 15, 2024",
-    credentialId: "HC-TFAO-003-987654321",
+    issueDate: "June 16, 2025",
+    credentialId: "580ecf8f-968b-45c2-b1c8-ef6b7902828a",
+    tags: ["DevOps", "Cloud", "IaC"],
   },
   {
     title: "AWS Certified Solutions Architect – Associate",
     issuer: "Amazon Web Services",
     logo: "https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
     link: "https://www.credly.com/badges/c2725ab4-5508-43b3-afd6-8328caa90d0c/public_url",
-    issueDate: "June 2, 2023",
-    credentialId: "AWS-ASA-123456789",
+    issueDate: "Dec 2024",
+    credentialId: "6995b40c3fc1464b9df27de62f0dda4d",
+    tags: ["Cloud", "Architecture", "AWS"],
   },
   {
     title: "Red Hat Certified System Administrator (RHCSA)",
     issuer: "Udemy (Course Completion)",
     logo: "https://udemy-certificate.s3.amazonaws.com/image/UC-a6f6e252-3098-4fc8-9dc6-00f7defae7fc.jpg",
     link: "https://udemy-certificate.s3.amazonaws.com/image/UC-a6f6e252-3098-4fc8-9dc6-00f7defae7fc.jpg",
-    issueDate: "April 5, 2022",
-    credentialId: "RHCSA-UDEMY-555888777",
+    issueDate: "March 18,2025",
+    credentialId: "UC-a6f6e252-3098-4fc8-9dc6-00f7defae7fc",
+    tags: ["Linux", "SysAdmin", "Shell"],
   },
 ];
 
-// Random AOS animations
 const aosAnimations = ['fade-up', 'fade-down', 'zoom-in', 'flip-left', 'flip-up'];
 
-// Certification section
 const CertificationSection = () => {
   const theme = useTheme();
   const isDark = theme.palette.mode === 'dark';
   const [openModal, setOpenModal] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedCert, setSelectedCert] = useState(null);
 
-  const handleOpenModal = (image) => {
-    setSelectedImage(image);
+  const sortedCerts = [...certifications].sort(
+    (a, b) => new Date(b.issueDate) - new Date(a.issueDate)
+  );
+
+  const handleOpenModal = (cert) => {
+    setSelectedCert(cert);
     setOpenModal(true);
   };
 
   const handleCloseModal = () => {
     setOpenModal(false);
-    setSelectedImage(null);
+    setSelectedCert(null);
   };
 
   return (
@@ -77,12 +82,14 @@ const CertificationSection = () => {
       <Typography variant="h4" align="center" gutterBottom>
         Certifications
       </Typography>
+
       <Grid container spacing={4} justifyContent="center">
-        {certifications.map((cert, index) => {
+        {sortedCerts.map((cert, index) => {
           const animation = aosAnimations[index % aosAnimations.length];
+
           return (
             <Grid item xs={12} sm={6} md={4} key={index} data-aos={animation}>
-              <Tooltip title={`Issued on: ${cert.issueDate}`} arrow>
+              <Tooltip title={`Issued: ${new Date(cert.issueDate).toLocaleDateString()}`} arrow>
                 <Box
                   sx={{
                     p: 3,
@@ -96,7 +103,7 @@ const CertificationSection = () => {
                     '&:hover': { boxShadow: 6 },
                     cursor: 'pointer',
                   }}
-                  onClick={() => handleOpenModal(cert.logo)}
+                  onClick={() => handleOpenModal(cert)}
                 >
                   <img
                     src={cert.logo}
@@ -114,30 +121,10 @@ const CertificationSection = () => {
                   <Typography variant="body2" sx={{ color: isDark ? '#ccc' : '#555' }}>
                     {cert.issuer}
                   </Typography>
-                  <Typography variant="caption" display="block" sx={{ mt: 1, fontSize: '0.75rem', color: '#888' }}>
-                    ID: {cert.credentialId}
-                  </Typography>
-                  <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1, mt: 1 }}>
-                    <Button
-                      variant="text"
-                      size="small"
-                      href={cert.link}
-                      target="_blank"
-                      onClick={(e) => e.stopPropagation()}
-                      sx={{ color: '#D70040' }}
-                    >
-                      View
-                    </Button>
-                    <Button
-                      variant="text"
-                      size="small"
-                      href={cert.logo}
-                      download
-                      onClick={(e) => e.stopPropagation()}
-                      sx={{ color: '#1976d2' }}
-                    >
-                      Download
-                    </Button>
+                  <Box sx={{ mt: 1, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 1 }}>
+                    {cert.tags.map((tag, tagIndex) => (
+                      <Chip key={tagIndex} label={tag} size="small" color="secondary" variant="outlined" />
+                    ))}
                   </Box>
                 </Box>
               </Tooltip>
@@ -146,11 +133,10 @@ const CertificationSection = () => {
         })}
       </Grid>
 
-      {/* Modal */}
       <Dialog open={openModal} onClose={handleCloseModal} maxWidth="md" fullWidth>
-        <DialogContent sx={{ position: 'relative', p: 0 }}>
+        <DialogContent sx={{ position: 'relative', p: 3 }}>
           <IconButton
-            aria-label="Close image preview"
+            aria-label="Close"
             onClick={handleCloseModal}
             sx={{
               position: 'absolute',
@@ -164,18 +150,47 @@ const CertificationSection = () => {
           >
             <CloseIcon />
           </IconButton>
-          <img
-            src={selectedImage}
-            alt="Certificate Preview"
-            style={{ width: '100%', height: 'auto', display: 'block' }}
-          />
+
+          {selectedCert && (
+            <Box sx={{ textAlign: 'center' }}>
+              <img
+                src={selectedCert.logo}
+                alt={selectedCert.title}
+                style={{ maxWidth: 120, borderRadius: 8, marginBottom: 10 }}
+              />
+              <Typography variant="h6">{selectedCert.title}</Typography>
+              <Typography variant="body2" sx={{ color: '#666' }}>
+                {selectedCert.issuer}
+              </Typography>
+              <Typography variant="body2" sx={{ mt: 1 }}>
+                <strong>Issued:</strong> {new Date(selectedCert.issueDate).toLocaleDateString()}
+              </Typography>
+              <Typography variant="body2">
+                <strong>ID:</strong> {selectedCert.credentialId}
+              </Typography>
+              <Box sx={{ mt: 1, display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 1 }}>
+                {selectedCert.tags.map((tag, i) => (
+                  <Chip key={i} label={tag} size="small" color="primary" />
+                ))}
+              </Box>
+              <Button
+                variant="contained"
+                color="secondary"
+                href={selectedCert.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{ mt: 2 }}
+              >
+                View Credential
+              </Button>
+            </Box>
+          )}
         </DialogContent>
       </Dialog>
     </Box>
   );
 };
 
-// Main component (rest of your existing First.js with your photo, links, skills, portfolio)
 function First() {
   const aboutRef = useRef(null);
   const theme = useTheme();
@@ -211,7 +226,7 @@ function First() {
             <Dialog open={openImage} onClose={() => setOpenImage(false)} maxWidth="sm" fullWidth>
               <DialogContent sx={{ position: 'relative', p: 0 }}>
                 <IconButton
-                  aria-label="Close image preview"
+                  aria-label="Close"
                   onClick={() => setOpenImage(false)}
                   sx={{
                     position: 'absolute',
