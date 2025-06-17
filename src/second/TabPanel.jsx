@@ -1,13 +1,6 @@
+// TabPanel.js
 import React from 'react';
-import {
-  Tabs,
-  Tab,
-  Box,
-  Typography,
-  useTheme,
-  Paper,
-  useMediaQuery,
-} from '@mui/material';
+import { Tabs, Tab, Box, Typography, useTheme, Paper, useMediaQuery } from '@mui/material';
 
 const tabData = [
   {
@@ -37,53 +30,42 @@ const DynamicTabPanel = () => {
     <Box
       sx={{
         width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        mt: 4,
-        px: 2, // consistent horizontal padding across all breakpoints
+        maxWidth: 600,
+        mx: 'auto',
+        px: isMobile ? 1 : 0,
       }}
     >
-      <Box sx={{ width: '100%', maxWidth: 600 }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          textColor="secondary"
-          indicatorColor="secondary"
-          variant={isMobile ? 'scrollable' : 'fullWidth'}
-          scrollButtons={isMobile ? 'auto' : false}
-          centered={!isMobile}
-          sx={{ mb: 2 }}
-        >
-          {tabData.map((tab, index) => (
-            <Tab key={index} label={tab.label} />
-          ))}
-        </Tabs>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        textColor="secondary"
+        indicatorColor="secondary"
+        variant={isMobile ? 'scrollable' : 'fullWidth'}
+        scrollButtons={isMobile ? 'auto' : false}
+        centered={!isMobile}
+        sx={{ mb: 2 }}
+      >
+        {tabData.map((tab, index) => (
+          <Tab key={index} label={tab.label} />
+        ))}
+      </Tabs>
 
-        <Paper
-          elevation={3}
-          sx={{
-            p: isMobile ? 2 : 3,
-            borderRadius: 2,
-            backgroundColor:
-              theme.palette.mode === 'dark'
-                ? theme.palette.background.paper
-                : '#fdfdfd',
-            transition: 'background-color 0.3s ease',
-          }}
-        >
-          <Typography
-            variant="body1"
-            sx={{
-              whiteSpace: 'pre-line',
-              fontSize: isMobile ? '0.95rem' : '1rem',
-            }}
-          >
-            {tabData[value].content}
-          </Typography>
-        </Paper>
-      </Box>
+      <Paper
+        elevation={3}
+        sx={{
+          p: isMobile ? 2 : 3,
+          borderRadius: 2,
+          backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.paper : '#fdfdfd',
+          transition: 'background-color 0.3s ease',
+        }}
+      >
+        <Typography variant="body1" sx={{ whiteSpace: 'pre-line', fontSize: isMobile ? '0.95rem' : '1rem' }}>
+          {tabData[value].content}
+        </Typography>
+      </Paper>
     </Box>
   );
 };
+
 
 export default DynamicTabPanel;
