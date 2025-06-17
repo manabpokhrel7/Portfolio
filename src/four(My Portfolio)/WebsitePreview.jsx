@@ -1,25 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Grid,
   Card,
   CardActionArea,
-  CardMedia,
   Modal,
   Typography,
   Button,
   Chip,
   Fade,
   IconButton,
+  Pagination,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 
-// ✅ Import project images
-import project1 from '.././Images/project1.png';
-import terakube from '.././Images/terakube.png';
-import img from '.././Images/img.png';
-import project2 from '.././Images/project2.png';
+import project1 from '../Images/project1.png';
+import terakube from '../Images/terakube.png';
+import img from '../Images/img.png';
+import project2 from '../Images/project2.png';
 
 // ✅ Project data
 const projects = [
@@ -69,6 +68,14 @@ const ZoomCard = styled(Card)(({ theme }) => ({
 export default function ProjectGallery() {
   const [open, setOpen] = useState(false);
   const [activeProject, setActiveProject] = useState(null);
+  const [page, setPage] = useState(1);
+
+  const projectsPerPage = 4;
+  const pageCount = Math.ceil(projects.length / projectsPerPage);
+  const displayedProjects = projects.slice(
+    (page - 1) * projectsPerPage,
+    page * projectsPerPage
+  );
 
   const handleOpen = (project) => {
     setActiveProject(project);
@@ -80,29 +87,63 @@ export default function ProjectGallery() {
     setActiveProject(null);
   };
 
+  // ✅ Prevent page scroll when modal is open
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
+
   return (
     <>
-      {/* ✅ 4x4 Grid */}
+      {/* ✅ Grid Display */}
       <Grid container spacing={3} justifyContent="center" sx={{ mt: 2 }}>
-        {projects.map((project, index) => (
+        {displayedProjects.map((project, index) => (
           <Grid item xs={12} sm={6} md={3} key={index}>
             <ZoomCard onClick={() => handleOpen(project)} elevation={4}>
               <CardActionArea>
-                <CardMedia
-                  component="img"
-                  image={project.image}
-                  alt={project.title}
+                {/* ✅ Force Square Box */}
+                <Box
                   sx={{
                     aspectRatio: '1 / 1',
-                    objectFit: 'cover',
+                    overflow: 'hidden',
                     borderRadius: 2,
                   }}
-                />
+                >
+                  <Box
+                    component="img"
+                    src={project.image}
+                    alt={project.title}
+                    sx={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block',
+                    }}
+                  />
+                </Box>
               </CardActionArea>
             </ZoomCard>
           </Grid>
         ))}
       </Grid>
+
+      {/* ✅ Pagination */}
+      {pageCount > 1 && (
+        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+          <Pagination
+            count={pageCount}
+            page={page}
+            onChange={handlePageChange}
+            color="primary"
+          />
+        </Box>
+      )}
 
       {/* ✅ Modal with Fade */}
       <Modal open={open} onClose={handleClose} closeAfterTransition>
@@ -119,12 +160,12 @@ export default function ProjectGallery() {
               borderRadius: 3,
               p: 3,
               outline: 'none',
-              position: 'relative',
+              maxHeight: '90vh',
+              overflowY: 'auto',
             }}
           >
             {activeProject && (
               <>
-                {/* ✅ Close button */}
                 <IconButton
                   onClick={handleClose}
                   sx={{ position: 'absolute', top: 8, right: 8 }}
@@ -136,9 +177,9 @@ export default function ProjectGallery() {
                   {activeProject.title}
                 </Typography>
 
-                <CardMedia
+                <Box
                   component="img"
-                  image={activeProject.image}
+                  src={activeProject.image}
                   alt={activeProject.title}
                   sx={{
                     height: 250,
