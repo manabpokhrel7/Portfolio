@@ -8,34 +8,52 @@ import {
   Modal,
   Typography,
   Button,
+  Chip,
+  Fade,
+  IconButton,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import CloseIcon from '@mui/icons-material/Close';
 
-// ✅ Sample project data
+// ✅ Import project images
+import project1 from '.././Images/project1.png';
+import terakube from '.././Images/terakube.png';
+import img from '.././Images/img.png';
+import project2 from '.././Images/project2.png';
+
+// ✅ Project data
 const projects = [
   {
-    title: 'GitLab CI/CD',
-    image: '/gitlab.png',
-    description: 'A GitLab CI/CD pipeline to deploy Dockerized applications on AWS.',
-    link: 'https://gitlab.com/users/manabpokhrel7/projects',
+    title: 'Terraform + Ansible EC2 Self-Hosted GitLab Runner',
+    image: project1,
+    description:
+      'A fully automated setup of a self-hosted GitLab runner on AWS EC2 using Terraform and Ansible.',
+    link: 'https://gitlab.com/manabpokhrel7/terraform-ansible-ec2-selfhostedrunner',
+    tags: ['Terraform', 'Ansible', 'AWS', 'DevOps'],
   },
   {
-    title: 'GitHub Portfolio',
-    image: '/git.jpg',
-    description: 'My open-source React components and utilities hosted on GitHub.',
-    link: 'https://github.com/manabpokhrel7?tab=repositories',
+    title: 'Flask + Redis + DB on EKS via GitLab Pipeline',
+    image: terakube,
+    description:
+      'Production-grade deployment of a multi-container Python Flask app using Kubernetes on AWS EKS, orchestrated with GitLab CI/CD and provisioned using Terraform.',
+    link: 'https://gitlab.com/manabpokhrel7/flask-redis-db-aks-pipeline',
+    tags: ['Flask', 'Redis', 'Kubernetes', 'Terraform', 'CI/CD'],
   },
   {
-    title: 'Terraform Runner',
-    image: '/terraform.png',
-    description: 'Custom GitLab Runner infrastructure using Terraform and ECS Fargate.',
-    link: 'https://gitlab.com/users/manabpokhrel7/projects',
+    title: 'Helm Deployment: WordPress + MySQL + Monitoring',
+    image: img,
+    description:
+      'Deploys a WordPress app with a MySQL backend on a Kubernetes cluster using Helm. Includes Prometheus and Grafana monitoring.',
+    link: 'https://gitlab.com/manabpokhrel7/helm-wp-mysql',
+    tags: ['Helm', 'WordPress', 'MySQL', 'Prometheus', 'Grafana'],
   },
   {
-    title: 'Portfolio Website',
-    image: '/portfolio.png',
-    description: 'My animated portfolio built with React and Material UI.',
-    link: 'https://github.com/manabpokhrel7?tab=repositories',
+    title: 'Helm + ArgoCD: Python, Redis, DB Deployment',
+    image: project2,
+    description:
+      'Developing project deploying a Python app with Redis and DB using Helm and GitOps via ArgoCD.',
+    link: 'https://gitlab.com/manabpokhrel7/myapp-helm',
+    tags: ['ArgoCD', 'Helm', 'GitOps', 'Python', 'Redis'],
   },
 ];
 
@@ -64,8 +82,8 @@ export default function ProjectGallery() {
 
   return (
     <>
-      {/* ✅ 4x4 Grid Layout */}
-      <Grid container spacing={3} justifyContent="center">
+      {/* ✅ 4x4 Grid */}
+      <Grid container spacing={3} justifyContent="center" sx={{ mt: 2 }}>
         {projects.map((project, index) => (
           <Grid item xs={12} sm={6} md={3} key={index}>
             <ZoomCard onClick={() => handleOpen(project)} elevation={4}>
@@ -74,7 +92,11 @@ export default function ProjectGallery() {
                   component="img"
                   image={project.image}
                   alt={project.title}
-                  sx={{ aspectRatio: '1 / 1', objectFit: 'cover' }}
+                  sx={{
+                    aspectRatio: '1 / 1',
+                    objectFit: 'cover',
+                    borderRadius: 2,
+                  }}
                 />
               </CardActionArea>
             </ZoomCard>
@@ -82,54 +104,76 @@ export default function ProjectGallery() {
         ))}
       </Grid>
 
-      {/* ✅ Modal on click */}
-      <Modal open={open} onClose={handleClose}>
-        <Box
-          sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: { xs: 320, sm: 500 },
-            bgcolor: 'background.paper',
-            boxShadow: 24,
-            borderRadius: 3,
-            p: 3,
-          }}
-        >
-          {activeProject && (
-            <>
-              <Typography variant="h6" gutterBottom>
-                {activeProject.title}
-              </Typography>
-              <CardMedia
-                component="img"
-                image={activeProject.image}
-                alt={activeProject.title}
-                sx={{
-                  height: 250,
-                  width: '100%',
-                  objectFit: 'cover',
-                  borderRadius: 2,
-                  mb: 2,
-                }}
-              />
-              <Typography variant="body1" sx={{ mb: 3 }}>
-                {activeProject.description}
-              </Typography>
-              <Button
-                variant="contained"
-                color="primary"
-                href={activeProject.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                fullWidth
-              >
-                View Full Project
-              </Button>
-            </>
-          )}
-        </Box>
+      {/* ✅ Modal with Fade */}
+      <Modal open={open} onClose={handleClose} closeAfterTransition>
+        <Fade in={open}>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: { xs: 320, sm: 500 },
+              bgcolor: 'background.paper',
+              boxShadow: 24,
+              borderRadius: 3,
+              p: 3,
+              outline: 'none',
+              position: 'relative',
+            }}
+          >
+            {activeProject && (
+              <>
+                {/* ✅ Close button */}
+                <IconButton
+                  onClick={handleClose}
+                  sx={{ position: 'absolute', top: 8, right: 8 }}
+                >
+                  <CloseIcon />
+                </IconButton>
+
+                <Typography variant="h6" gutterBottom>
+                  {activeProject.title}
+                </Typography>
+
+                <CardMedia
+                  component="img"
+                  image={activeProject.image}
+                  alt={activeProject.title}
+                  sx={{
+                    height: 250,
+                    width: '100%',
+                    objectFit: 'cover',
+                    borderRadius: 2,
+                    mb: 2,
+                  }}
+                />
+
+                {/* ✅ Tags */}
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 2 }}>
+                  {activeProject.tags.map((tag, idx) => (
+                    <Chip key={idx} label={tag} color="primary" size="small" />
+                  ))}
+                </Box>
+
+                <Typography variant="body1" sx={{ mb: 3 }}>
+                  {activeProject.description}
+                </Typography>
+
+                <Button
+                  variant="contained"
+                  color="primary"
+                  href={activeProject.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  fullWidth
+                >
+                  View Full Project on GitLab
+                </Button>
+              </>
+            )}
+          </Box>
+        </Fade>
       </Modal>
     </>
   );
