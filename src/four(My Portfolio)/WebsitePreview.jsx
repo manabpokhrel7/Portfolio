@@ -87,7 +87,6 @@ export default function ProjectGallery() {
     setActiveProject(null);
   };
 
-  // ✅ Prevent page scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => {
@@ -101,16 +100,32 @@ export default function ProjectGallery() {
 
   return (
     <>
-      {/* ✅ Grid Display */}
-      <Grid container spacing={3} justifyContent="center" sx={{ mt: 2 }}>
+      {/* ✅ Grid Display with tighter horizontal spacing */}
+      <Grid
+        container
+        rowSpacing={3}
+        columnSpacing={1}
+        justifyContent="center"
+        sx={{ mt: 2, maxWidth: 700, mx: 'auto' }}
+      >
         {displayedProjects.map((project, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <ZoomCard onClick={() => handleOpen(project)} elevation={4}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={6}
+            key={index}
+            sx={{ display: 'flex', justifyContent: 'center' }}
+          >
+            <ZoomCard
+              onClick={() => handleOpen(project)}
+              elevation={4}
+              sx={{ width: '100%', maxWidth: 320 }}
+            >
               <CardActionArea>
-                {/* ✅ Force Square Box */}
                 <Box
                   sx={{
-                    aspectRatio: '1 / 1',
+                    height: 200,
                     overflow: 'hidden',
                     borderRadius: 0,
                   }}
