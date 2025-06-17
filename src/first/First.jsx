@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
-import './First.css';        // Cleaned base styles
-import './Manabtext.css';    // Wave animation styles
+import './First.css';
+import './Manabtext.css';
 import SlideInSection from '../SlideInSection';
 import HorizontalNonLinearStepper from './Skills';
 import {
@@ -24,6 +24,131 @@ import profilePic from '../Images/profile.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+// Certifications Array
+const certifications = [
+  {
+    title: "Terraform Certified Associate (HCTAO-003)",
+    issuer: "HashiCorp",
+    logo: "https://images.credly.com/images/ed4be915-68f8-428a-b332-40ded9084ee5/blob",
+    link: "https://www.credly.com/badges/580ecf8f-968b-45c2-b1c8-ef6b7902828a/public_url",
+  },
+  {
+    title: "AWS Certified Solutions Architect – Associate",
+    issuer: "Amazon Web Services",
+    logo: "https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
+    link: "https://www.credly.com/badges/c2725ab4-5508-43b3-afd6-8328caa90d0c/public_url",
+  },
+  {
+    title: "Red Hat Certified System Administrator (RHCSA)",
+    issuer: "Udemy (Course Completion)",
+    logo: "https://udemy-certificate.s3.amazonaws.com/image/UC-a6f6e252-3098-4fc8-9dc6-00f7defae7fc.jpg",
+    link: "https://udemy-certificate.s3.amazonaws.com/image/UC-a6f6e252-3098-4fc8-9dc6-00f7defae7fc.jpg",
+  },
+];
+
+// Certification Section
+const CertificationSection = () => {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleOpenModal = (image) => {
+    setSelectedImage(image);
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    setSelectedImage(null);
+  };
+
+  return (
+    <Box sx={{ py: 6, backgroundColor: theme.palette.background.paper }}>
+      <Typography variant="h4" align="center" gutterBottom>
+        Certifications
+      </Typography>
+      <Grid container spacing={4} justifyContent="center">
+        {certifications.map((cert, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index} data-aos="fade-up">
+            <Box
+              sx={{
+                p: 3,
+                borderRadius: 3,
+                boxShadow: 3,
+                textAlign: 'center',
+                transition: '0.3s',
+                height: '100%',
+                backgroundColor: isDark ? '#1e1e1e' : '#fff',
+                color: isDark ? '#e0e0e0' : '#000',
+                '&:hover': { boxShadow: 6 },
+                cursor: 'pointer',
+              }}
+              onClick={() => handleOpenModal(cert.logo)}
+            >
+              <img
+                src={cert.logo}
+                alt={cert.title}
+                style={{
+                  width: 80,
+                  height: 'auto',
+                  marginBottom: 10,
+                  borderRadius: 6,
+                  backgroundColor: isDark ? '#fff' : 'transparent',
+                  padding: isDark ? '4px' : 0,
+                }}
+              />
+              <Typography variant="h6" gutterBottom>{cert.title}</Typography>
+              <Typography variant="body2" sx={{ color: isDark ? '#ccc' : '#555' }}>
+                {cert.issuer}
+              </Typography>
+              {cert.link && (
+                <Button
+                  variant="text"
+                  size="small"
+                  href={cert.link}
+                  target="_blank"
+                  onClick={(e) => e.stopPropagation()}
+                  sx={{ mt: 1, color: '#D70040' }}
+                >
+                  View Certificate
+                </Button>
+              )}
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
+
+      {/* Modal */}
+      <Dialog open={openModal} onClose={handleCloseModal} maxWidth="md" fullWidth>
+        <DialogContent sx={{ position: 'relative', p: 0 }}>
+          <IconButton
+            aria-label="Close image preview"
+            onClick={handleCloseModal}
+            sx={{
+              position: 'absolute',
+              top: 10,
+              right: 10,
+              color: '#fff',
+              background: 'rgba(0,0,0,0.5)',
+              '&:hover': { background: 'rgba(0,0,0,0.7)' },
+              zIndex: 1,
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+          <img
+            src={selectedImage}
+            alt="Certificate Preview"
+            style={{ width: '100%', height: 'auto', display: 'block' }}
+          />
+        </DialogContent>
+      </Dialog>
+    </Box>
+  );
+};
+
+// Main Component
 function First() {
   const aboutRef = useRef(null);
   const theme = useTheme();
@@ -162,6 +287,7 @@ function First() {
           </Box>
 
           <HorizontalNonLinearStepper />
+          <CertificationSection />
 
           <Box sx={{ textAlign: 'center' }}>
             <Button

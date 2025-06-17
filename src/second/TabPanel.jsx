@@ -11,10 +11,7 @@ const tabData = [
     label: 'Education',
     content: `Postgraduate Certificate in DevOps for Cloud Computing (Lambton College, Toronto, Jan 2024 – Dec 2025)\nBachelor of Science in Computer Science and IT (Trinity International College, Nepal, 2018 – 2023)`,
   },
-  {
-    label: 'Certifications',
-    content: `AWS Certified Solutions Architect\nRHCSA (Course Completion)\n(Additional certifications in progress)`,
-  },
+
 ];
 
 const DynamicTabPanel = () => {
