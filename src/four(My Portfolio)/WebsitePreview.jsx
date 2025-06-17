@@ -112,7 +112,7 @@ export default function ProjectGallery() {
                   sx={{
                     aspectRatio: '1 / 1',
                     overflow: 'hidden',
-                    borderRadius: 2,
+                    borderRadius: 0,
                   }}
                 >
                   <Box
