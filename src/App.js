@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import FixedBottomNavigation from './Mobnav';
 import BackToTop from './ResponsiveAppBar';
 import {
@@ -11,7 +11,20 @@ import {
 } from '@mui/material';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true); // Dark mode is default
+  // Get system preference for dark mode
+  const getSystemDarkMode = () =>
+    window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  const [darkMode, setDarkMode] = useState(getSystemDarkMode);
+
+  // Optional: update theme on system change
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handler = (e) => setDarkMode(e.matches);
+    mediaQuery.addEventListener('change', handler);
+
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
 
   const theme = useMemo(() =>
     createTheme({
@@ -29,8 +42,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-
-      {/* Dark Mode Toggle Button in top-right corner */}
+      {/* Toggle button still available if you want manual control */}
       <Box sx={{ position: 'fixed', top: 10, right: 10, zIndex: 1300 }}>
         <Button
           variant="contained"
