@@ -44,13 +44,15 @@ const certifications = [
     credentialId: "6995b40c3fc1464b9df27de62f0dda4d",
     tags: ["Cloud", "Architecture", "AWS"],
   },
+  // ⬇︎ replaced with your official RHCSA
   {
     title: "Red Hat Certified System Administrator (RHCSA)",
-    issuer: "Udemy (Course Completion)",
-    logo: "https://udemy-certificate.s3.amazonaws.com/image/UC-a6f6e252-3098-4fc8-9dc6-00f7defae7fc.jpg",
-    link: "https://udemy-certificate.s3.amazonaws.com/image/UC-a6f6e252-3098-4fc8-9dc6-00f7defae7fc.jpg",
-    issueDate: "March 18,2025",
-    credentialId: "UC-a6f6e252-3098-4fc8-9dc6-00f7defae7fc",
+    issuer: "Red Hat",
+    logo: "https://images.credly.com/size/220x220/images/572de0ba-2c59-4816-a59d-b0e1687e45ee/image.png",
+    link: "https://www.credly.com/badges/d392a599-34a9-4482-ab5e-5575cf7eaeb7/public_url",
+    issueDate: "August 05, 2025",
+    expires: "August 05, 2028",
+    credentialId: "250-120-532",
     tags: ["Linux", "SysAdmin", "Shell"],
   },
 ];
