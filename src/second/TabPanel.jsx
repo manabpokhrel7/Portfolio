@@ -5,7 +5,7 @@ import { Tabs, Tab, Box, Typography, useTheme, Paper, useMediaQuery } from '@mui
 const tabData = [
   {
     label: 'Experience',
-    content: `Over 1 year of hands-on experience as a DevOps Engineer, focusing on CI/CD automation, containerized deployments, and cloud infrastructure using tools like Kubernetes, Helm, Argo CD, Docker, Terraform, and Ansible. Experienced with both AWS and Azure environments, and skilled in Linux system administration and GitOps practices.`,
+    content: `Over 3 year of hands-on experience as a DevOps Engineer, focusing on CI/CD automation, containerized deployments, and cloud infrastructure using tools like Kubernetes, Helm, Argo CD, Docker, Terraform, and Ansible. Experienced with both AWS and Azure environments, and skilled in Linux system administration and GitOps practices.`,
   },
   {
     label: 'Education',
