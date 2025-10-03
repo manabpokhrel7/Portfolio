@@ -10,7 +10,6 @@ import {
   Chip,
   Fade,
   IconButton,
-  Pagination,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
@@ -19,6 +18,9 @@ import project1 from '../Images/project1.png';
 import terakube from '../Images/terakube.png';
 import img from '../Images/img.png';
 import project2 from '../Images/project2.png';
+
+// Use remote URL directly
+const eksProjectImage = 'https://amlanscloud.com/static/0428f8b7413d84492d43565c788c203b/af144/main.png';
 
 // ✅ Project data
 const projects = [
@@ -54,6 +56,14 @@ const projects = [
     link: 'https://gitlab.com/manabpokhrel7/myapp-helm',
     tags: ['ArgoCD', 'Helm', 'GitOps', 'Python', 'Redis'],
   },
+  {
+    title: 'Terraform + Ansible: EKS + Self-Hosted Runner + CI/CD',
+    image: eksProjectImage,
+    description:
+      'End-to-end project deploying an EKS cluster with Terraform and Ansible, setting up a self-hosted GitLab runner, and CI/CD deployment using ArgoCD.',
+    link: 'https://gitlab.com/manabpokhrel7/eks-with-testing',
+    tags: ['Terraform', 'Ansible', 'EKS', 'CI/CD', 'ArgoCD', 'DevOps'],
+  },
 ];
 
 // ✅ Styled card with zoom effect
@@ -68,14 +78,6 @@ const ZoomCard = styled(Card)(({ theme }) => ({
 export default function ProjectGallery() {
   const [open, setOpen] = useState(false);
   const [activeProject, setActiveProject] = useState(null);
-  const [page, setPage] = useState(1);
-
-  const projectsPerPage = 4;
-  const pageCount = Math.ceil(projects.length / projectsPerPage);
-  const displayedProjects = projects.slice(
-    (page - 1) * projectsPerPage,
-    page * projectsPerPage
-  );
 
   const handleOpen = (project) => {
     setActiveProject(project);
@@ -94,40 +96,29 @@ export default function ProjectGallery() {
     };
   }, [open]);
 
-  const handlePageChange = (event, value) => {
-    setPage(value);
-  };
-
   return (
     <>
-      {/* ✅ Grid Display with tighter horizontal spacing */}
-      <Grid
-        container
-        rowSpacing={3}
-        columnSpacing={1}
-        justifyContent="center"
-        sx={{ mt: 2, maxWidth: 700, mx: 'auto' }}
-      >
-        {displayedProjects.map((project, index) => (
+      {/* ✅ 3-column grid, scrolling vertically */}
+      <Grid container spacing={3} justifyContent="center" sx={{ mt: 2 }}>
+        {projects.map((project, index) => (
           <Grid
             item
             xs={12}
             sm={6}
-            md={6}
+            md={4} // 3 columns on medium+ screens
             key={index}
             sx={{ display: 'flex', justifyContent: 'center' }}
           >
             <ZoomCard
               onClick={() => handleOpen(project)}
               elevation={4}
-              sx={{ width: '100%', maxWidth: 320 }}
+              sx={{ width: '100%', maxWidth: 350 }}
             >
               <CardActionArea>
                 <Box
                   sx={{
                     height: 200,
                     overflow: 'hidden',
-                    borderRadius: 0,
                   }}
                 >
                   <Box
@@ -138,7 +129,6 @@ export default function ProjectGallery() {
                       width: '100%',
                       height: '100%',
                       objectFit: 'cover',
-                      display: 'block',
                     }}
                   />
                 </Box>
@@ -148,19 +138,7 @@ export default function ProjectGallery() {
         ))}
       </Grid>
 
-      {/* ✅ Pagination */}
-      {pageCount > 1 && (
-        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
-          <Pagination
-            count={pageCount}
-            page={page}
-            onChange={handlePageChange}
-            color="primary"
-          />
-        </Box>
-      )}
-
-      {/* ✅ Modal with Fade */}
+      {/* ✅ Modal for project details */}
       <Modal open={open} onClose={handleClose} closeAfterTransition>
         <Fade in={open}>
           <Box
@@ -205,7 +183,6 @@ export default function ProjectGallery() {
                   }}
                 />
 
-                {/* ✅ Tags */}
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 2 }}>
                   {activeProject.tags.map((tag, idx) => (
                     <Chip key={idx} label={tag} color="primary" size="small" />
@@ -234,3 +211,4 @@ export default function ProjectGallery() {
     </>
   );
 }
+
