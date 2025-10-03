@@ -5,6 +5,8 @@ import { Grid, Card, CardContent, CardMedia, Typography, Container } from '@mui/
 // Importing images used in the blog cards
 import cloudfrontImage from '../Images/cloudfront.png';
 import selinux from './SELinux.png';
+import terraformImage from '../Images/terraform.png'; // Add a relevant image for Terraform post
+import ansibleImage from '../Images/ansible.png'; // Add a relevant image for Ansible post
 
 // BlogMainPage functional component
 const BlogMainPage = () => {
@@ -27,6 +29,18 @@ const BlogMainPage = () => {
       description: 'How to enable anonymous FTP uploads securely with SELinux settings.',
       image: selinux,
       link: 'https://medium.com/@manabpokhrel7/configuring-vsftpd-for-anonymous-ftp-uploads-with-selinux-booleans-0d8b4ef2ee3d',
+    },
+    {
+      title: 'Creating an Ubuntu VM on Google Cloud with Terraform',
+      description: 'Step-by-step guide to launch an Ubuntu VM on Google Cloud using Terraform from Rocky Linux.',
+      image: terraformImage,
+      link: 'https://medium.com/@manabpokhrel7/creating-an-ubuntu-vm-on-google-cloud-with-terraform-from-rocky-linux-cf1cbca106e9',
+    },
+    {
+      title: 'Practical Ansible with Navigator',
+      description: 'Learn how to configure, run, and manage host group variables using Ansible Navigator.',
+      image: ansibleImage,
+      link: 'https://medium.com/@manabpokhrel7/practical-ansible-with-navigator-configuring-running-and-managing-host-group-variables-a79f647a64ac',
     },
   ];
 
@@ -82,3 +96,4 @@ const BlogMainPage = () => {
 
 // Exporting the component for use in the app
 export default BlogMainPage;
+
