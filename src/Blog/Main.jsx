@@ -5,7 +5,7 @@ import { Grid, Card, CardContent, CardMedia, Typography, Container } from '@mui/
 // Importing images used in the blog cards
 import cloudfrontImage from '../Images/cloudfront.png';
 import selinux from './SELinux.png';
-import terraformImage from '../Images/terraform.png'; // Add a relevant image for Terraform post
+import terraformImage from '../Images/project1.png'; // Add a relevant image for Terraform post
 import ansibleImage from '../Images/ansible.png'; // Add a relevant image for Ansible post
 
 // BlogMainPage functional component
