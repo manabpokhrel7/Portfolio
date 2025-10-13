@@ -19,8 +19,9 @@ import terakube from '../Images/terakube.png';
 import img from '../Images/img.png';
 import project2 from '../Images/project2.png';
 
-// Use remote URL directly
+// Use remote URLs directly
 const eksProjectImage = 'https://amlanscloud.com/static/0428f8b7413d84492d43565c788c203b/af144/main.png';
+const ecsTerraformImage = 'https://external-preview.redd.it/getting-started-with-ecs-can-be-overwhelming-it-involves-v0-8RKLRhNqqFoIfOCAZeMIMFqJdHasrsCzjHCkyFQ_Ug4.jpg?auto=webp&s=5ebc93a1bb196ae308164ef0ae3250de26a12fe5';
 
 // ✅ Project data
 const projects = [
@@ -63,6 +64,14 @@ const projects = [
       'End-to-end project deploying an EKS cluster with Terraform and Ansible, setting up a self-hosted GitLab runner, and CI/CD deployment using ArgoCD.',
     link: 'https://gitlab.com/manabpokhrel7/eks-with-testing',
     tags: ['Terraform', 'Ansible', 'EKS', 'CI/CD', 'ArgoCD', 'DevOps'],
+  },
+  {
+    title: 'AWS ECS with Terraform: Flask + Redis + PostgreSQL',
+    image: ecsTerraformImage,
+    description:
+      'Deploy a multi-container Flask app with Redis and PostgreSQL on AWS ECS using Terraform. Includes ALB, Cloud Map, security groups, and CloudWatch logging.',
+    link: 'https://gitlab.com/manabpokhrel7/aws-ecs-with-terraform',
+    tags: ['Flask', 'Redis', 'PostgreSQL', 'ECS', 'Terraform', 'AWS', 'DevOps'],
   },
 ];
 
@@ -211,4 +220,3 @@ export default function ProjectGallery() {
     </>
   );
 }
-
