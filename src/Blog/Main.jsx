@@ -7,8 +7,7 @@ import cloudfrontImage from '../Images/cloudfront.png';
 import selinux from './SELinux.png';
 import terraformImage from '../Images/project1.png'; // Add a relevant image for Terraform posts
 import ansibleImage from '../Images/ansible.png'; // Add a relevant image for Ansible posts
-import flaskEcsImage from '../Images/flaskEcs.png'; // Optional: add a dedicated image for Flask ECS blog
-
+const flaskEcsImage = 'https://external-preview.redd.it/getting-started-with-ecs-can-be-overwhelming-it-involves-v0-8RKLRhNqqFoIfOCAZeMIMFqJdHasrsCzjHCkyFQ_Ug4.jpg?auto=webp&s=5ebc93a1bb196ae308164ef0ae3250de26a12fe5';
 // BlogMainPage functional component
 const BlogMainPage = () => {
   // Define an array of blog post objects with title, description, image, and link
@@ -46,7 +45,7 @@ const BlogMainPage = () => {
     {
       title: 'Deploying a Multi-Container Flask Application on AWS ECS with Terraform',
       description: 'A detailed guide on deploying a multi-container Flask application using Terraform and AWS ECS.',
-      image: flaskEcsImage || terraformImage, // Use dedicated image if available, else fallback
+      image: flaskEcsImage,
       link: 'https://medium.com/@manabpokhrel7/deploying-a-multi-container-flask-application-on-aws-ecs-with-terraform-e1c152512f5e',
     },
   ];
