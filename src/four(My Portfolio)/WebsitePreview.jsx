@@ -73,6 +73,25 @@ const projects = [
     link: 'https://gitlab.com/manabpokhrel7/aws-ecs-with-terraform',
     tags: ['Flask', 'Redis', 'PostgreSQL', 'ECS', 'Terraform', 'AWS', 'DevOps'],
   },
+  {
+  title: 'Multi-Cloud GitLab Runners (AWS | Azure | GCP)',
+  image: 'https://miro.medium.com/v2/resize:fit:580/1*v8XiToFK-pdj779PC_WHuQ.png',
+  description:
+    'Fully automated setup to deploy and test self-hosted GitLab runners across AWS, Azure, and GCP using Terraform, Ansible, and GitLab CI/CD. Each runner is tagged and verified in parallel pipelines.',
+  link: 'https://gitlab.com/manabpokhrel7/gcp-selfhosted-runner-terraform',
+  tags: [
+    'Terraform',
+    'Ansible',
+    'GitLabCI',
+    'MultiCloud',
+    'AWS',
+    'Azure',
+    'GCP',
+    'InfrastructureAsCode',
+    'DevOps',
+  ],
+}
+
 ];
 
 // ✅ Styled card with zoom effect
