@@ -1,17 +1,33 @@
 import React from 'react';
-// Importing Material UI components for layout and styling
 import { Grid, Card, CardContent, CardMedia, Typography, Container } from '@mui/material';
 
-// Importing images used in the blog cards
+// Local images
 import cloudfrontImage from '../Images/cloudfront.png';
 import selinux from './SELinux.png';
-import terraformImage from '../Images/project1.png'; // Add a relevant image for Terraform posts
-import ansibleImage from '../Images/ansible.png'; // Add a relevant image for Ansible posts
+import terraformImage from '../Images/project1.png';
+import ansibleImage from '../Images/ansible.png';
+
+// Remote image URLs
 const flaskEcsImage = 'https://external-preview.redd.it/getting-started-with-ecs-can-be-overwhelming-it-involves-v0-8RKLRhNqqFoIfOCAZeMIMFqJdHasrsCzjHCkyFQ_Ug4.jpg?auto=webp&s=5ebc93a1bb196ae308164ef0ae3250de26a12fe5';
-// BlogMainPage functional component
+const aksBlogImage = 'https://platformwale.blog/wp-content/uploads/2023/07/aks_terraform.png';
+const azureVmImage = 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ENYc2iY5W5WXCb1--j1X4A.png';
+
 const BlogMainPage = () => {
-  // Define an array of blog post objects with title, description, image, and link
   const blogPosts = [
+    {
+      title: 'Provisioning Azure Virtual Machines with Managed Identity Using Terraform',
+      description:
+        'Learn how to securely provision Azure Virtual Machines using Terraform with Managed Identity, enhancing automation and access control.',
+      image: azureVmImage,
+      link: 'https://medium.com/@manabpokhrel7/provisioning-azure-virtual-machines-with-managed-identity-using-terraform-15eec6ce2b1f',
+    },
+    {
+      title: 'Azure Kubernetes Cluster with Terraform and Managed Identity',
+      description:
+        'Provisioning AKS using Terraform and configuring secure access via Managed Identity and RBAC.',
+      image: aksBlogImage,
+      link: 'https://medium.com/@manabpokhrel7/provisioning-azure-kubernetes-service-aks-with-terraform-and-managing-identity-based-access-c03ee8143339',
+    },
     {
       title: 'Understanding CloudFront',
       description: 'A comprehensive guide to using Cloudfront effectively in your system.',
@@ -51,38 +67,31 @@ const BlogMainPage = () => {
   ];
 
   return (
-    // Container sets the overall width and spacing
     <Container maxWidth="lg" style={{ marginTop: '20px' }}>
-      {/* Grid container to layout blog cards responsively */}
       <Grid container spacing={4}>
-        {/* Map over each blog post to create a grid item */}
         {blogPosts.map((post, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            {/* Each blog card is a clickable link opening in a new tab */}
             <a
               href={post.link}
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: 'none' }}
             >
-              {/* Card displays image, title, and description */}
               <Card
                 sx={{
-                  transition: 'transform 0.3s, box-shadow 0.3s', // Smooth transition for hover effect
+                  transition: 'transform 0.3s, box-shadow 0.3s',
                   '&:hover': {
-                    transform: 'scale(1.03)', // Scale up slightly on hover
-                    boxShadow: 6, // Add box shadow on hover
+                    transform: 'scale(1.03)',
+                    boxShadow: 6,
                   },
                 }}
               >
-                {/* CardMedia displays the image */}
                 <CardMedia
                   component="img"
                   height="200"
                   image={post.image}
                   alt={post.title}
                 />
-                {/* CardContent displays title and description */}
                 <CardContent>
                   <Typography variant="h6" component="div">
                     {post.title}
@@ -100,5 +109,5 @@ const BlogMainPage = () => {
   );
 };
 
-// Exporting the component for use in the app
 export default BlogMainPage;
+

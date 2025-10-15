@@ -19,12 +19,47 @@ import terakube from '../Images/terakube.png';
 import img from '../Images/img.png';
 import project2 from '../Images/project2.png';
 
-// Use remote URLs directly
+// Remote image URLs
 const eksProjectImage = 'https://amlanscloud.com/static/0428f8b7413d84492d43565c788c203b/af144/main.png';
 const ecsTerraformImage = 'https://external-preview.redd.it/getting-started-with-ecs-can-be-overwhelming-it-involves-v0-8RKLRhNqqFoIfOCAZeMIMFqJdHasrsCzjHCkyFQ_Ug4.jpg?auto=webp&s=5ebc93a1bb196ae308164ef0ae3250de26a12fe5';
 
 // ✅ Project data
 const projects = [
+  {
+    title: 'Multi-Cloud GitLab Runners (AWS | Azure | GCP)',
+    image: 'https://miro.medium.com/v2/resize:fit:580/1*v8XiToFK-pdj779PC_WHuQ.png',
+    description:
+      'Fully automated setup to deploy and test self-hosted GitLab runners across AWS, Azure, and GCP using Terraform, Ansible, and GitLab CI/CD. Each runner is tagged and verified in parallel pipelines.',
+    link: 'https://gitlab.com/manabpokhrel7/gcp-selfhosted-runner-terraform',
+    tags: [
+      'Terraform',
+      'Ansible',
+      'GitLabCI',
+      'MultiCloud',
+      'AWS',
+      'Azure',
+      'GCP',
+      'InfrastructureAsCode',
+      'DevOps',
+    ],
+  },
+  {
+    title: 'AKS with Terraform: Managed Identity + RBAC',
+    image: 'https://platformwale.blog/wp-content/uploads/2023/07/aks_terraform.png',
+    description:
+      'Provision Azure Kubernetes Service (AKS) using Terraform with System-Assigned Managed Identity and RBAC role assignments. Secure and automated AKS deployments, ready for cloud-native DevOps workflows.',
+    link: 'https://gitlab.com/manabpokhrel7/azureaks-terraform',
+    tags: [
+      'Terraform',
+      'Azure',
+      'AKS',
+      'Kubernetes',
+      'Managed Identity',
+      'RBAC',
+      'DevOps',
+      'InfrastructureAsCode',
+    ],
+  },
   {
     title: 'Terraform + Ansible EC2 Self-Hosted GitLab Runner',
     image: project1,
@@ -73,25 +108,6 @@ const projects = [
     link: 'https://gitlab.com/manabpokhrel7/aws-ecs-with-terraform',
     tags: ['Flask', 'Redis', 'PostgreSQL', 'ECS', 'Terraform', 'AWS', 'DevOps'],
   },
-  {
-  title: 'Multi-Cloud GitLab Runners (AWS | Azure | GCP)',
-  image: 'https://miro.medium.com/v2/resize:fit:580/1*v8XiToFK-pdj779PC_WHuQ.png',
-  description:
-    'Fully automated setup to deploy and test self-hosted GitLab runners across AWS, Azure, and GCP using Terraform, Ansible, and GitLab CI/CD. Each runner is tagged and verified in parallel pipelines.',
-  link: 'https://gitlab.com/manabpokhrel7/gcp-selfhosted-runner-terraform',
-  tags: [
-    'Terraform',
-    'Ansible',
-    'GitLabCI',
-    'MultiCloud',
-    'AWS',
-    'Azure',
-    'GCP',
-    'InfrastructureAsCode',
-    'DevOps',
-  ],
-}
-
 ];
 
 // ✅ Styled card with zoom effect
@@ -133,7 +149,7 @@ export default function ProjectGallery() {
             item
             xs={12}
             sm={6}
-            md={4} // 3 columns on medium+ screens
+            md={4}
             key={index}
             sx={{ display: 'flex', justifyContent: 'center' }}
           >
@@ -239,3 +255,4 @@ export default function ProjectGallery() {
     </>
   );
 }
+
