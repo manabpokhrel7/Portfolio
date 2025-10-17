@@ -19,7 +19,7 @@ const BlogMainPage = () => {
       description:
         'Learn how to securely provision Azure Virtual Machines using Terraform with Managed Identity, enhancing automation and access control.',
       image: azureVmImage,
-      link: 'https://medium.com/@manabpokhrel7/provisioning-azure-virtual-machines-with-managed-identity-using-terraform-15eec6ce2b1f',
+      link: 'https://medium.com/@manabpokhrel7/provisioning-azure-virtual-machines-with-managed-identity-using-terraform-a0134e522e90',
     },
     {
       title: 'Azure Kubernetes Cluster with Terraform and Managed Identity',
