@@ -23,8 +23,53 @@ import project2 from '../Images/project2.png';
 const eksProjectImage = 'https://amlanscloud.com/static/0428f8b7413d84492d43565c788c203b/af144/main.png';
 const ecsTerraformImage = 'https://external-preview.redd.it/getting-started-with-ecs-can-be-overwhelming-it-involves-v0-8RKLRhNqqFoIfOCAZeMIMFqJdHasrsCzjHCkyFQ_Ug4.jpg?auto=webp&s=5ebc93a1bb196ae308164ef0ae3250de26a12fe5';
 
-// ✅ Project data
+// ✅ Added images for new projects
+const kubeadmLogo = 'https://kubernetes.io/images/kubeadm-stacked-color.png';
+// Using the official AWS brand mark as a neutral serverless graphic.
+// Swap this for your own architecture diagram any time.
+const serverlessImage = 'https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png';
+
+// ✅ Project data (new items are prepended)
 const projects = [
+  {
+    title: 'Terraform | AWS Lambda | S3 Static Website | DynamoDB Microservice',
+    image: serverlessImage,
+    description:
+      'Built a complete serverless microservice using Terraform to automate deployment of AWS Lambda, API Gateway, S3 (for static frontend hosting), and DynamoDB (as backend storage). A single terraform apply provisions the entire stack — the S3-hosted web app interacts with the backend via API Gateway → Lambda → DynamoDB, enabling secure authentication and CRUD operations.',
+    link: 'https://lnkd.in/gvgn6VjY',
+    tags: [
+      'Terraform',
+      'AWS',
+      'Lambda',
+      'API Gateway',
+      'DynamoDB',
+      'S3',
+      'Serverless',
+      'IaC',
+      'Authentication',
+      'CRUD',
+      'DevOps',
+    ],
+  },
+  {
+    title: 'Kubernetes Cluster Automation with Ansible & kubeadm on Azure',
+    image: kubeadmLogo,
+    description:
+      'Automated Kubernetes cluster deployment using Ansible and kubeadm, with Terraform handling Azure infrastructure. Provisioned control + worker nodes, configured Kubernetes components, bootstrapped with kubeadm init/join, and deployed Flannel CNI. One terraform apply for an end-to-end, reproducible setup.',
+    link: 'https://lnkd.in/g5WgmKRv',
+    tags: [
+      'Terraform',
+      'Ansible',
+      'Azure',
+      'Kubernetes',
+      'kubeadm',
+      'Flannel',
+      'IaC',
+      'DevOps',
+    ],
+  },
+
+  // --- existing projects below (unchanged) ---
   {
     title: 'Multi-Cloud GitLab Runners (AWS | Azure | GCP)',
     image: 'https://miro.medium.com/v2/resize:fit:580/1*v8XiToFK-pdj779PC_WHuQ.png',
@@ -255,4 +300,3 @@ export default function ProjectGallery() {
     </>
   );
 }
-
