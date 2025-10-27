@@ -23,19 +23,20 @@ import project2 from '../Images/project2.png';
 const eksProjectImage = 'https://amlanscloud.com/static/0428f8b7413d84492d43565c788c203b/af144/main.png';
 const ecsTerraformImage = 'https://external-preview.redd.it/getting-started-with-ecs-can-be-overwhelming-it-involves-v0-8RKLRhNqqFoIfOCAZeMIMFqJdHasrsCzjHCkyFQ_Ug4.jpg?auto=webp&s=5ebc93a1bb196ae308164ef0ae3250de26a12fe5';
 
-// ✅ Added images for new projects
+// ✅ Official kubeadm image
 const kubeadmLogo = 'https://kubernetes.io/images/kubeadm-stacked-color.png';
-// Using the official AWS brand mark as a neutral serverless graphic.
-// Swap this for your own architecture diagram any time.
-const serverlessImage = 'https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png';
 
-// ✅ Project data (new items are prepended)
+// ✅ Your provided serverless image
+const serverlessProjectImage =
+  'https://media.licdn.com/dms/image/v2/D5622AQFMOBKF80la0Q/feedshare-shrink_1280/B56ZojnPsrG0As-/0/1761534082268?e=1762992000&v=beta&t=kxD9C9jo0wZcoWCeaAxvDf0u_GoxD9o9UemQl1nLD3Y';
+
+// ✅ Project data (kept everything; updated/added the serverless entry with your image)
 const projects = [
   {
-    title: 'Terraform | AWS Lambda | S3 Static Website | DynamoDB Microservice',
-    image: serverlessImage,
+    title: 'Terraform | AWS Lambda | S3 Static Website | DynamoDB Microservice (2025)',
+    image: serverlessProjectImage,
     description:
-      'Built a complete serverless microservice using Terraform to automate deployment of AWS Lambda, API Gateway, S3 (for static frontend hosting), and DynamoDB (as backend storage). A single terraform apply provisions the entire stack — the S3-hosted web app interacts with the backend via API Gateway → Lambda → DynamoDB, enabling secure authentication and CRUD operations.',
+      'Built a complete serverless microservice using Terraform automating Lambda, API Gateway, DynamoDB, and S3 static hosting. Enabled secure CRUD operations and authentication through API Gateway → Lambda → DynamoDB pipeline. Strengthened expertise in IaC, AWS automation, and serverless architecture.',
     link: 'https://lnkd.in/gvgn6VjY',
     tags: [
       'Terraform',
