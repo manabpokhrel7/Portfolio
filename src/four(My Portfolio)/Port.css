@@ -1,43 +1,17 @@
-/* Container for the entire portfolio section */
-.port {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-/* Container for the preview cards */
 .prev {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch;
   gap: 2rem;
   width: 100%;
   margin-top: 2rem;
+  transition: all 0.3s ease;
 }
 
-/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
-  .port {
-    padding: 1rem;
-  }
-
   .prev {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    margin-top: 1.5rem;
   }
-}
-
-
-.port {
-   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  transition: background-color 0.3s ease;
 }
