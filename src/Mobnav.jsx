@@ -9,7 +9,6 @@ import ContactPageIcon from '@mui/icons-material/ContactPage';
 import ChatIcon from '@mui/icons-material/Chat';
 import Paper from '@mui/material/Paper';
 import First from './first/First';
-import About from './second/About';
 import Port from './four(My Portfolio)/Port';
 import Contactform from './footer/Contactform';
 import BlogMainPage from './Blog/Main';
@@ -25,7 +24,6 @@ export default function FixedBottomNavigation() {
         return (
           <>
             <First />
-            <About />
           </>
         );
       case 1:

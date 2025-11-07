@@ -1,4 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react';
+// First.jsx
+import React, { useEffect, useState } from 'react';
 import './First.css';
 import './Manabtext.css';
 import SlideInSection from '../SlideInSection';
@@ -12,12 +13,11 @@ import {
   Tooltip,
   Dialog,
   DialogContent,
-  IconButton,
   Button,
   useTheme,
   Chip,
+  Paper,
 } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { SiGitlab } from 'react-icons/si';
@@ -25,296 +25,241 @@ import profilePic from '../Images/profile.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+// ---------------- CERTIFICATIONS ----------------
 const certifications = [
   {
-    title: "Terraform Certified Associate (HCTAO-003)",
-    issuer: "HashiCorp",
-    logo: "https://images.credly.com/images/ed4be915-68f8-428a-b332-40ded9084ee5/blob",
-    link: "https://www.credly.com/badges/580ecf8f-968b-45c2-b1c8-ef6b7902828a/public_url",
-    issueDate: "June 16, 2025",
-    credentialId: "580ecf8f-968b-45c2-b1c8-ef6b7902828a",
-    tags: ["DevOps", "Cloud", "IaC"],
+    title: 'Terraform Certified Associate (HCTAO-003)',
+    issuer: 'HashiCorp',
+    logo: 'https://images.credly.com/size/160x160/images/0dc62494-dc94-469a-83af-e35309f27356/blob',
+    link: 'https://www.credly.com/badges/580ecf8f-968b-45c2-b1c8-ef6b7902828a/public_url',
+    issueDate: 'June 16, 2025',
+    tags: ['DevOps', 'Cloud', 'IaC'],
   },
   {
-    title: "AWS Certified Solutions Architect – Associate",
-    issuer: "Amazon Web Services",
-    logo: "https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
-    link: "https://www.credly.com/badges/c2725ab4-5508-43b3-afd6-8328caa90d0c/public_url",
-    issueDate: "Dec 2024",
-    credentialId: "6995b40c3fc1464b9df27de62f0dda4d",
-    tags: ["Cloud", "Architecture", "AWS"],
+    title: 'AWS Certified Solutions Architect – Associate',
+    issuer: 'Amazon Web Services',
+    logo: 'https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png',
+    link: 'https://www.credly.com/badges/c2725ab4-5508-43b3-afd6-8328caa90d0c/public_url',
+    issueDate: 'Dec 2024',
+    tags: ['Cloud', 'Architecture', 'AWS'],
   },
-  // ⬇︎ replaced with your official RHCSA
   {
-    title: "Red Hat Certified System Administrator (RHCSA)",
-    issuer: "Red Hat",
-    logo: "https://images.credly.com/size/220x220/images/572de0ba-2c59-4816-a59d-b0e1687e45ee/image.png",
-    link: "https://www.credly.com/badges/d392a599-34a9-4482-ab5e-5575cf7eaeb7/public_url",
-    issueDate: "August 05, 2025",
-    expires: "August 05, 2028",
-    credentialId: "250-120-532",
-    tags: ["Linux", "SysAdmin", "Shell"],
+    title: 'Red Hat Certified System Administrator (RHCSA)',
+    issuer: 'Red Hat',
+    logo: 'https://images.credly.com/size/220x220/images/572de0ba-2c59-4816-a59d-b0e1687e45ee/image.png',
+    link: 'https://www.credly.com/badges/d392a599-34a9-4482-ab5e-5575cf7eaeb7/public_url',
+    issueDate: 'Aug 2025',
+    tags: ['Linux', 'SysAdmin', 'Shell'],
   },
 ];
 
-const aosAnimations = ['fade-up', 'fade-down', 'zoom-in', 'flip-left', 'flip-up'];
-
-const CertificationSection = () => {
-  const theme = useTheme();
-  const isDark = theme.palette.mode === 'dark';
-  const [openModal, setOpenModal] = useState(false);
-  const [selectedCert, setSelectedCert] = useState(null);
-
-  const sortedCerts = [...certifications].sort(
-    (a, b) => new Date(b.issueDate) - new Date(a.issueDate)
-  );
-
-  const handleOpenModal = (cert) => {
-    setSelectedCert(cert);
-    setOpenModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setOpenModal(false);
-    setSelectedCert(null);
-  };
-
-  return (
-    <Box sx={{ py: 6, backgroundColor: theme.palette.background.paper }}>
-      <Typography variant="h4" align="center" gutterBottom>
-        Certifications
-      </Typography>
-
-      <Grid container spacing={4} justifyContent="center">
-        {sortedCerts.map((cert, index) => {
-          const animation = aosAnimations[index % aosAnimations.length];
-
-          return (
-            <Grid item xs={12} sm={6} md={4} key={index} data-aos={animation}>
-              <Tooltip title={`Issued: ${new Date(cert.issueDate).toLocaleDateString()}`} arrow>
-                <Box
-                  sx={{
-                    p: 3,
-                    borderRadius: 3,
-                    boxShadow: 3,
-                    textAlign: 'center',
-                    transition: '0.3s',
-                    height: '100%',
-                    backgroundColor: isDark ? '#1e1e1e' : '#fff',
-                    color: isDark ? '#e0e0e0' : '#000',
-                    '&:hover': { boxShadow: 6 },
-                    cursor: 'pointer',
-                  }}
-                  onClick={() => handleOpenModal(cert)}
-                >
-                  <img
-                    src={cert.logo}
-                    alt={cert.title}
-                    style={{
-                      width: 80,
-                      height: 'auto',
-                      marginBottom: 10,
-                      borderRadius: 6,
-                      backgroundColor: isDark ? '#fff' : 'transparent',
-                      padding: isDark ? '4px' : 0,
-                    }}
-                  />
-                  <Typography variant="h6" gutterBottom>{cert.title}</Typography>
-                  <Typography variant="body2" sx={{ color: isDark ? '#ccc' : '#555' }}>
-                    {cert.issuer}
-                  </Typography>
-                  <Box sx={{ mt: 1, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 1 }}>
-                    {cert.tags.map((tag, tagIndex) => (
-                      <Chip key={tagIndex} label={tag} size="small" color="secondary" variant="outlined" />
-                    ))}
-                  </Box>
-                </Box>
-              </Tooltip>
-            </Grid>
-          );
-        })}
-      </Grid>
-
-      <Dialog open={openModal} onClose={handleCloseModal} maxWidth="md" fullWidth>
-        <DialogContent sx={{ position: 'relative', p: 3 }}>
-          <IconButton
-            aria-label="Close"
-            onClick={handleCloseModal}
-            sx={{
-              position: 'absolute',
-              top: 10,
-              right: 10,
-              color: '#fff',
-              background: 'rgba(0,0,0,0.5)',
-              '&:hover': { background: 'rgba(0,0,0,0.7)' },
-              zIndex: 1,
-            }}
-          >
-            <CloseIcon />
-          </IconButton>
-
-          {selectedCert && (
-            <Box sx={{ textAlign: 'center' }}>
-              <img
-                src={selectedCert.logo}
-                alt={selectedCert.title}
-                style={{ maxWidth: 120, borderRadius: 8, marginBottom: 10 }}
-              />
-              <Typography variant="h6">{selectedCert.title}</Typography>
-              <Typography variant="body2" sx={{ color: '#666' }}>
-                {selectedCert.issuer}
-              </Typography>
-              <Typography variant="body2" sx={{ mt: 1 }}>
-                <strong>Issued:</strong> {new Date(selectedCert.issueDate).toLocaleDateString()}
-              </Typography>
-              <Typography variant="body2">
-                <strong>ID:</strong> {selectedCert.credentialId}
-              </Typography>
-              <Box sx={{ mt: 1, display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 1 }}>
-                {selectedCert.tags.map((tag, i) => (
-                  <Chip key={i} label={tag} size="small" color="primary" />
-                ))}
-              </Box>
-              <Button
-                variant="contained"
-                color="secondary"
-                href={selectedCert.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{ mt: 2 }}
-              >
-                View Credential
-              </Button>
-            </Box>
-          )}
-        </DialogContent>
-      </Dialog>
-    </Box>
-  );
-};
+// ---------------- EDUCATION & EXPERIENCE ----------------
 
 function First() {
-  const aboutRef = useRef(null);
   const theme = useTheme();
   const [openImage, setOpenImage] = useState(false);
+  const [openCert, setOpenCert] = useState(null);
 
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    AOS.init({ duration: 900 });
   }, []);
 
-  const handleScroll = () => {
-    if (aboutRef.current) {
-      aboutRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <div className="first" style={{ background: theme.palette.background.default, minHeight: '100vh' }}>
-      <SlideInSection>
-        <Container maxWidth="md" sx={{ mt: 2 }}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <Box sx={{ background: 'transparent', color: theme.palette.text.primary, pb: 8 }}>
+      <Container maxWidth="lg" sx={{ pt: 6 }}>
+        {/* ---------------- HERO SECTION ---------------- */}
+        <SlideInSection>
+          <Box textAlign="center" mb={6}>
             <Avatar
-              alt="Portrait of Manab Pokhrel"
+              alt="Manab Pokhrel"
               src={profilePic}
               sx={{
-                width: { xs: 100, sm: 130 },
-                height: { xs: 100, sm: 130 },
+                width: { xs: 120, sm: 160 },
+                height: { xs: 120, sm: 160 },
                 mb: 2,
+                mx: 'auto',
                 boxShadow: 3,
+                border: '3px solid #D70040',
                 cursor: 'pointer',
               }}
               onClick={() => setOpenImage(true)}
             />
             <Dialog open={openImage} onClose={() => setOpenImage(false)} maxWidth="sm" fullWidth>
-              <DialogContent sx={{ position: 'relative', p: 0 }}>
-                <IconButton
-                  aria-label="Close"
-                  onClick={() => setOpenImage(false)}
-                  sx={{
-                    position: 'absolute',
-                    top: 10,
-                    right: 10,
-                    color: '#fff',
-                    background: 'rgba(0,0,0,0.5)',
-                    '&:hover': { background: 'rgba(0,0,0,0.7)' },
-                  }}
-                >
-                  <CloseIcon />
-                </IconButton>
-                <img
-                  src={profilePic}
-                  alt="Larger portrait of Manab Pokhrel"
-                  loading="lazy"
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
-                />
+              <DialogContent sx={{ p: 0 }}>
+                <img src={profilePic} alt="Manab Pokhrel" style={{ width: '100%' }} />
               </DialogContent>
             </Dialog>
 
-            <div className="wave-text">
-              {'Manab Pokhrel'.split('').map((char, i) => (
-                <span key={i} className="wave-char" style={{ animationDelay: `${i * 0.1}s` }}>
-                  {char === ' ' ? '\u00A0' : char}
-                </span>
-              ))}
-            </div>
+            <Typography variant="h4" fontWeight={700} mb={1}>
+              Manab Pokhrel
+            </Typography>
 
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2, mt: 2 }}>
-              <Tooltip title="GitHub" arrow>
+            <Typography
+              variant="body1"
+              sx={{
+                opacity: 0.9,
+                mb: 3,
+                maxWidth: 720,
+                mx: 'auto',
+                lineHeight: 1.8,
+              }}
+            >
+	    System Administrator | Cloud Architect | DevOps | Infrastructure Automation, CI/CD, AWS/Azure/GCP & Kubernetes/Terraform/Ansible
+            </Typography>
+
+            {/* Social Icons */}
+            <Box display="flex" justifyContent="center" gap={2} mb={3}>
+              <Tooltip title="GitHub">
                 <a href="https://github.com/manabpokhrel7" target="_blank" rel="noreferrer">
-                  <GitHubIcon fontSize="large" sx={{ color: theme.palette.mode === 'dark' ? '#fff' : '#000', '&:hover': { color: '#D70040', transform: 'scale(1.2)' } }} />
+                  <GitHubIcon
+                    fontSize="large"
+                    sx={{
+                      color: theme.palette.mode === 'dark' ? '#fff' : '#000',
+                      '&:hover': { color: '#D70040' },
+                    }}
+                  />
                 </a>
               </Tooltip>
-              <Tooltip title="GitLab" arrow>
+              <Tooltip title="GitLab">
                 <a href="https://gitlab.com/users/manabpokhrel7/projects" target="_blank" rel="noreferrer">
-                  <SiGitlab size={30} style={{ color: '#FC6D26', transition: '0.3s' }} onMouseOver={e => e.currentTarget.style.transform = 'scale(1.2)'} onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}/>
+                  <SiGitlab size={30} style={{ color: '#FC6D26' }} />
                 </a>
               </Tooltip>
-              <Tooltip title="LinkedIn" arrow>
+              <Tooltip title="LinkedIn">
                 <a href="https://www.linkedin.com/in/manab-pokhrel/" target="_blank" rel="noreferrer">
-                  <LinkedInIcon fontSize="large" sx={{ color: '#0e76a8', '&:hover': { color: '#D70040', transform: 'scale(1.2)' } }} />
+                  <LinkedInIcon
+                    fontSize="large"
+                    sx={{
+                      color: '#0e76a8',
+                      '&:hover': { color: '#D70040' },
+                    }}
+                  />
                 </a>
               </Tooltip>
-              <Button
-                variant="outlined"
-                size="small"
-                href="https://docs.google.com/document/d/1db9Q4XpLDRNKhTeN0RUa4Ff9rhNBuT3nVlyyHbCjekA/edit?usp=sharing"
-                target="_blank"
-                className="custom-button"
-                sx={{ color: '#D70040', borderColor: '#D70040', '&:hover': { backgroundColor: '#D70040', color: '#fff' } }}
-              >
-                View Resume
-              </Button>
             </Box>
           </Box>
+        </SlideInSection>
 
-          <HorizontalNonLinearStepper />
-          <CertificationSection />
-
-          <Box sx={{ textAlign: 'center' }}>
-            <Button
-              variant="outlined"
-              size="large"
-              className="custom-button"
-              onClick={handleScroll}
-              sx={{ color: '#D70040', borderColor: '#D70040', mt: 4, mb: 6, '&:hover': { backgroundColor: '#D70040', color: '#fff' } }}
-            >
-              SEE PORTFOLIO
-            </Button>
-          </Box>
-        </Container>
-      </SlideInSection>
-
-      <div ref={aboutRef}>
-        <Container maxWidth="lg" sx={{ py: 6, backgroundColor: theme.palette.background.paper }}>
-          <Typography variant="h4" align="center" gutterBottom>
-            Portfolio
-          </Typography>
-          <Grid container spacing={4} justifyContent="center">
-            {/* Add your animated project cards here */}
+        {/* ---------------- SKILLS + CERTIFICATIONS ---------------- */}
+        <Grid container spacing={6} alignItems="stretch">
+          <Grid item xs={12} md={6}>
+            <SlideInSection>
+              <Paper
+                elevation={3}
+                sx={{
+                  p: 3,
+                  borderRadius: 3,
+                  backgroundColor:
+                    theme.palette.mode === 'dark'
+                      ? theme.palette.background.paper
+                      : '#f7f7f7',
+                }}
+              >
+                <Typography variant="h5" fontWeight={600} mb={2} align="center">
+                  Technical Skills
+                </Typography>
+                <HorizontalNonLinearStepper />
+              </Paper>
+            </SlideInSection>
           </Grid>
-        </Container>
-      </div>
-    </div>
+
+          <Grid item xs={12} md={6}>
+            <SlideInSection>
+              <Typography variant="h5" fontWeight={600} mb={2} align="center">
+                Certifications
+              </Typography>
+              <Grid container spacing={3}>
+                {certifications.map((cert, i) => (
+                  <Grid item xs={12} key={i}>
+                    <Paper
+                      onClick={() => setOpenCert(cert)}
+                      sx={{
+                        p: 3,
+                        borderRadius: 3,
+                        boxShadow: 2,
+                        cursor: 'pointer',
+                        transition: '0.3s',
+                        backgroundColor:
+                          theme.palette.mode === 'dark'
+                            ? theme.palette.background.paper
+                            : '#fff',
+                        '&:hover': {
+                          transform: 'translateY(-4px)',
+                          boxShadow: 5,
+                        },
+                      }}
+                    >
+                      <img
+                        src={cert.logo}
+                        alt={cert.title}
+                        style={{
+                          width: 60,
+                          marginBottom: 10,
+                          display: 'block',
+                          marginLeft: 'auto',
+                          marginRight: 'auto',
+                        }}
+                      />
+                      <Typography
+                        variant="subtitle1"
+                        align="center"
+                        fontWeight={600}
+                        sx={{ mb: 0.5 }}
+                      >
+                        {cert.title}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        align="center"
+                        sx={{ opacity: 0.7, mb: 1 }}
+                      >
+                        {cert.issuer} – {cert.issueDate}
+                      </Typography>
+                      <Box display="flex" justifyContent="center" gap={1} flexWrap="wrap">
+                        {cert.tags.map((tag, k) => (
+                          <Chip key={k} label={tag} size="small" color="secondary" variant="outlined" />
+                        ))}
+                      </Box>
+                    </Paper>
+                  </Grid>
+                ))}
+              </Grid>
+            </SlideInSection>
+          </Grid>
+        </Grid>
+
+      </Container>
+
+      {/* CERT MODAL */}
+      <Dialog open={!!openCert} onClose={() => setOpenCert(null)} maxWidth="sm" fullWidth>
+        {openCert && (
+          <DialogContent sx={{ textAlign: 'center', p: 4 }}>
+            <img src={openCert.logo} alt={openCert.title} style={{ width: 100, marginBottom: 16 }} />
+            <Typography variant="h6">{openCert.title}</Typography>
+            <Typography variant="body2" sx={{ opacity: 0.7 }}>
+              {openCert.issuer}
+            </Typography>
+            <Typography variant="body2" mt={1}>
+              Issued {openCert.issueDate}
+            </Typography>
+            <Box mt={1} display="flex" justifyContent="center" gap={1} flexWrap="wrap">
+              {openCert.tags.map((t, i) => (
+                <Chip key={i} label={t} size="small" color="primary" />
+              ))}
+            </Box>
+            <Button
+              variant="contained"
+              color="secondary"
+              href={openCert.link}
+              target="_blank"
+              sx={{ mt: 2 }}
+            >
+              View Credential
+            </Button>
+          </DialogContent>
+        )}
+      </Dialog>
+    </Box>
   );
 }
 
