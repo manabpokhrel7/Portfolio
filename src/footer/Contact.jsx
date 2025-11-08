@@ -156,7 +156,7 @@ export default function Contact() {
           </Grid>
         </Grid>
 
-        {/* Success snackbar */}
+        {/* Says hello Success snackbar */}
         {state.succeeded && (
           <Snackbar
             open={!snackOpen}
