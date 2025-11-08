@@ -28,7 +28,7 @@ const ecsTerraformImage =
   "https://external-preview.redd.it/getting-started-with-ecs-can-be-overwhelming-it-involves-v0-8RKLRhNqqFoIfOCAZeMIMFqJdHasrsCzjHCkyFQ_Ug4.jpg?auto=webp&s=5ebc93a1bb196ae308164ef0ae3250de26a12fe5";
 const kubeadmLogo = "https://kubernetes.io/images/kubeadm-stacked-color.png";
 const serverlessProjectImage =
-  "https://media.licdn.com/dms/image/D5622AQFMOBKF80la0Q/feedshare-shrink_2048_1536/0/1731534082268?e=1736985600&v=beta&t=kxD9C9jo0wZcoWCeaAxvDf0u_GoxD9o9UemQl1nLD3Y";
+  "https://media.licdn.com/dms/image/v2/D5622AQFMOBKF80la0Q/feedshare-shrink_1280/B56ZojnPsrG0As-/0/1761534082268?e=1764201600&v=beta&t=wpbVTqqE-YxzwkiTTSgVNRMYcyMImXF5U_TK3ox8FRM";
 
 // ✅ All your projects (kept in full)
 const projects = [
