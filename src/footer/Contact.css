@@ -1,50 +1,33 @@
+/* Contact.css — Clean White Background + Grey Cards */
 .contact-section {
-  position: relative;
-  background-image: url("card.jpeg");
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-  padding: 4rem 1rem 5rem;
+  background: #ffffff; /* pure white, no gradient */
+  padding: 4rem 1rem 3rem;
   color: #222;
-}
-
-.contact-overlay {
-  position: absolute;
-  inset: 0;
-  backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.7);
+  overflow: hidden;
 }
 
 .contact-container {
-  position: relative;
   max-width: 1100px;
   margin: 0 auto;
-  z-index: 1;
-  text-align: center;
 }
 
-/* Title and subtitle */
+/* Title */
 .contact-title {
+  text-align: center;
   font-weight: 700 !important;
-  margin-bottom: 0.3rem;
+  font-size: 2.5rem;
   color: #111;
+  margin-bottom: 2.5rem; /* balanced spacing since subtitle removed */
+  letter-spacing: 0.4px;
 }
 
-.contact-subtitle {
-  font-size: 1rem;
-  max-width: 650px;
-  margin: 0.5rem auto 2.5rem auto;
-  color: #555;
-  line-height: 1.6;
-}
-
-/* Info & Form cards */
+/* Info Card + Form */
 .info-card,
 .contact-form {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(12px);
+  background: #f7f7f7;
   border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
 }
@@ -52,26 +35,22 @@
 .info-card:hover,
 .contact-form:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* Info section */
-.info-card {
-  padding: 2.2rem 1.8rem;
-}
-
+/* Left card details */
 .info-title {
   font-weight: 600 !important;
-  margin-bottom: 1.2rem;
   color: #111;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .info-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.95rem;
-  margin: 0.5rem 0;
+  margin: 0.6rem 0;
 }
 
 .info-link {
@@ -84,30 +63,41 @@
   text-decoration: underline;
 }
 
+.info-note {
+  font-style: italic;
+  color: #444;
+  text-align: center;
+  margin: 1.5rem 0 1rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
 .social-icons {
-  margin-top: 1.5rem;
+  text-align: center;
+  margin-top: 1rem;
 }
 
 /* Form */
 .contact-form {
-  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .form-title {
   text-align: center;
   font-weight: 600 !important;
   color: #d70040;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.5rem;
 }
 
 .send-button {
   background: #d70040 !important;
   color: #fff !important;
-  text-transform: none !important;
   font-weight: 600 !important;
   border-radius: 10px !important;
   padding: 0.6rem 2.5rem !important;
-  box-shadow: 0 5px 15px rgba(215, 0, 64, 0.4) !important;
+  box-shadow: 0 5px 15px rgba(215, 0, 64, 0.3) !important;
   transition: all 0.3s ease !important;
 }
 
@@ -116,19 +106,43 @@
   transform: translateY(-2px);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .contact-section {
-    padding: 3rem 1rem 4rem;
-  }
+/* ✨ Animations */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 0.9s ease forwards;
+}
 
-  .contact-subtitle {
-    margin-bottom: 2rem;
+.fade-up-delayed {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s ease 0.3s forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 3rem 1rem;
   }
 
   .info-card,
   .contact-form {
     padding: 1.8rem;
     height: auto;
+  }
+
+  .contact-title {
+    font-size: 2rem;
   }
 }
