@@ -1,4 +1,4 @@
-// Contact.jsx — Modern unified contact section
+// Contact.jsx — Polished, balanced layout
 import React, { useState } from "react";
 import {
   Box,
@@ -34,13 +34,14 @@ export default function Contact() {
         <Typography variant="h3" className="contact-title">
           Get in Touch
         </Typography>
+
         <Typography variant="body1" className="contact-subtitle">
-          Have a project, collaboration, or just want to connect? Send me a
-          message and I’ll get back to you soon.
+          Have a project, collaboration, or just want to connect?  
+          Send me a message and I’ll get back to you soon.
         </Typography>
 
-        <Grid container spacing={4} alignItems="flex-start">
-          {/* Left side — info card */}
+        <Grid container spacing={4} alignItems="stretch" justifyContent="center">
+          {/* Left info card */}
           <Grid item xs={12} md={5}>
             <Box className="info-card">
               <Typography variant="h6" className="info-title">
@@ -91,7 +92,7 @@ export default function Contact() {
             </Box>
           </Grid>
 
-          {/* Right side — contact form */}
+          {/* Right form card */}
           <Grid item xs={12} md={7}>
             <Box
               component="form"
@@ -109,7 +110,6 @@ export default function Contact() {
                 variant="standard"
                 required
               />
-
               <TextField
                 label="Your Email"
                 name="email"
@@ -156,7 +156,6 @@ export default function Contact() {
           </Grid>
         </Grid>
 
-        {/* Says hello Success snackbar */}
         {state.succeeded && (
           <Snackbar
             open={!snackOpen}
@@ -165,8 +164,8 @@ export default function Contact() {
           >
             <Alert
               severity="success"
-              onClose={() => setSnackOpen(true)}
               variant="filled"
+              onClose={() => setSnackOpen(true)}
               sx={{ width: "100%" }}
             >
               Thank you! Your message has been sent.

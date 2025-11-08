@@ -1,11 +1,10 @@
-/* Contact.css — Modern, unified styling */
 .contact-section {
   position: relative;
   background-image: url("card.jpeg");
   background-size: cover;
   background-position: center;
   overflow: hidden;
-  padding: 6rem 1rem;
+  padding: 4rem 1rem 5rem;
   color: #222;
 }
 
@@ -21,35 +20,49 @@
   max-width: 1100px;
   margin: 0 auto;
   z-index: 1;
+  text-align: center;
 }
 
+/* Title and subtitle */
 .contact-title {
-  text-align: center;
   font-weight: 700 !important;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   color: #111;
 }
 
 .contact-subtitle {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 3rem auto;
-  opacity: 0.85;
+  font-size: 1rem;
+  max-width: 650px;
+  margin: 0.5rem auto 2.5rem auto;
+  color: #555;
+  line-height: 1.6;
 }
 
-/* Info card */
+/* Info & Form cards */
+.info-card,
+.contact-form {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.info-card:hover,
+.contact-form:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Info section */
 .info-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  padding: 2.2rem 1.8rem;
 }
 
 .info-title {
   font-weight: 600 !important;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   color: #111;
 }
 
@@ -75,20 +88,16 @@
   margin-top: 1.5rem;
 }
 
-/* Contact form */
+/* Form */
 .contact-form {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  padding: 2.2rem;
 }
 
 .form-title {
   text-align: center;
   font-weight: 600 !important;
   color: #d70040;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.6rem;
 }
 
 .send-button {
@@ -108,17 +117,18 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .contact-section {
-    padding: 4rem 1rem;
+    padding: 3rem 1rem 4rem;
   }
 
-  .contact-container {
-    padding: 0 1rem;
+  .contact-subtitle {
+    margin-bottom: 2rem;
   }
 
   .info-card,
   .contact-form {
-    padding: 1.5rem;
+    padding: 1.8rem;
+    height: auto;
   }
 }
