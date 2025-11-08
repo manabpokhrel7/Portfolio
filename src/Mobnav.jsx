@@ -10,7 +10,7 @@ import ChatIcon from '@mui/icons-material/Chat';
 import Paper from '@mui/material/Paper';
 import First from './first/First';
 import Port from './four(My Portfolio)/Port';
-import Contactform from './footer/Contactform';
+import Contact from './footer/Contact.jsx';
 import BlogMainPage from './Blog/Main';
 import { Fade } from '@mui/material';
 
@@ -29,7 +29,7 @@ export default function FixedBottomNavigation() {
       case 1:
         return <Port />;
       case 2:
-        return <Contactform />;
+        return <Contact />;
       case 3:
         return <BlogMainPage />;
       default:
