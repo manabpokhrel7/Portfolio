@@ -12,7 +12,7 @@ import {
 
 function App() {
   // Always start in light mode
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   // Create theme based on toggle
   const theme = useMemo(

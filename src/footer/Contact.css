@@ -1,8 +1,8 @@
-/* Contact.css — Clean White Background + Grey Cards */
+/* Contact.css — Transparent Background + Theme Adaptive */
 .contact-section {
-  background: #ffffff; /* pure white, no gradient */
+  background: transparent;
   padding: 4rem 1rem 3rem;
-  color: #222;
+  color: inherit;
   overflow: hidden;
 }
 
@@ -16,18 +16,16 @@
   text-align: center;
   font-weight: 700 !important;
   font-size: 2.5rem;
-  color: #111;
-  margin-bottom: 2.5rem; /* balanced spacing since subtitle removed */
+  margin-bottom: 2.5rem;
   letter-spacing: 0.4px;
 }
 
-/* Info Card + Form */
+/* Cards */
 .info-card,
 .contact-form {
-  background: #f7f7f7;
   border-radius: 18px;
   padding: 2rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
 }
@@ -35,13 +33,11 @@
 .info-card:hover,
 .contact-form:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Left card details */
 .info-title {
   font-weight: 600 !important;
-  color: #111;
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -65,7 +61,6 @@
 
 .info-note {
   font-style: italic;
-  color: #444;
   text-align: center;
   margin: 1.5rem 0 1rem;
   line-height: 1.5;
@@ -77,13 +72,6 @@
   margin-top: 1rem;
 }
 
-/* Form */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .form-title {
   text-align: center;
   font-weight: 600 !important;
@@ -92,18 +80,9 @@
 }
 
 .send-button {
-  background: #d70040 !important;
-  color: #fff !important;
+  text-transform: uppercase;
   font-weight: 600 !important;
-  border-radius: 10px !important;
-  padding: 0.6rem 2.5rem !important;
   box-shadow: 0 5px 15px rgba(215, 0, 64, 0.3) !important;
-  transition: all 0.3s ease !important;
-}
-
-.send-button:hover {
-  background: #b10435 !important;
-  transform: translateY(-2px);
 }
 
 /* ✨ Animations */
@@ -112,13 +91,11 @@
   transform: translateY(40px);
   animation: fadeUp 0.9s ease forwards;
 }
-
 .fade-up-delayed {
   opacity: 0;
   transform: translateY(40px);
   animation: fadeUp 1s ease 0.3s forwards;
 }
-
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -135,13 +112,11 @@
   .contact-section {
     padding: 3rem 1rem;
   }
-
   .info-card,
   .contact-form {
     padding: 1.8rem;
     height: auto;
   }
-
   .contact-title {
     font-size: 2rem;
   }

@@ -1,4 +1,4 @@
-// Contact.jsx — Final Minimal Grey Card Version
+// Contact.jsx — Theme-Adaptive, Transparent Background
 import React, { useState, useEffect } from "react";
 import {
   Box,
@@ -12,6 +12,7 @@ import {
   CircularProgress,
   Tooltip,
   Divider,
+  useTheme,
 } from "@mui/material";
 import { useForm, ValidationError } from "@formspree/react";
 import EmailIcon from "@mui/icons-material/Email";
@@ -24,9 +25,10 @@ import "./Contact.css";
 export default function Contact() {
   const [state, handleSubmit] = useForm("maygkdzr");
   const [snackOpen, setSnackOpen] = useState(false);
+  const theme = useTheme();
   const email = "manabpokhrel7@gmail.com";
 
-  // 🔇 Suppress ResizeObserver loop errors
+  // Silence ResizeObserver warnings
   useEffect(() => {
     const suppress = (e) => {
       if (e.message?.includes("ResizeObserver loop")) e.stopImmediatePropagation();
@@ -49,9 +51,15 @@ export default function Contact() {
           justifyContent="center"
           className="fade-up-delayed"
         >
-          {/* Left Info Card */}
+          {/* Contact Info Card */}
           <Grid item xs={12} md={5}>
-            <Box className="info-card">
+            <Box
+              className="info-card"
+              sx={{
+                backgroundColor:
+                  theme.palette.mode === "dark" ? "#1E1E1E" : "#f5f5f5",
+              }}
+            >
               <Typography variant="h6" className="info-title">
                 Contact Information
               </Typography>
@@ -59,7 +67,7 @@ export default function Contact() {
               <Divider sx={{ mb: 2, borderColor: "rgba(0,0,0,0.1)" }} />
 
               <Box className="info-item">
-                <LocationOnIcon sx={{ mr: 1, color: "#D70040" }} />
+                <LocationOnIcon sx={{ mr: 1, color: theme.palette.primary.main }} />
                 <Typography variant="body2">Toronto, Canada</Typography>
               </Box>
 
@@ -71,34 +79,34 @@ export default function Contact() {
               </Box>
 
               <Typography variant="body2" className="info-note">
-                I’m always open to discussing new opportunities, creative projects, or
-                collaborations in DevOps, Cloud, and Infrastructure.
+                I’m always open to discussing new opportunities, creative projects,
+                or collaborations in DevOps, Cloud, and Infrastructure.
               </Typography>
 
               <Box className="social-icons">
                 <Tooltip title="LinkedIn">
                   <IconButton
-                    color="primary"
                     href="https://www.linkedin.com/in/manab-pokhrel/"
                     target="_blank"
+                    sx={{ color: theme.palette.text.primary }}
                   >
                     <LinkedInIcon />
                   </IconButton>
                 </Tooltip>
                 <Tooltip title="GitHub">
                   <IconButton
-                    color="inherit"
                     href="https://github.com/manabpokhrel7"
                     target="_blank"
+                    sx={{ color: theme.palette.text.primary }}
                   >
                     <GitHubIcon />
                   </IconButton>
                 </Tooltip>
                 <Tooltip title="Facebook">
                   <IconButton
-                    color="primary"
                     href="https://www.facebook.com/red.hood.3323/"
                     target="_blank"
+                    sx={{ color: theme.palette.text.primary }}
                   >
                     <FacebookIcon />
                   </IconButton>
@@ -107,9 +115,17 @@ export default function Contact() {
             </Box>
           </Grid>
 
-          {/* Right Form */}
+          {/* Contact Form */}
           <Grid item xs={12} md={7}>
-            <Box component="form" onSubmit={handleSubmit} className="contact-form">
+            <Box
+              component="form"
+              onSubmit={handleSubmit}
+              className="contact-form"
+              sx={{
+                backgroundColor:
+                  theme.palette.mode === "dark" ? "#1E1E1E" : "#f5f5f5",
+              }}
+            >
               <Typography variant="h6" className="form-title">
                 Send a Message
               </Typography>
@@ -152,6 +168,12 @@ export default function Contact() {
                   type="submit"
                   disabled={state.submitting}
                   className="send-button"
+                  sx={{
+                    borderRadius: "50px",
+                    padding: "0.7rem 2.5rem",
+                    backgroundColor: "#D70040",
+                    "&:hover": { backgroundColor: "#b10435" },
+                  }}
                 >
                   {state.submitting ? (
                     <>
