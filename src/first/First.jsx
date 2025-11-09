@@ -18,7 +18,7 @@ import {
   Chip,
   Paper,
 } from '@mui/material';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import { SiMedium } from "react-icons/si";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { SiGitlab } from 'react-icons/si';
 import profilePic from '../Images/profile.png';
@@ -109,17 +109,26 @@ function First() {
 
             {/* Social Icons */}
             <Box display="flex" justifyContent="center" gap={2} mb={3}>
-              <Tooltip title="GitHub">
-                <a href="https://github.com/manabpokhrel7" target="_blank" rel="noreferrer">
-                  <GitHubIcon
-                    fontSize="large"
-                    sx={{
-                      color: theme.palette.mode === 'dark' ? '#fff' : '#000',
-                      '&:hover': { color: '#D70040' },
-                    }}
-                  />
-                </a>
-              </Tooltip>
+	      <Tooltip title="Medium">
+               <a
+                 href="https://medium.com/@manabpokhrel7"
+                 target="_blank"
+                 rel="noreferrer"
+               >
+                 <SiMedium
+                   size={30}
+                   style={{
+                     color: theme.palette.mode === "dark" ? "#fff" : "#000",
+                     transition: "0.3s ease",
+                   }}
+                   onMouseOver={(e) => (e.currentTarget.style.color = "#D70040")}
+                   onMouseOut={(e) =>
+                     (e.currentTarget.style.color =
+                       theme.palette.mode === "dark" ? "#fff" : "#000")
+                   }
+                 />
+               </a>
+             </Tooltip>
               <Tooltip title="GitLab">
                 <a href="https://gitlab.com/users/manabpokhrel7/projects" target="_blank" rel="noreferrer">
                   <SiGitlab size={30} style={{ color: '#FC6D26' }} />
@@ -155,9 +164,6 @@ function First() {
                       : '#f7f7f7',
                 }}
               >
-                <Typography variant="h5" fontWeight={600} mb={2} align="center">
-                  Technical Skills
-                </Typography>
                 <HorizontalNonLinearStepper />
               </Paper>
             </SlideInSection>
