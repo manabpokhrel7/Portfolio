@@ -17,6 +17,7 @@ import {
 import { useForm, ValidationError } from "@formspree/react";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { SiMedium } from "react-icons/si";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -91,24 +92,6 @@ export default function Contact() {
                     sx={{ color: theme.palette.text.primary }}
                   >
                     <LinkedInIcon />
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title="GitHub">
-                  <IconButton
-                    href="https://github.com/manabpokhrel7"
-                    target="_blank"
-                    sx={{ color: theme.palette.text.primary }}
-                  >
-                    <GitHubIcon />
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title="Facebook">
-                  <IconButton
-                    href="https://www.facebook.com/red.hood.3323/"
-                    target="_blank"
-                    sx={{ color: theme.palette.text.primary }}
-                  >
-                    <FacebookIcon />
                   </IconButton>
                 </Tooltip>
               </Box>
