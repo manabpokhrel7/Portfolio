@@ -28,12 +28,12 @@ import 'aos/dist/aos.css';
 // ---------------- CERTIFICATIONS ----------------
 const certifications = [
   {
-    title: 'Terraform Certified Associate (HCTAO-003)',
-    issuer: 'HashiCorp',
-    logo: 'https://images.credly.com/size/160x160/images/0dc62494-dc94-469a-83af-e35309f27356/blob',
-    link: 'https://www.credly.com/badges/580ecf8f-968b-45c2-b1c8-ef6b7902828a/public_url',
-    issueDate: 'June 16, 2025',
-    tags: ['DevOps', 'Cloud', 'IaC'],
+    title: 'Red Hat Certified System Administrator (RHCSA)',
+    issuer: 'Red Hat',
+    logo: 'https://images.credly.com/size/220x220/images/572de0ba-2c59-4816-a59d-b0e1687e45ee/image.png',
+    link: 'https://www.credly.com/badges/d392a599-34a9-4482-ab5e-5575cf7eaeb7/public_url',
+    issueDate: 'Aug 2025',
+    tags: ['Linux', 'SysAdmin', 'Shell'],
   },
   {
     title: 'AWS Certified Solutions Architect – Associate',
@@ -44,12 +44,12 @@ const certifications = [
     tags: ['Cloud', 'Architecture', 'AWS'],
   },
   {
-    title: 'Red Hat Certified System Administrator (RHCSA)',
-    issuer: 'Red Hat',
-    logo: 'https://images.credly.com/size/220x220/images/572de0ba-2c59-4816-a59d-b0e1687e45ee/image.png',
-    link: 'https://www.credly.com/badges/d392a599-34a9-4482-ab5e-5575cf7eaeb7/public_url',
-    issueDate: 'Aug 2025',
-    tags: ['Linux', 'SysAdmin', 'Shell'],
+    title: 'Terraform Certified Associate (HCTAO-003)',
+    issuer: 'HashiCorp',
+    logo: 'https://images.credly.com/size/160x160/images/0dc62494-dc94-469a-83af-e35309f27356/blob',
+    link: 'https://www.credly.com/badges/580ecf8f-968b-45c2-b1c8-ef6b7902828a/public_url',
+    issueDate: 'June 16, 2025',
+    tags: ['DevOps', 'Cloud', 'IaC'],
   },
 ];
 
@@ -171,9 +171,6 @@ function First() {
 
           <Grid item xs={12} md={6}>
             <SlideInSection>
-              <Typography variant="h5" fontWeight={600} mb={2} align="center">
-                Certifications
-              </Typography>
               <Grid container spacing={3}>
                 {certifications.map((cert, i) => (
                   <Grid item xs={12} key={i}>
