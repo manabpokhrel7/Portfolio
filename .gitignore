@@ -24,3 +24,9 @@ yarn-error.log*
 
 # Local Netlify folder
 .netlify
+
+# Private ssh key
+manab
+
+# Webstorm
+.idea
